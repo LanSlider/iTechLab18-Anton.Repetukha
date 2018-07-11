@@ -24,10 +24,7 @@
 
 .banner__image {
     height: 400px;
-    background: url("../images/Banner.png") 100% 100% no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; 
+    background: url("../images/Banner.png")  no-repeat;
+    background-position-x: 50%;
 }
 
