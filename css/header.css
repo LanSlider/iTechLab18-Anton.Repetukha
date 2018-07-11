@@ -1,0 +1,22 @@
+.header {
+    box-sizing: border-box;
+    height: 77.6px;
+    color: white;
+    font-family: 'Source Sans Pro Light';
+    background-color: #db5940;
+}
+
+.header__sitename {
+    float: left;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.1px;
+    width: 100px;
+    height: 100%;
+    font-size: 24px;
+}
+
+.header__menu {
+    float: right;
+    height: 100%;
+}
