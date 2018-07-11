@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    width: 100%;
+    color: black;   
+    letter-spacing: 1px;
+    background-color: white; 
+    /*font-family: Arial, Helvetica, sans-serif*/
+    font-family: 'Source Sans Pro Light', Lucida Sans Unicode, Lucida Grande, sans-serif; 
+}
+
+a.orange:link {
+    color: #db5940;
+    text-decoration: none;
+}
+
+a.orange:visited {
+    color: #db5940;
+    text-decoration: none;
+}
+
+a.orange:hover {
+    color: #db5940;
+    text-decoration: none;
+}
+
+a.orange:active {
+    color: #db5940;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
