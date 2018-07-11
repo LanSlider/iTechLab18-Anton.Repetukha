@@ -1,0 +1,42 @@
+.subblock {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Source Sans Pro Regular';
+}
+
+.subblock__title {
+    color: #e6e6e6;
+    font-size: 28pt;
+    margin: 10px;
+    text-align: center;
+    font-family: 'Source Sans Pro Light';
+}
+
+.subblock input {
+    box-sizing: border-box;
+    width: 455px;
+    height: 45px;
+    border: 0;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    font-family: 'Source Sans Pro Regular';
+    padding-left: 20px;
+    color: white;
+    background-color: #db5940;
+}
+
+.subblock button {
+    float: right;
+    height: 45px;
+    width: 115px;
+    border: 0;
+    font-size: 18px;
+    border-radius: 0 5px 5px 0;
+    color: #db5940;
+    background-color: #f4f4f4;
+}
+
+.subblock button:hover {
+    
+}
+

@@ -1,0 +1,37 @@
+.menu {   
+    display: flex;
+    /*flex-wrap: wrap;*/
+    letter-spacing: 0.8px;
+    align-items: center;
+    width: 35.1%;
+    padding: 0;
+    margin: 0;
+    color: white;
+    justify-content: space-between;
+    font-family: 'Source Sans Pro Regular';
+}
+
+.menu__item a {
+    text-decoration: none;
+}
+
+.menu__item a:link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu__item a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.menu__item a:hover {
+    color: #c6c6c6;
+    text-decoration: none;
+}
+
+.menu__item a:active {
+    color: white;
+    text-decoration: none;
+}
+
