@@ -1,9 +1,9 @@
 .subblock {
-    
     font-family: 'Source Sans Pro Regular';
 }
 
 .subblock__title {
+    display: block;
     color: #e6e6e6;
     font-size: 28px;
     letter-spacing: 5px;
@@ -42,4 +42,16 @@
     outline-color: #db5940;
 }
 
+@media screen and (max-width: 768px) {
+    .subblock input {
+        float: left; 
+        width: 220px;
+        
+    }
 
+    .subblock button {  
+        float: right;     
+        height: 47px;
+        width: 115px;
+    }
+}
