@@ -10,28 +10,20 @@
     font-family: 'Source Sans Pro Regular';
 }
 
-.menu__item a {
-    text-decoration: none;
-}
-
 .menu__item a:link {
     color: white;
-    text-decoration: none;
 }
 
 .menu__item a:visited {
     color: white;
-    text-decoration: none;
 }
 
 .menu__item a:hover {
     color: #c6c6c6;
-    text-decoration: none;
 }
 
 .menu__item a:active {
     color: white;
-    text-decoration: none;
 }
 
 @media screen and (max-width: 1024px)  {

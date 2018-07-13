@@ -6,7 +6,6 @@
     height: 550px;
     background-color: #38373b;
     font-family: 'Source Sans Pro Regular';
-    
 }
 
 .footer__header {
@@ -15,11 +14,6 @@
     padding-top: 80px;
     padding-left: 4%;
     padding-bottom: 114px;
-}
-
-.footer__body {
-    box-sizing: border-box;
-    margin: 20px;
 }
 
 .footer__line {
@@ -31,6 +25,7 @@
 
 .footer__body {
     box-sizing: border-box;
+    margin: 20px;
     padding-top: 31px;
     padding-left: 11px;
     width: 581px;
@@ -54,8 +49,7 @@
     }
 }
 
-@media screen and (max-width: 1024px) {
-    
+@media screen and (max-width: 1024px) {  
     .footer { 
         height: 100%;       
     }
@@ -70,11 +64,9 @@
         height: 40px;
         padding-top: 0px;
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     .footer__header {
         padding-left: 12%;
         width: 350px;

@@ -26,6 +26,14 @@
     outline-color: white;
 }
 
+.subblock input::-webkit-input-placeholder {
+    color: white;
+}
+
+.subblock input::-moz-placeholder {
+    color: white;
+}
+
 .subblock input::selection {
     background-color: white;
 } 
@@ -45,13 +53,11 @@
 @media screen and (max-width: 768px) {
     .subblock input {
         float: left; 
-        width: 220px;
-        
+        width: 220px;  
     }
 
     .subblock button {  
-        float: right;     
-        height: 47px;
+        float: right;      
         width: 115px;
     }
 }
