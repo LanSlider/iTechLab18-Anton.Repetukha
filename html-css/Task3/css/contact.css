@@ -1,0 +1,31 @@
+.contact {
+    display: flex;
+    flex-direction: row;
+    width: 322px;  /*380px*/
+    height: 75px;
+}
+
+.contact__textblock {
+    padding-top: 13px;
+    padding-left: 35px; 
+    width: 231px;
+    display: block;
+    word-wrap: break-word;
+}
+
+.contact__text {
+    letter-spacing: 0.7px;
+}
+
+.contact__image img {    
+    width: 70px;
+    height: 70px;
+}
+
+@media screen and (min-width: 1024px) {
+    .contact__textblock {
+        padding-left: 10px;
+    }  
+}
+
+
