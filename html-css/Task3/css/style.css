@@ -8,26 +8,42 @@ body {
     font-family: 'Source Sans Pro Light', Lucida Sans Unicode, Lucida Grande, sans-serif; 
 }
 
-a.orange:link {
-    color: #db5940;
+a.link {
     text-decoration: none;
 }
 
-a.orange:visited {
-    color: #db5940;
+a.link:link {
     text-decoration: none;
 }
 
-a.orange:hover {
-    color: #db5940;
+a.link:visited {
     text-decoration: none;
 }
 
-a.orange:active {
-    color: #db5940;
+a.link:hover {
     text-decoration: none;
+}
+
+a.link:active {
+    text-decoration: none;
+}
+
+a.link_orange:link {
+    color: #db5940;
+}
+
+a.link_orange:visited {
+    color: #db5940;
+}
+
+a.link_orange:hover {
+    color: #db5940
+}
+
+a.link_orange:active {
+    color: #db5940;
 }
 
 li {
-    list-style-type: none; /* Убираем маркеры */
+    list-style-type: none;
 }

@@ -6,48 +6,79 @@
     display: flex;
     justify-content: space-between;
     background-color: #f4f4f4; 
-    padding: 78px 19.8% 80px 19.8%;
+    padding: 78px 370px 80px 370px;
 }
 
 .content__body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 80px 19.8% 120px 19.8%;   
+    padding: 80px 370px 120px 370px;   
 }
 
 @media screen and (max-width: 1830px) {
+    .content__header {
+        padding: 80px 290px 120px 290px;
+    }
+
     .content__body {
-        padding: 80px 16.8% 120px 16.8%; 
+        padding: 80px 290px 120px 290px; 
     }
 }
 
 @media screen and (max-width: 1680px) {
     .content__body {
-        padding: 80px 10.8% 120px 10.8%; 
+        padding: 80px 200px 120px 200px; 
     }
 }
 
-@media screen and (max-width: 1410px) {
+@media screen and (max-width: 1500px) {
+    .content__header {
+        padding: 80px 260px 120px 260px; 
+    }
+
     .content__body {
-        padding: 80px 4.8% 120px 4.8%; 
+        padding: 80px 110px 120px 110px; 
     }
 }
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 1320px) {
+    .content__header {
+        padding: 80px 220px 120px 220px; 
+    }
+
     .content__body {
-        padding: 80px 0 120px 0; 
+        padding: 80px 10px 120px 10px; 
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .content__header {
+        padding: 80px 200px 120px 200px; 
+    }
+
+    .content__body {
+        padding: 80px 0px 120px 0px; 
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .content__header {      
-        padding-top: 30px;
-        padding-bottom: 20px;
+    .content__header {    
+        padding: 30px 170px 20px 170px;  
     }
 
     .content__body {
-        padding: 80px 15% 120px 22%;   
+        padding: 50px 150px 120px 220px;   
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .content__header {
+        padding: 30px 160px 20px 160px;  
+    }
+    
+    .content__body {
+        padding: 50px 100px 120px 160px;   
     }
 }
 

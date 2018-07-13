@@ -28,9 +28,8 @@
     background-position-x: 50%;
 }
 
-.banner__title_center {
-    padding-top: 38px;
-    padding-left: 18px;
+.banner__title_top {
+    padding: 38px 0 0 18px;
 }
 
 .banner__caption_bottom {

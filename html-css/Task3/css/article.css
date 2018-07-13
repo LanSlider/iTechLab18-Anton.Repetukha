@@ -79,11 +79,8 @@
 
     .article__image img {
         max-width: 140px;
-        max-height: 140px;
-        
+        max-height: 140px;   
     }
-
-
 }
 
 
@@ -106,10 +103,6 @@
         font-size: 20px;
     }
 
-    .article__textblock_left {
-        text-align: left;
-    }
-
     .article__image {
         padding-top: 10px;
     }
@@ -121,6 +114,7 @@
 
     .article__textblock_left {
         float: left;
+        text-align: left;
         padding-left: 28px;
     }
 
@@ -128,5 +122,4 @@
         float: right;
         padding-right: 0px;
     }
-
 }
