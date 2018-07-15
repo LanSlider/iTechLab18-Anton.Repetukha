@@ -1,0 +1,116 @@
+@textblock_padding: 28px;
+@textblock_box_sizing: border-box;
+@image_size_768: 120px;
+@image_size_1024: 140px;
+@image_size: 200px;
+
+.article {
+    color: #9a98a2;
+    font-family: 'Source Sans Pro Regular';
+
+    &__textblock {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        height: 100%;
+        padding-top: 10px;
+        line-height: 20px;
+        font-size: 16px;
+        word-wrap: break-word;
+
+        &_left {
+            box-sizing: @textblock_box_sizing;
+            float: left;
+            padding-right: @textblock_padding;
+            text-align: right;
+
+            @media screen and (max-width: 768px)  {
+                text-align: left;
+                padding-left: 28px;
+            }
+        }
+
+        &_right {
+            box-sizing: @textblock_box_sizing;
+            float: right;
+            padding-left: @textblock_padding;
+            text-align: left;
+
+            @media screen and (max-width: 768px)  {
+                padding-right: 0px;
+            }
+        }
+
+        @media screen and (max-width: 1100px) {
+            width: 300px;
+        }
+
+        @media screen and (max-width: 1024px)  {
+            width: 340px;
+            font-size: 14px;
+            padding-top: 0;
+        }
+
+        @media screen and (max-width: 768px)  {
+            width: 60%;
+            font-size: 14px;
+        }
+    }
+
+    &__title {
+        display: block;
+        color: #605f64;
+        font-size: 28px;
+        line-height: 60px;
+        font-family: 'Source Sans Pro Light';
+
+        @media screen and (max-width: 1024px)  {
+            line-height: 53px;
+        }
+
+        @media screen and (max-width: 768px)  {
+            padding: 0;
+            line-height: 30px;
+            font-size: 20px;
+        }
+    }
+
+    &__text {
+        letter-spacing: 0.7px;
+        line-height: 25px;
+    }
+
+    &__image { 
+        img {
+            max-width: @image_size;
+            max-height: @image_size;
+            border-radius: 100px; 
+    
+            @media screen and (max-width: 1024px)  {
+                max-width: @image_size_1024;
+                max-height: @image_size_1024;
+            }
+    
+            @media screen and (max-width: 768px)  {
+                max-width: @image_size_768;
+                max-height: @image_size_768;
+            }
+        }
+
+        &_left {
+            float: right;
+        }
+
+        &_right {
+            float: left;
+        }
+
+        @media screen and (max-width: 768px)  {
+            padding-top: 10px;
+        }
+    }
+
+    @media screen and (max-width: 1024px)  {
+        padding-top: 10px;
+    }
+}
