@@ -24,6 +24,3 @@ console.log(add.apply(voltron, [20, 30]))
 // #4 Выведи результат сложения Voltron «drinking» и «beer» используя bind
 // “Voltron can count drinkingbeer”
 console.log(add.bind(voltron)("drinking", "beer"))
-
-
-

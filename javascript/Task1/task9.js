@@ -20,5 +20,4 @@ var videos = [{
 //         "654356453": "Bad Boys"
 //     }
 
-
 console.log(videos.reduce(function(acc, curr) { acc[curr.id] = curr.title; return acc;}, {})); 

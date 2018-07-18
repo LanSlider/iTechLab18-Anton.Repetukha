@@ -17,7 +17,7 @@ var boxarts = [{
 }];
 
 var maxArea = boxarts
-.reduce(function(obj1, obj2) { 
-    return (obj1.height * obj1.width) > (obj2.height*obj2.width) ? obj1.url : obj2.url})
+    .reduce(function(obj1, obj2) { 
+        return (obj1.height * obj1.width) > (obj2.height*obj2.width) ? obj1.url : obj2.url})
 
 console.log(maxArea);
