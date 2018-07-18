@@ -1,4 +1,4 @@
-var videos = [{
+let videos = [{
 	"id": 65432445,
 	"title": "The Chamber"
 }, {
@@ -20,4 +20,4 @@ var videos = [{
 //         "654356453": "Bad Boys"
 //     }
 
-console.log(videos.reduce(function(acc, curr) { acc[curr.id] = curr.title; return acc;}, {})); 
+console.log(JSON.stringify(videos.reduce(function(acc, curr) { acc[curr.id] = curr.title; return acc;}, {}))); 

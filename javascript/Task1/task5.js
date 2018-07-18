@@ -1,4 +1,4 @@
-var movieLists = [{
+let movieLists = [{
 	name: "Instant Queue",
 	videos : [{
 		"id": 70111470,
@@ -78,7 +78,7 @@ var movieLists = [{
 //	 {"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg" },
 // ];
 
-var videoArray = movieLists[0].videos
+let videoArray = movieLists[0].videos
     .concat(movieLists[1].videos)
     .map(function(video) {
         return {

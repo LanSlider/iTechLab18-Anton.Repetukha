@@ -1,4 +1,4 @@
-var newReleases = [{
+let newReleases = [{
 	"id": 70111470,
 	"title": "Die Hard",
 	"boxart": "http://cdn-0.nflximg.com/images/2891/DieHard.jpg",
@@ -28,8 +28,8 @@ var newReleases = [{
 	"bookmark": [{ id: 432534, time: 65876586 }]
 }];
 
-var bestReleases = newReleases.filter(function(release) {
-    return release.rating > 4.0;
+let bestReleases = newReleases.filter(function(release) {
+    return release.rating == 5.0;
 })
 
 console.log(bestReleases);

@@ -1,4 +1,4 @@
-var newReleases = [{
+let newReleases = [{
 	"id": 70111470,
 	"title": "Die Hard",
 	"boxart": "http://cdn-0.nflximg.com/images/2891/DieHard.jpg",
