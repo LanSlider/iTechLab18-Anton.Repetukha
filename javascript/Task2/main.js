@@ -24,3 +24,20 @@ console.log(add.apply(voltron, [20, 30]))
 // #4 Выведи результат сложения Voltron «drinking» и «beer» используя bind
 // “Voltron can count drinkingbeer”
 console.log(add.bind(voltron)("drinking", "beer"))
+
+// #5 Написанный вами код должен вывести в консоль "Voltron" внутри setTimeout, 5-ью разными способами
+let showName = function () { 
+	function show(object) {
+		return object.name;
+	}	
+	setTimeout(() => {
+		console.log(show(voltron));
+		console.log(show.call(this, voltron));
+		console.log(show.apply(this, [voltron]));
+		console.log(show.bind(this)(voltron));
+		//console.log(voltron.name);
+		console.log(this.name);
+	}, 1000); 
+}.bind(voltron) 
+
+showName(); 
