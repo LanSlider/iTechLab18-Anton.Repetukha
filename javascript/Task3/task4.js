@@ -3,12 +3,12 @@ input.addEventListener("keypress", printKeyPress);
 print = null;
 
 function printKeyPress() {
-    clearTimer();
+    clearTimer(print);
     print = setTimeout(() => console.log(input.value), 1000);
 }
 
-function clearTimer() {
-    if(print != null) {
-        clearTimeout(print);
+function clearTimer(TimerToClear) {
+    if(TimerToClear != null) {
+        clearTimeout(TimerToClear);
     }
 }

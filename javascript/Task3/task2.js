@@ -9,11 +9,11 @@ function printInterval() {
         clicked = true;
     }
     else {
-        clearTimer(); 
+        clearTimer(print); 
         clicked = false;
     }
 }
   
-function clearTimer() {
-    clearInterval(print);
+function clearTimer(TimerToClear) {
+    clearInterval(TimerToClear);
 }
