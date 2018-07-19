@@ -27,15 +27,14 @@ console.log(add.bind(voltron)("drinking", "beer"))
 
 // #5 Написанный вами код должен вывести в консоль "Voltron" внутри setTimeout, 5-ью разными способами
 let showName = function () { 
-	function show(object) {
-		return object.name;
+	function show() {
+		return this.name;
 	}	
 	setTimeout(() => {
-		console.log(show(voltron));
-		console.log(show.call(this, voltron));
-		console.log(show.apply(this, [voltron]));
-		console.log(show.bind(this)(voltron));
-		//console.log(voltron.name);
+		console.log(show.call(this));
+		console.log(show.apply(this));
+		console.log(show.bind(this)());
+		console.log(voltron.name);
 		console.log(this.name);
 	}, 1000); 
 }.bind(voltron) 
