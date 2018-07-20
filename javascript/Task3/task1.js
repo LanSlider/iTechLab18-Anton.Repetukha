@@ -1,14 +1,16 @@
 let btn = document.getElementById('btn-hello')
-btn.addEventListener("click", printTimeout);
-let print = null;
+btn.addEventListener("click", printTimeoutHandler);
+let printTimeoutID = null; 
+const delay = 5000;
+const message = "Hello world";
 
-function printTimeout() {
-    clearTimer(print);
-    print = setTimeout(() => console.log("Hello world"), 5000); 
+function printTimeoutHandler() {
+    clearTimer(printTimeoutID);
+    printTimeoutID = setTimeout(() => console.log(message), delay); 
 }
   
-function clearTimer(TimerToClear) {
-    if(TimerToClear != null) {
-        clearTimeout(TimerToClear);
+function clearTimer(timerToClear) {
+    if(timerToClear != null) {
+        clearTimeout(timerToClear);
     }
 }

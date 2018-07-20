@@ -1,33 +1,38 @@
 let btn = document.getElementById('btn-seconds')
-btn.addEventListener("click", printMessage);
-let messagePrint = null;
-let print = null;
+btn.addEventListener("click", printMessageHandler);
+let messageTimeoutID = null;
+let secondsTimeoutID = null;
 let clicked = false;
 const message = "Hello";
-let second = null;
+const maxSecondValue = 4;
+const minSecondValue = 1;
 
-function printMessage () {
-    if(!clicked) {
-        second = Math.round(Math.random() * (4 - 1) + 1);
-        printSeconds(second);
-        messagePrint = setTimeout(function() {
-            console.log(message);          
-        }, second * 1000);
-        clicked = true;
+function printMessageHandler () {
+    clicked = !clicked;
+    if(clicked) {
+        let secondCount = randomSecondCount();
+        printSeconds(secondCount);
+        messageTimeoutID = setTimeout(() => {
+            console.log(message);  
+            clicked = false;        
+        }, secondCount * 1000);
     }
     else {
-        clearTimeout(messagePrint);
-        for(let i=print.length; i>0; i--) {
-            clearTimeout(print);
-        }
-        clicked = false;
+        clearTimeout(messageTimeoutID);
+        clearInterval(secondsTimeoutID);
     }
 }
 
-function printSeconds(second) {
-    for(let i=second, temp=0; i > 0; i--, temp++) {
-        print = [setTimeout(() => {
-            console.log(i + " seconds");          
-        }, temp * 1000)];
-    }
+function randomSecondCount() { 
+    return Math.round(Math.random() * (maxSecondValue - minSecondValue) + minSecondValue);
+}
+
+function printSeconds(secondCount) { 
+    console.log(secondCount + " seconds");
+    secondsTimeoutID = setInterval(() => {
+        console.log(--secondCount + " seconds");
+        if(secondCount <= 1) {
+            clearInterval(secondsTimeoutID);
+        }
+    }, 1000);
 }

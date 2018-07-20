@@ -10,8 +10,6 @@ let promise = new Promise((resolve, reject) => {
 
 promise.then((result) => {
     console.log(result);
-})
-
-promise.catch((e) => {
+}).catch((e) => {
     console.log(e);
 })

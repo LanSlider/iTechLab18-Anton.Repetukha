@@ -20,4 +20,3 @@ new Promise(function(resolve, reject) {
     // должно вывести конечный результат
     console.log(result);
   });
-  

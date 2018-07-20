@@ -1,19 +1,20 @@
 let btn = document.getElementById('btn-welcome')
-btn.addEventListener("click", printInterval);
-let print = null;
+btn.addEventListener("click", printIntervalHandler);
+let printIntervalID = null;
 let clicked = false;
+const delay = 3000;
+const message = "You are welcome!";
 
-function printInterval() {
-    if(!clicked) {
-        print = setInterval(() => console.log("You are welcome!"), 3000); 
-        clicked = true;
+function printIntervalHandler() {
+    clicked = !clicked;
+    if(clicked) {
+        printIntervalID = setInterval(() => console.log(message), delay); 
     }
     else {
-        clearTimer(print); 
-        clicked = false;
+        clearTimer(printIntervalID); 
     }
 }
   
-function clearTimer(TimerToClear) {
-    clearInterval(TimerToClear);
+function clearTimer(timerToClear) {
+    clearInterval(timerToClear);
 }
