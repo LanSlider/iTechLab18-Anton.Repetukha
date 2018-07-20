@@ -1,8 +1,8 @@
-btn = document.getElementById('btn-seconds')
+let btn = document.getElementById('btn-seconds')
 btn.addEventListener("click", printMessage);
 let messagePrint = null;
-print = null;
-clicked = false;
+let print = null;
+let clicked = false;
 const message = "Hello";
 let second = null;
 
@@ -11,10 +11,9 @@ function printMessage () {
         second = Math.round(Math.random() * (4 - 1) + 1);
         printSeconds(second);
         messagePrint = setTimeout(function() {
-            console.log(message);   
-            clicked = false;      
+            console.log(message);          
         }, second * 1000);
-        clicked = true;  
+        clicked = true;
     }
     else {
         clearTimeout(messagePrint);

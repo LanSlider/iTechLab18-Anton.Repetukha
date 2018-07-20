@@ -1,7 +1,7 @@
-btn = document.getElementById('btn-welcome')
+let btn = document.getElementById('btn-welcome')
 btn.addEventListener("click", printInterval);
-print = null;
-clicked = false;
+let print = null;
+let clicked = false;
 
 function printInterval() {
     if(!clicked) {
