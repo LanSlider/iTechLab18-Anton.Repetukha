@@ -14,7 +14,7 @@
 //       console.log(JSON.stringify(arg1));
 //       console.log(JSON.stringify(arg2));
 // }
-
+ 
 Promise.all([loadVideosAsync(), loadMetaAsync()])
    .then(function([videos, meta]) {
       DoSomething(videos, meta);
