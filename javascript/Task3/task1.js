@@ -1,4 +1,4 @@
-let btn = document.getElementById('btn-hello')
+let btn = document.getElementById('btn-hello');
 btn.addEventListener("click", printTimeoutHandler);
 let printTimeoutID = null; 
 const delay = 5000;

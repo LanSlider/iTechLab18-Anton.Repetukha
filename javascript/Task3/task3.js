@@ -10,7 +10,7 @@ const minSecondValue = 1;
 function printMessageHandler () {
     clicked = !clicked;
     if(clicked) {
-        let secondCount = randomSecondCount();
+        let secondCount = randomSecondCount(minSecondValue, maxSecondValue);
         printSeconds(secondCount);
         messageTimeoutID = setTimeout(() => {
             console.log(message);  
@@ -23,16 +23,18 @@ function printMessageHandler () {
     }
 }
 
-function randomSecondCount() { 
+function randomSecondCount(minSecondValue, maxSecondValue) { 
     return Math.round(Math.random() * (maxSecondValue - minSecondValue) + minSecondValue);
 }
 
 function printSeconds(secondCount) { 
     console.log(secondCount + " seconds");
     secondsTimeoutID = setInterval(() => {
-        console.log(--secondCount + " seconds");
         if(secondCount <= 1) {
             clearInterval(secondsTimeoutID);
+        } 
+        else {
+            console.log(--secondCount + " seconds");
         }
     }, 1000);
 }

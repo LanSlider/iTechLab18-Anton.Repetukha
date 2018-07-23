@@ -1,9 +1,11 @@
 let arr = [];
 let maxSeconds = null;
+let minSecondValue = 1;
+let maxSecondValue = 10;
 
-let random = randomSecondCount()
+let random = randomSecondCount(minSecondValue, maxSecondValue);
 for(let i=1; i < random; i++) {
-    let seconds = randomSecondCount();
+    let seconds = randomSecondCount(minSecondValue, maxSecondValue);
     if(seconds > maxSeconds) {
         maxSeconds = seconds;
     }
@@ -19,8 +21,8 @@ function printFunction(index, seconds) {
     })
 }
 
-function randomSecondCount() {
-    return Math.round((Math.random() * (10 - 1) + 1));;
+function randomSecondCount(minSecondValue, maxSecondValue) {
+    return Math.round((Math.random() * (maxSecondValue - minSecondValue) + minSecondValue));;
 }
 
 Promise.all(arr).then(function() {
