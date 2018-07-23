@@ -21,8 +21,8 @@ function printFunction(index, seconds) {
     })
 }
 
-function randomSecondCount(minSecondValue, maxSecondValue) {
-    return Math.round((Math.random() * (maxSecondValue - minSecondValue) + minSecondValue));;
+function randomSecondCount(minValue, maxValue) {
+    return Math.round((Math.random() * (maxValue - minValue) + minValue));;
 }
 
 Promise.all(arr).then(function() {
