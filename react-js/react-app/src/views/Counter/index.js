@@ -14,7 +14,7 @@ const Counter = (props) => {
             <AppBar position="static" color="default" className={classes.counterBlock}>
                 <div className={classes.counterNumber}>{props.countValue}</div>
                 <div className={classes.buttonBlock}>
-                    <Button color="primary" className={classes.button__blue} onClick={props.incrementCount}>increment ++</Button>
+                    <Button color="primary" onClick={props.incrementCount}>increment ++</Button>
                     <Button color="secondary"onClick={props.resetCount}>reset <ThreeSixtyIcon className={classes.icon} /></Button>
                     <Button color="primary" onClick={props.decrementCount}>decrement --</Button>
                 </div>                         
@@ -23,7 +23,7 @@ const Counter = (props) => {
     );
 }
 
-Counter.PropTypes = {
+Counter.propTypes = {
     countValue: PropTypes.number.isRequired,
     incrementCount: PropTypes.func.isRequired,
     resetCount: PropTypes.func.isRequired,
