@@ -19,7 +19,42 @@ class CounterContainer extends Component {
       this.setState({count: 0});
     }) 
 
+    UNSAFE_componentWillReceiveProps(props) {
+      console.log("Child: UNSAFE_componentWillReceiveProps()");
+      let count = this.state.count;
+      if(props.action === "addCounter" && count % 2 == 0) {
+          this.incrementCount();     
+      }
+      if(props.action === "delCounter" && count % 2 != 0) {
+          this.decrementCount();
+      }
+      if(props.action === "resetCounter") {
+          this.resetCount();
+      }
+      return props;
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+      console.log("-------Child--------");
+      console.log("Child: shouldComponentUpdate");
+      return this.state.count !== nextState ? true : false;
+    }
+
+    componentDidMount() {
+      console.log("Child: componentDidMount");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+      console.log("Child: componentDidUpdate");
+      console.log("-------Child--------");
+    }
+
+    componentWillUnmount() {
+      console.log("Child: componentWillUnmount");
+    }
+
     render() {
+      console.log("Child: render")
       return <Counter 
         countValue = {this.state.count}
         incrementCount = {this.incrementCount}
