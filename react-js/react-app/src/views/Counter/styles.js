@@ -1,9 +1,4 @@
 export const styles = () => ({
-  root: {
-    "display": "flex",
-    "align-items": "center",
-    "justify-content": "center",
-  },
   counterBlock: {
     "width": "200px", 
     "height": "200px", 
