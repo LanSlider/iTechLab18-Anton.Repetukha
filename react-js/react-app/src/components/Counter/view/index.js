@@ -10,7 +10,7 @@ import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 const Counter = (props) => {
     const { classes } = props;
     return(
-        <div className={classes.root}>
+        <div>
             <AppBar position="static" color="default" className={classes.counterBlock}>
                 <div className={classes.counterNumber}>{props.countValue}</div>
                 <div className={classes.buttonBlock}>

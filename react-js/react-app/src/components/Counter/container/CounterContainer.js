@@ -1,6 +1,6 @@
 import React, { Component } from 'react/index.js';
-import Counter from '../views/Counter/index.js';
-import actionType from '../constants/action';
+import Counter from '../view/index.js';
+import actionType from '../../../constants/action';
 
 class CounterContainer extends Component {  
     constructor(props) {

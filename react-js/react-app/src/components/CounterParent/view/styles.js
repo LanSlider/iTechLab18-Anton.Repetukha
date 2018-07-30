@@ -18,4 +18,12 @@ export const styles = () => ({
       "align-items": "center",
       "justify-content": "center",
     },
+    Container: {
+      "padding": "60px", 
+
+    },
+    ContentContainer: {
+        "min-height": "550px",
+        "padding": "20px"
+    },
   });
