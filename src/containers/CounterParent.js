@@ -11,7 +11,7 @@ class CounterParent extends Component {
 
     addChild = (() => {
         let array = this.state.childKeys;
-        array.push(this.state.countCounter);
+        array.push(this.state.childrenCount);
         this.setState({
             childKeys: array,
             childrenCount: this.state.childrenCount + 1,
