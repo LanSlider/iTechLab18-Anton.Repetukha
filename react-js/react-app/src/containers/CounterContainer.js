@@ -23,11 +23,11 @@ class CounterContainer extends Component {
     UNSAFE_componentWillReceiveProps(props) {
       console.log("Child: UNSAFE_componentWillReceiveProps()");
       let count = this.state.count;
-      if(props.action === actionType.increment && count % 2 == 0) {
+      if(props.action === actionType.increment && count % 2 === 0) {
           this.incrementCount();     
       }
 
-      if(props.action === actionType.decrement && count % 2 != 0) {
+      if(props.action === actionType.decrement && count % 2 !== 0) {
           this.decrementCount();
       }
       if(props.action === actionType.reset) {
