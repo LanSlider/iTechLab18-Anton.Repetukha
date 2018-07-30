@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/App.js';
-import CounterParent from './containers/CounterParent.js';
+import App from './components/App/view/index';
+import { HashRouter }  from 'react-router-dom';
 
-let index = [<App />,<CounterParent />];
-
-ReactDOM.render(index, document.getElementById('root'));
+ReactDOM.render ((
+    <HashRouter>
+        <App />
+    </HashRouter>
+), document.getElementById('root'))
