@@ -1,8 +1,8 @@
 const actionType = {
-    increment: "increment",
-    decrement: "decrement",
-    reset: "reset",
-    none: "none"
+    none: 0,
+    increment: 1,
+    decrement: 2,
+    reset: 3
 }
 
 Object.freeze(actionType);
