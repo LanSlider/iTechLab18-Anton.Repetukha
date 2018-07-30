@@ -12,11 +12,11 @@ const CounterParentView = (props) => {
     return(
         <div>
             <AppBar position="static" color="default" className={classes.counterBlock}>
-            <div className={classes.counterNumber}>{props.countCounter}</div>
+            <div className={classes.counterNumber}>{props.childrenCount}</div>
                 <div className={classes.buttonBlock}>
-                    <Button color="primary" onClick={props.addCounter}>addCounter ++</Button>
-                    <Button color="secondary"onClick={props.resetCounter}>reset <ThreeSixtyIcon className={classes.icon} /></Button>
-                    <Button color="primary" onClick={props.delCounter}>delCounter --</Button>
+                    <Button color="primary" onClick={props.addChild}>addCounter ++</Button>
+                    <Button color="secondary"onClick={props.resetChildren}>reset <ThreeSixtyIcon className={classes.icon} /></Button>
+                    <Button color="primary" onClick={props.delLastChild}>delCounter --</Button>
                 </div>                         
             </AppBar>
             <div className={classes.root}>
