@@ -1,5 +1,6 @@
 import React, { Component } from 'react/index.js';
 import Counter from '../views/Counter/index.js';
+import actionType from '../constants/action';
 
 class CounterContainer extends Component {  
     constructor(props) {
@@ -22,13 +23,14 @@ class CounterContainer extends Component {
     UNSAFE_componentWillReceiveProps(props) {
       console.log("Child: UNSAFE_componentWillReceiveProps()");
       let count = this.state.count;
-      if(props.action === "addCounter" && count % 2 == 0) {
+      if(props.action === actionType.increment && count % 2 == 0) {
           this.incrementCount();     
       }
-      if(props.action === "delCounter" && count % 2 != 0) {
+
+      if(props.action === actionType.decrement && count % 2 != 0) {
           this.decrementCount();
       }
-      if(props.action === "resetCounter") {
+      if(props.action === actionType.reset) {
           this.resetCount();
       }
       return props;
@@ -37,7 +39,7 @@ class CounterContainer extends Component {
     shouldComponentUpdate(nextProps, nextState) {
       console.log("-------Child--------");
       console.log("Child: shouldComponentUpdate");
-      return this.state.count !== nextState ? true : false;
+      return this.state.count !== nextState.count ? true : false;
     }
 
     componentDidMount() {
