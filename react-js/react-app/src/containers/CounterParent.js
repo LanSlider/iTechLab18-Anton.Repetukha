@@ -1,37 +1,38 @@
 import React, { Component } from 'react/index.js';
 import CounterContainer from '../containers/CounterContainer.js';
 import CounterParentView from '../views/CounterParent/index.js';
+import actionType from '../constants/action';
 
 class CounterParent extends Component {  
     constructor(props) {
-        super(props);
-        this.state = {counterCount: 1, arrayKeys: [0], actionType: "none"};
+        super(props); 
+        this.state = {childrenCount: 1, childKeys: [0], action: actionType.none};
     }
 
-    addCounter = (()=> {
-        let array = this.state.arrayKeys;
+    addChild = (() => {
+        let array = this.state.childKeys;
         array.push(this.state.countCounter);
         this.setState({
-            arrayKeys: array,
-            counterCount: this.state.counterCount + 1,
-            actionType: "addCounter",
+            childKeys: array,
+            childrenCount: this.state.childrenCount + 1,
+            action: actionType.increment,
         });
     })  
 
-    delCounter = (()=> {
-        if(this.state.arrayKeys.length > 1) {
-            let arr = this.state.arrayKeys;
+    delLastChild = (() => {
+        if(this.state.childKeys.length > 1) {
+            let arr = this.state.childKeys;
             arr.splice(arr.length - 1);
             this.setState({
-                arrayKeys: arr, 
-                counterCount: this.state.counterCount - 1,
-                actionType: "delCounter",
+                childKeys: arr, 
+                childrenCount: this.state.childrenCount - 1,
+                action: actionType.decrement,
             });
         }
     }) 
 
-    resetCounter = (()=> {
-        this.setState({counterCount: 1, arrayKeys: [0], actionType: "resetCounter"});
+    resetChildren = (()=> {
+        this.setState({childrenCount: 1, childKeys: [0], action: actionType.reset});
     }) 
 
 
@@ -67,15 +68,15 @@ class CounterParent extends Component {
 
     render() {
       return <CounterParentView 
-        countCounter = {this.state.counterCount}
+        childrenCount = {this.state.childrenCount}
         arrayCounter = {
-            this.state.arrayKeys.map((key) => { 
-                return <CounterContainer key={key} action={this.state.actionType} /> 
+            this.state.childKeys.map((key) => { 
+                return <CounterContainer key={key} action={this.state.action} /> 
             })
         }
-        addCounter = {this.addCounter}
-        resetCounter = {this.resetCounter}
-        delCounter = {this.delCounter}       
+        addChild = {this.addChild}
+        resetChildren = {this.resetChildren}
+        delLastChild = {this.delLastChild}       
       />;
   }
 }
