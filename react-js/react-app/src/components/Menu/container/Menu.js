@@ -5,16 +5,16 @@ import MenuView from '../view/index.js';
 class Menu extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: props.value};
+        this.state = {selectedItem: props.selectedItem};
     }
   
-    handleChange = (event, value) => {
-        this.setState({ value: value });
+    handleChange = (event, selectedItem) => {
+        this.setState({ selectedItem: selectedItem });
     };
 
     render() {
         return <MenuView 
-            value={this.state.value}
+            selectedItem={this.state.selectedItem}
             handleChange={this.handleChange}
         />
     }

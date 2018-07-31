@@ -4,10 +4,10 @@ import HeaderView from '../../Header/view/index';
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: props.value};
+    this.state = {selectedItem: props.selectedItem};
   }
   render() {
-    return <HeaderView value={this.state.value} />;
+    return <HeaderView selectedItem={this.state.selectedItem} />;
   }
 }
 

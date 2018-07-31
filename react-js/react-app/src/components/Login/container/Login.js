@@ -13,49 +13,40 @@ class Login extends Component {
             password: "", 
             errorEmailMessage: "",
             errorPassMessage: "",
-            isEmailValidate: "default",
-            isPasswordValidate: "default",
-            isSubmitBtnEnable: false,
+            isEmailValid: "default",
+            isPasswordValid: "default",
+            isSubmitBtnEnabled: false,
         };
     }
 
-    onEmailChange = ((event) => {
-        let value = event.target.value;
-        this.setState({ email: value });
-        this.validateEmail(value);
-    })
-
-    onPasswordChange = ((event) => {
-        let value = event.target.value;
-        this.setState({ password: value });
-        this.validatePassword(value);
-    })
+    
 
     validateEmail = ((email) => {
         const re = /^(([^<>()\]\\.,;:|%^&#$!?*~=+\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(String(email).toLowerCase())) {
-            this.setState({ errorEmailMessage: errInvalidEmailMessage, isEmailValidate: false });
+            this.setState({ errorEmailMessage: errInvalidEmailMessage, isEmailValid: false });
         } 
         else {
-            this.setState({ errorEmailMessage: "", isEmailValidate: true });
+            this.setState({ errorEmailMessage: "", isEmailValid: true });
         }
     })
 
     validatePassword = ((password) => {
         if(password.length < passwordLength ) {
-            this.setState({ errorPassMessage: errInvalidLengthPassMessage, isPasswordValidate: false})
+            this.setState({ errorPassMessage: errInvalidLengthPassMessage, isPasswordValid: false})
         }
         else {
-            this.setState({ errorPassMessage: "", isPasswordValidate: true });
+            this.setState({ errorPassMessage: "", isPasswordValid: true });
         }
     })
 
     handleSubmit = ((event) => {
         event.preventDefault();
-        if(this.state.isEmailValidate === true && this.state.isPasswordValidate === true) {
+        if(this.state.isEmailValid === true && this.state.isPasswordValid === true) {
             console.log(`Email: ${this.state.email} \nPassword: ${this.state.password}`);
-            this.setState({ email: "", password: "", isEmailValidate: "default", isPasswordValidate: "default" });
+            this.setState({ email: "", password: "", isEmailValid: "default", isPasswordValid: "default" });
         }
+        // return false;
     })
 
     render() {
@@ -65,9 +56,9 @@ class Login extends Component {
         onEmailChange = {this.onEmailChange}
         onPasswordChange = {this.onPasswordChange}
         handleSubmit = {this.handleSubmit}
-        isEmailValidate = {this.state.isEmailValidate}
-        isPasswordValidate = {this.state.isPasswordValidate}
-        isSubmitBtnEnable = {this.state.isEmailValidate === true && this.state.isPasswordValidate === true}
+        isEmailValid = {this.state.isEmailValid}
+        isPasswordValid = {this.state.isPasswordValid}
+        isSubmitBtnEnabled = {this.state.isEmailValid === true && this.state.isPasswordValid === true}
         errorEmailMessage = {this.state.errorEmailMessage}
         errorPassMessage = {this.state.errorPassMessage}
       />

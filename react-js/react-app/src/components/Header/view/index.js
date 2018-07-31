@@ -11,7 +11,7 @@ const HeaderView = (props) => {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">React-App</h1>
           </header> 
-          <Menu value={props.value || 0} />     
+          <Menu selectedItem={props.selectedItem || 0} />     
         </div>
 )}
 

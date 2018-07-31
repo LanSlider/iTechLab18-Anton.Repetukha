@@ -13,7 +13,7 @@ const MenuView = (props) => {
     return (
         <div>
           <AppBar position="static">
-            <Tabs value={props.value} onChange={props.handleChange} className={classes.buttonBlock}>
+            <Tabs value={props.selectedItem} onChange={props.handleChange} className={classes.buttonBlock}>
               <Tab label="Домой" component={Link} to="/" />
               <Tab label="Счётчики" component={Link} to="/counter" />
               <Tab label="О нас" component={Link} to="/about" />
