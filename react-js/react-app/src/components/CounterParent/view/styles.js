@@ -23,7 +23,7 @@ export const styles = () => ({
 
     },
     ContentContainer: {
-        "min-height": "550px",
+        "min-height": "500px",
         "padding": "20px"
     },
   });

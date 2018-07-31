@@ -17,6 +17,7 @@ const MenuView = (props) => {
               <Tab label="Домой" component={Link} to="/" />
               <Tab label="Счётчики" component={Link} to="/counter" />
               <Tab label="О нас" component={Link} to="/about" />
+              <Tab label="Войти" component={Link} to="/login" />
             </Tabs>
           </AppBar>
         </div>
