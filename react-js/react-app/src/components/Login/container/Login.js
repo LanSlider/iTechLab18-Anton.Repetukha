@@ -19,7 +19,17 @@ class Login extends Component {
         };
     }
 
-    
+    onEmailChange = ((event) => {
+        let value = event.target.value;
+        this.setState({ email: value });
+        this.validateEmail(value);
+    })
+
+    onPasswordChange = ((event) => {
+        let value = event.target.value;
+        this.setState({ password: value });
+        this.validatePassword(value);
+    })
 
     validateEmail = ((email) => {
         const re = /^(([^<>()\]\\.,;:|%^&#$!?*~=+\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
