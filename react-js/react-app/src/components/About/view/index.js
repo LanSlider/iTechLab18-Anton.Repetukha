@@ -9,7 +9,7 @@ const About = (props) => {
     const { classes } = props;
     return (
         <div>
-            <Header value={2} />
+            <Header selectedItem={2} />
             <div className={classes.Container}>
                 <Paper position="static" color="default" className={classes.ContentContainer}>
                     <h2>О нас</h2>

@@ -13,7 +13,7 @@ const CounterParentView = (props) => {
     const { classes } = props;
     return(
         <div>
-            <Header value={1} />
+            <Header selectedItem={1} />
             <div className={classes.Container}>
                 <Paper position="static" color="default" className={classes.ContentContainer}>
                     <AppBar position="static" color="default" className={classes.counterBlock}>
