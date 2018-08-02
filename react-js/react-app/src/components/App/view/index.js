@@ -3,7 +3,9 @@ import Header from '../../Header/container/Header';
 import About from '../../About/view/index';
 import CounterParent from '../../CounterParent/container/CounterParent';
 import Login from '../../Login/container/Login';
+import LoginRedux from '../../LoginRedux/container/LoginRedux';
 import NotFound from '../../NotFound/view/index';
+import LoginSuccessView from '../../LoginRedux/viewSuccess/index';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 const App = () => {
@@ -14,7 +16,9 @@ const App = () => {
             <Route exact path="/about" component={About}/>
             <Route exact path="/counter" component={CounterParent}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/login-redux" component={LoginRedux}/>
             <Route exact path="/404" component={NotFound} />
+            <Route exact path="/login-redux/success" component={LoginSuccessView} />
             <Redirect to="/404" />
         </Switch>
     </main>

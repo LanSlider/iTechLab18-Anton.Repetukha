@@ -13,11 +13,11 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const LoginView = (props) => {
+const LoginReduxView = (props) => {
     const { classes } = props;
     return(
         <React.Fragment>
-            <Header selectedItem={3} />
+            <Header selectedItem={4} />
             <div className={classes.Container}>
                 <Paper position="static" color="default" className={classes.ContentContainer}>
                     <form onSubmit={props.handleSubmit}>
@@ -42,7 +42,7 @@ const LoginView = (props) => {
     );
 }
 
-LoginView.propTypes = {
+LoginReduxView.propTypes = {
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
     onEmailChange: PropTypes.func.isRequired,
@@ -53,4 +53,4 @@ LoginView.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
 }
 
-export default withStyles(styles)(LoginView);
+export default withStyles(styles)(LoginReduxView);

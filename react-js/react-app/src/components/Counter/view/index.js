@@ -10,7 +10,7 @@ import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 const Counter = (props) => {
     const { classes } = props;
     return(
-        <div>
+        <React.Fragment>
             <AppBar position="static" color="default" className={classes.counterBlock}>
                 <div className={classes.counterNumber}>{props.countValue}</div>
                 <div className={classes.buttonBlock}>
@@ -19,7 +19,7 @@ const Counter = (props) => {
                     <Button color="primary" onClick={props.decrementCount}>decrement --</Button>
                 </div>                         
             </AppBar>
-        </div>
+        </React.Fragment>
     );
 }
 

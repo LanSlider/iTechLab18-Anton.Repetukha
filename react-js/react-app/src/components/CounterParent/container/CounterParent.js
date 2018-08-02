@@ -1,7 +1,7 @@
 import React, { Component } from 'react/index.js';
 import CounterContainer from '../../Counter/container/CounterContainer.js';
 import CounterParentView from '../view/index';
-import actionType from '../../../constants/action';
+import actionType from '../../../constants/Action';
 
 class CounterParent extends Component {  
     constructor(props) {

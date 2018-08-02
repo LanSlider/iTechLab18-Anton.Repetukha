@@ -12,7 +12,7 @@ import ThreeSixtyIcon from '@material-ui/icons/ThreeSixty';
 const CounterParentView = (props) => {
     const { classes } = props;
     return(
-        <div>
+        <React.Fragment>
             <Header selectedItem={1} />
             <div className={classes.Container}>
                 <Paper position="static" color="default" className={classes.ContentContainer}>
@@ -29,7 +29,7 @@ const CounterParentView = (props) => {
                     </div>  
                 </Paper>
             </div>
-        </div>  
+        </React.Fragment>  
     );
 }
 
