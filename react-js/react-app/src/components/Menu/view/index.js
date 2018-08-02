@@ -11,16 +11,17 @@ import { Link } from 'react-router-dom';
 const MenuView = (props) => {
     const { classes } = props;
     return (
-        <div>
+        <React.Fragment>
           <AppBar position="static">
             <Tabs value={props.selectedItem} onChange={props.handleChange} className={classes.buttonBlock}>
               <Tab label="Домой" component={Link} to="/" />
               <Tab label="Счётчики" component={Link} to="/counter" />
               <Tab label="О нас" component={Link} to="/about" />
               <Tab label="Войти" component={Link} to="/login" />
+              <Tab label="Войти с помощью redux" component={Link} to="/login-redux" />
             </Tabs>
           </AppBar>
-        </div>
+        </React.Fragment>
       );
 }
 

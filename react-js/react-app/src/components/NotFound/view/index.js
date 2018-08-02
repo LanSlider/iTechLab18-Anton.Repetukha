@@ -6,9 +6,9 @@ import 'typeface-roboto';
 const notFoundView = (props) => {
     const { classes } = props;
     return (
-        <div>       
+        <React.Fragment>       
             <h2 className={classes.textBlock}>404 – страница не найдена</h2>
-        </div>                          
+        </React.Fragment>                          
     );  
 }
 

@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 const About = (props) => {
     const { classes } = props;
     return (
-        <div>
+        <React.Fragment>
             <Header selectedItem={2} />
             <div className={classes.Container}>
                 <Paper position="static" color="default" className={classes.ContentContainer}>
@@ -19,7 +19,7 @@ const About = (props) => {
                     </div>      
                 </Paper>
             </div>
-        </div>
+        </React.Fragment>
     );  
 }
 
