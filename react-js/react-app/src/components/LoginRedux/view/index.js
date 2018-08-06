@@ -22,9 +22,9 @@ const LoginReduxView = (props) => {
                 <Paper position="static" color="default" className={classes.ContentContainer}>
                     <form onSubmit={props.handleSubmit}>
                         <DialogTitle id="form-dialog-title">Вход</DialogTitle>
-                        <TextField autoFocus margin="dense" label="Email Address" type="email" error={!props.isEmailValid} fullWidth value={props.email} onChange={props.onEmailChange} />
+                        <TextField autoFocus margin="dense" label="Email Address" type="email" error={!props.isEmailValid} placeholder="example@mail.com" fullWidth value={props.email} onChange={props.onEmailChange} />
                         <FormHelperText>{props.errorEmailMessage}</FormHelperText>
-                        <TextField autoFocus margin="dense" label="Password" type="password" error={!props.isPasswordValid} fullWidth value={props.password} onChange={props.onPasswordChange} />                      
+                        <TextField autoFocus margin="dense" label="Password" type="password" error={!props.isPasswordValid} placeholder="example" fullWidth value={props.password} onChange={props.onPasswordChange} />                      
                         <FormHelperText>{props.errorPassMessage}</FormHelperText>
                         <DialogActions> 
                             <Button type="submit" disabled={!props.isSubmitBtnEnabled} color="primary">Login</Button>
