@@ -1,9 +1,6 @@
 import React, { Component } from 'react/index.js';
 import LoginView from '../view/index';
-
-const passwordLength = 6;
-const errInvalidEmailMessage = "Invalid email";
-const errInvalidLengthPassMessage = `Password must be at least ${passwordLength} characters`;
+import {validateEmail, validatePassword} from '../../../constants/ValidateForm';
 
 class Login extends Component {  
     constructor(props) {
@@ -22,28 +19,21 @@ class Login extends Component {
     onEmailChange = ((event) => {
         let value = event.target.value;
         this.setState({ email: value });
-        this.validateEmail(value);
-    })
-
-    onPasswordChange = ((event) => {
-        let value = event.target.value;
-        this.setState({ password: value });
-        this.validatePassword(value);
-    })
-
-    validateEmail = ((email) => {
-        const re = /^(([^<>()\]\\.,;:|%^&#$!?*~=+\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if(!re.test(String(email).toLowerCase())) {
-            this.setState({ errorEmailMessage: errInvalidEmailMessage, isEmailValid: false });
-        } 
+        const emailValidMessage = validateEmail(value); 
+        if(emailValidMessage !== '') {
+            this.setState({ errorEmailMessage: emailValidMessage, isEmailValid: false });
+        }
         else {
             this.setState({ errorEmailMessage: "", isEmailValid: true });
         }
     })
 
-    validatePassword = ((password) => {
-        if(password.length < passwordLength ) {
-            this.setState({ errorPassMessage: errInvalidLengthPassMessage, isPasswordValid: false})
+    onPasswordChange = ((event) => {
+        let value = event.target.value;
+        this.setState({ password: value });
+        const passwordValidMessage = validatePassword(value); 
+        if(passwordValidMessage !== '') {
+            this.setState({ errorPassMessage: passwordValidMessage, isPasswordValid: false });
         }
         else {
             this.setState({ errorPassMessage: "", isPasswordValid: true });

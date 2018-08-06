@@ -9,31 +9,35 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 const mapStateToProps = state => {
-    return { email: state.email, password: state.password };
+    return { email: state.login.email, password: state.login.password };
 };
 
 const LoginSuccessView = (props) => {
     const { classes } = props;
-    return(
-        <React.Fragment>
-            <Header selectedItem={4} />
-            <div className={classes.Container}>
-                <Paper position="static" color="default" className={classes.ContentContainer}>
-                    <form>
-                        <DialogTitle id="form-dialog-title">Вход</DialogTitle>
-                        <DialogContent>
-                            <DialogContentText>
-                                {JSON.stringify(`Email: ${props.email}`)}<br />
-                                {JSON.stringify(`Password: ${props.password}`)}
-                            </DialogContentText>
-                        </DialogContent> 
-                    </form>
-                </Paper>
-            </div>
-        </React.Fragment>  
-    );
+    if(props.email && props.password) {
+        return(
+            <React.Fragment>
+                <Header selectedItem={4} />
+                <div className={classes.Container}>
+                    <Paper position="static" color="default" className={classes.ContentContainer}>
+                        <form>
+                            <DialogTitle id="form-dialog-title">Вход</DialogTitle>
+                            <DialogContent>
+                                <DialogContentText>
+                                    {JSON.stringify(`Email: ${props.email}`)}<br />
+                                    {JSON.stringify(`Password: ${props.password}`)}
+                                </DialogContentText>
+                            </DialogContent> 
+                        </form>
+                    </Paper>
+                </div>
+            </React.Fragment>  
+        );
+    }
+    return <Redirect to="/login-redux" />
 }
 
 LoginSuccessView.propTypes = {
@@ -41,6 +45,6 @@ LoginSuccessView.propTypes = {
     password: PropTypes.string.isRequired,
 }
 
-const LoginDataView = connect(mapStateToProps)(LoginSuccessView);
+const loginDataView = connect(mapStateToProps)(LoginSuccessView);
 
-export default withStyles(styles)(LoginDataView);
+export default withStyles(styles)(loginDataView);
