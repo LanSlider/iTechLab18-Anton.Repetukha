@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import LoginSuccessView from '../view/viewSuccess';
-import { Redirect } from 'react-router-dom';
+import LoginSuccessView from '../view/success';
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
@@ -8,16 +7,15 @@ const mapStateToProps = state => {
 };
 
 class LoginReduxSuccess extends Component {  
-    render() {
-        if(this.props.isDataSubmit === true) {
-            this.props.submitData();
-            return <Redirect to="/login-redux/success" />
-        }
+    componentWillMount() {
         if(!this.props.email || !this.props.password) {
-            return <Redirect to="/login-redux/" />
+            this.props.history.push(`/login-redux`);
         }
+    }
+
+    render() {
         return <LoginSuccessView email={this.props.email} password={this.props.password} />
-  }
+    }
 }
 
 export default connect(mapStateToProps)(LoginReduxSuccess);
