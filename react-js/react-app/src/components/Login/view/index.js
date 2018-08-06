@@ -1,8 +1,8 @@
-import React from 'react/index.js';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../Header/container/Header';
 import { withStyles } from '@material-ui/core/styles';
-import { styles } from './styles.js';
+import { styles } from './styles';
 import 'typeface-roboto';
 import Paper from '@material-ui/core/Paper';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -22,9 +22,9 @@ const LoginView = (props) => {
                 <Paper position="static" color="default" className={classes.ContentContainer}>
                     <form onSubmit={props.handleSubmit}>
                         <DialogTitle id="form-dialog-title">Вход</DialogTitle>
-                        <TextField autoFocus margin="dense" label="Email Address" type="email" error={!props.isEmailValid} fullWidth value={props.email} onChange={props.onEmailChange} />
+                        <TextField label="Email Address" type="email" error={!props.isEmailValid} fullWidth value={props.email} onChange={props.onEmailChange} />
                         <FormHelperText>{props.errorEmailMessage}</FormHelperText>
-                        <TextField autoFocus margin="dense" label="Password" type="password" error={!props.isPasswordValid} fullWidth value={props.password} onChange={props.onPasswordChange} />                      
+                        <TextField label="Password" type="password" error={!props.isPasswordValid} fullWidth value={props.password} onChange={props.onPasswordChange} />                      
                         <FormHelperText>{props.errorPassMessage}</FormHelperText>
                         <DialogActions> 
                             <Button type="submit" disabled={!props.isSubmitBtnEnabled} color="primary">Login</Button>

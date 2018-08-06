@@ -1,7 +1,6 @@
-import React, { Component } from 'react/index.js';
-import LoginReduxView from '../view/index';
+import React, { Component } from 'react';
+import LoginReduxView from '../view';
 import { changeEmail, changePassword, validateEmail, validatePassword, submitData, resetData } from "../../../actions/loginRedux";
-import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => {
@@ -10,7 +9,6 @@ const mapDispatchToProps = dispatch => {
         changePassword: password => dispatch(changePassword(password)),
         validateEmail: email => dispatch(validateEmail(email)),
         validatePassword: password => dispatch(validatePassword(password)),
-        submitData: () => dispatch(submitData()),
         resetData: () => dispatch(resetData())
     };
 };
@@ -40,14 +38,10 @@ class LoginRedux extends Component {
 
     handleSubmit = ((event) => {
         event.preventDefault();  
-        this.props.submitData();
+        this.props.history.push(`${this.props.history.location.pathname}/success`);
     })
 
     render() {
-        if(this.props.isDataSubmit === true) {
-            this.props.submitData();
-            return <Redirect to="/login-redux/success" />
-        }
         return <LoginReduxView 
             email = {this.props.email}
             password = {this.props.password}

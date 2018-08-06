@@ -1,7 +1,4 @@
-import * as types from '../constants/ActionTypes'
-
-// export const addEmail = email => ({ type: types.ADD_EMAIL, email })
-// export const addPassword = password => ({ type: types.ADD_PASSWORD, password })
+import * as types from '../constants/actionTypes'
 
 export const changeEmail = email => ({ type: types.EMAIL_CHANGE, email })
 export const changePassword = password => ({ type: types.PASSWORD_CHANGE, password })

@@ -1,6 +1,6 @@
-import React, { Component } from 'react/index.js';
+import React, { Component } from 'react';
 import LoginView from '../view/index';
-import {validateEmail, validatePassword} from '../../../constants/ValidateForm';
+import {validateEmail, validatePassword} from '../../../helpers/formHelpers';
 
 class Login extends Component {  
     constructor(props) {

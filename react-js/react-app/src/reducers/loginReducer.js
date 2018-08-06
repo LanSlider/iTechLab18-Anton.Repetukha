@@ -1,12 +1,11 @@
-import {EMAIL_CHANGE,PASSWORD_CHANGE,EMAIL_VALIDATE,PASSWORD_VALIDATE, DATA_SUBMIT, DATA_RESET} from '../constants/ActionTypes';
-import { validateEmail, validatePassword } from '../constants/ValidateForm';
+import {EMAIL_CHANGE,PASSWORD_CHANGE,EMAIL_VALIDATE,PASSWORD_VALIDATE, DATA_SUBMIT, DATA_RESET} from '../constants/actionTypes';
+import { validateEmail, validatePassword } from '../helpers/formHelpers';
   
   const initialState = {
       email: "",
       password: "",
       isEmailValid: "default",
       isPasswordValid: "default",
-      isDataSubmit: false,
       errorEmailMessage: "",
       errorPassMessage: "",
   }
@@ -36,10 +35,6 @@ import { validateEmail, validatePassword } from '../constants/ValidateForm';
           return {...state, isPasswordValid: true}
         }
         return {...state, isPasswordValid: false, errorPassMessage: state.errorPassMessage}
-      }
-
-      case DATA_SUBMIT: {
-          return {...state, isDataSubmit: !state.isDataSubmit }
       }
 
       case DATA_RESET: {
