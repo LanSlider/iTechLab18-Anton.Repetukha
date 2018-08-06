@@ -19,7 +19,7 @@ const MenuView = (props) => {
               <Tab label="О нас" component={Link} to="/about" />
               <Tab label="Войти" component={Link} to="/login" />
               <Tab label="Войти с помощью redux" component={Link} to="/login-redux" />
-              {/* <Tab label="Войти redux-form" component={Link} to="/login-redux-form" /> */}
+              <Tab label="Войти redux-form" component={Link} to="/login-redux-form" />
             </Tabs>
           </AppBar>
         </React.Fragment>
