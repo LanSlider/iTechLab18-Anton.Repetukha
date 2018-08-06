@@ -1,0 +1,49 @@
+import {EMAIL_CHANGE,PASSWORD_CHANGE,EMAIL_VALIDATE,PASSWORD_VALIDATE, DATA_SUBMIT, DATA_RESET} from '../constants/actionTypes';
+import { validateEmail, validatePassword } from '../helpers/formHelpers';
+  
+  const initialState = {
+      email: "",
+      password: "",
+      isEmailValid: "default",
+      isPasswordValid: "default",
+      errorEmailMessage: "",
+      errorPassMessage: "",
+  }
+  
+  
+   const loginReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case EMAIL_CHANGE: {
+        return {...state, email: action.email};
+      }
+
+      case PASSWORD_CHANGE: {
+        return {...state, password: action.password};
+      }
+
+      case EMAIL_VALIDATE: {
+        state.errorEmailMessage = validateEmail(action.email);
+        if(state.errorEmailMessage === '') {
+          return {...state, isEmailValid: true}
+        }
+        return {...state, isEmailValid: false, errorEmailMessage: state.errorEmailMessage}
+      }
+
+      case PASSWORD_VALIDATE: {
+        state.errorPassMessage = validatePassword(action.password);
+        if(state.errorPassMessage === '') {
+          return {...state, isPasswordValid: true}
+        }
+        return {...state, isPasswordValid: false, errorPassMessage: state.errorPassMessage}
+      }
+
+      case DATA_RESET: {
+        return {...state, ...initialState};
+      }
+
+      default:
+        return state;
+    }
+  }
+  
+  export default loginReducer;
