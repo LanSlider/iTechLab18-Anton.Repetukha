@@ -50,7 +50,9 @@ class LoginReduxForm extends Component {
     }
 
     render() {
-        let {email, password} = this.props.formState.values? this.props.formState.values : '';
+        let {email, password} = this.props.formState.values? this.props.formState.values : "";
+        email = email? email: email = "";
+        password = password? password: password = "";
         return <LoginReduxFormView 
             onSubmit = {this.handleSubmit}
             email = {email}
