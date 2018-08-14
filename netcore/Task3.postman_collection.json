@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "f837319b-6107-4deb-a38d-e3b706a4c98a",
+		"name": "Task3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add new Film",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Name\": \"Tubs\",\n\t\"Country\": \"Germany\",\n\t\"Year\": \"1946\",\n\t\"Producer\": \"Toms\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52514/api/CRUD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52514",
+					"path": [
+						"api",
+						"CRUD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get film",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52514/api/CRUD/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52514",
+					"path": [
+						"api",
+						"CRUD",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all films",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52514/api/CRUD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52514",
+					"path": [
+						"api",
+						"CRUD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update film",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\": \"5\",\n\t\"Name\": \"Tubs\",\n\t\"Country\": \"Germany\",\n\t\"Year\": \"1948\",\n\t\"Producer\": \"Toms\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52514/api/CRUD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52514",
+					"path": [
+						"api",
+						"CRUD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete film",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52514/api/CRUD/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52514",
+					"path": [
+						"api",
+						"CRUD",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
