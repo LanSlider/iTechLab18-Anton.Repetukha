@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RestSharp.Serializers;
 
 namespace APITransform.Models
 {
     public class ShipData
     {
-        public int count { get; set; }
-        public string next { get; set; }
-        public List<Starship> results { get; set; }
+        [SerializeAsAttribute]
+        public int Count { get; set; }
+        [SerializeAsAttribute]
+        public string Next { get; set; }
+        [SerializeAsAttribute]
+        public List<Starship> Results { get; set; }
     }
 }

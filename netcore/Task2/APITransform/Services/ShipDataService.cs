@@ -12,67 +12,90 @@ namespace APITransform.Services
 {
     public class ShipDataService : IShipDataService
     {
-        private readonly IMapper _mapper;
         private readonly string _dataSource;
+        private readonly RestClient _client;
 
-        public ShipDataService(IConfiguration config, IMapper mapper)
+        public ShipDataService()
         {
-            _dataSource = config["ShipsDataURL"];
-            _mapper = mapper;
+            _dataSource = "https://swapi.co/api/starships";
+            _client = new RestClient(new Uri(_dataSource));
         }
 
         public List<Starship> AddIndexToList(List<Starship> list, int index = 0)
         {
             for (int i = index; i < list.Count(); i++)
             {
-                list[i].index = i + 1;
+                list[i].Index = i + 1;
             }
 
             return list;
         }
 
         public Starships GetData()
-        {
-            var client = new RestClient(new Uri(_dataSource));
+        {       
             var request = new RestRequest(Method.GET);
-            var response = client.Execute(request);
+            Starships starShipsList = new Starships();
 
-            var starShipsList = JsonConvert.DeserializeObject<Starships>(response.Content);
+            try
+            {
+                starShipsList = _client.Execute<Starships>(request).Data;
+                if (starShipsList == null)
+                {
+                    throw new ApplicationException("Error: Invalid data source");
+                }
+            }
+            catch { }
 
-            AddIndexToList(starShipsList.results);
+            AddIndexToList(starShipsList.Results);
 
             return starShipsList;
         }
 
         public async Task<Starships> GetDataAsync()
-        {
-            var client = new RestClient(new Uri(_dataSource));
+        {           
             var request = new RestRequest(Method.GET);
-            var starShipsList = await client.GetTaskAsync<Starships>(request);
+            Starships starShipsList = new Starships();
 
-            AddIndexToList(starShipsList.results);
+            try
+            {
+                starShipsList = await _client.GetTaskAsync<Starships>(request);
+                if (starShipsList == null)
+                {
+                    throw new ApplicationException("Error: Invalid data source");
+                }
+            }
+            catch { }
+
+            AddIndexToList(starShipsList.Results);
 
             return starShipsList;
         }
 
-        public async Task<Starships> GetAllDataAsync()
+        public async Task<ShipData> GetAllDataAsync()
         {
-            var client = new RestClient(new Uri(_dataSource));
             var request = new RestRequest(Method.GET);
-            var shipDataNext = await client.GetTaskAsync<ShipData>(request);
+            ShipData shipDataNext = new ShipData();
 
-            Starships starshipsList = new Starships();
-
-            starshipsList = _mapper.Map<ShipData,Starships>(shipDataNext);
-
-            while (shipDataNext.next != null)
+            try
             {
-                client = new RestClient(new Uri(shipDataNext.next));
-                shipDataNext = await client.GetTaskAsync<ShipData>(request);              
-                starshipsList.results.AddRange(shipDataNext.results);
+                shipDataNext = await _client.GetTaskAsync<ShipData>(request);
+                if (shipDataNext == null)
+                {
+                    throw new ApplicationException("Error: Invalid data source");
+                }
+            }
+            catch { }
+
+            ShipData starshipsList = shipDataNext;
+
+            while (shipDataNext.Next != null)
+            {
+                _client.BaseUrl = new Uri(shipDataNext.Next);
+                shipDataNext = await _client.GetTaskAsync<ShipData>(request);              
+                starshipsList.Results.AddRange(shipDataNext.Results);
             }
 
-            AddIndexToList(starshipsList.results);
+            AddIndexToList(starshipsList.Results);
 
             return starshipsList;
         }

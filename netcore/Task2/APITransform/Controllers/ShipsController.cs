@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using APITransform.Models;
 using APITransform.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,28 +16,34 @@ namespace APITransform.Controllers
     public class ShipsController : Controller
     {
         private readonly IShipDataService _shipDataService;
+        private readonly IMapper _mapper;
 
-        public ShipsController(IShipDataService shipDataService)
+        public ShipsController(IShipDataService shipDataService, IMapper mapper)
         {
-            this._shipDataService = shipDataService;   
+            _shipDataService = shipDataService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public ObjectResult Get()
-        {    
-            return Ok(_shipDataService.GetData());
+        {
+            Starships starshipsList = _shipDataService.GetData();
+            return Ok(starshipsList);
         }
 
         [HttpGet("async")]
         public async Task<ObjectResult> GetAsync()
         {
-            return Ok(await _shipDataService.GetDataAsync());
+            Starships starshipsList = await _shipDataService.GetDataAsync();
+            return Ok(starshipsList);
         }
 
         [HttpGet("async/all")]
         public async Task<ObjectResult> GetAsyncAll()
         {
-            return Ok(await _shipDataService.GetAllDataAsync());
+            ShipData shipDataNext = await _shipDataService.GetAllDataAsync();
+            Starships starshipsList = _mapper.Map<ShipData, Starships>(shipDataNext);
+            return Ok(starshipsList);
         }
     }
 }

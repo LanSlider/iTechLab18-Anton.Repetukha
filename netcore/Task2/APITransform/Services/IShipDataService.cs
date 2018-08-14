@@ -10,6 +10,6 @@ namespace APITransform.Services
     {
         Starships GetData();
         Task<Starships> GetDataAsync();
-        Task<Starships> GetAllDataAsync();
+        Task<ShipData> GetAllDataAsync();
     }
 }
