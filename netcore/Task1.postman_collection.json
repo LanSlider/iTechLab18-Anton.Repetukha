@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "4cf83e0e-5280-4d83-8b62-4a69e8c50420",
+		"name": "Task1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET empty values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1&Value2=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": null
+						},
+						{
+							"key": "Value2",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET negative value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=-10&Value2=-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "-10"
+						},
+						{
+							"key": "Value2",
+							"value": "-20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET positive value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=10&Value2=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "10"
+						},
+						{
+							"key": "Value2",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET string values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=hello&Value2=world",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "hello"
+						},
+						{
+							"key": "Value2",
+							"value": "world"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET positive and negative values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=10&Value2=-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "10"
+						},
+						{
+							"key": "Value2",
+							"value": "-20"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
