@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "91e7aa4a-f77f-4985-bb75-c359d7f949c0",
+		"name": "Task2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET sync",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:50162/api/ships",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50162",
+					"path": [
+						"api",
+						"ships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET async",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:50162/api/ships/async",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50162",
+					"path": [
+						"api",
+						"ships",
+						"async"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET sync/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:50162/api/ships/async/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50162",
+					"path": [
+						"api",
+						"ships",
+						"async",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
