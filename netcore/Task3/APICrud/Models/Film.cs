@@ -10,6 +10,7 @@ namespace APICrud.Models
     {
         [Required(ErrorMessage = "The parameter must be defined")]
         public int Id { get; set; }
+
         [Required(ErrorMessage = "The parameter must be defined")]
         public string Name { get; set; }
 
