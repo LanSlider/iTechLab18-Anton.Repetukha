@@ -18,6 +18,13 @@ namespace APICrud.Services
         {
             _mapper = mapper;
             _db = context;
+
+            if(!_db.Films.Any())
+            {
+                _db.Films.Add(new Film { Name = "SomeFilm", Country = "Belarussian", Producer = "Tom", Year = 1964 });
+                _db.Films.Add(new Film { Name = "SomeFilm2", Country = "Russian", Producer = "Alex", Year = 2000 });
+                _db.SaveChanges();
+            }
         }
 
         public async Task<Film> CreateFilm(Film film)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APICrud.Contexts;
+using APICrud.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,9 +28,11 @@ namespace APICrud
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
+
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<FilmContext>(options =>
-                options.UseSqlServer(connection));
+            services.AddDbContext<FilmContext>(options => options.UseSqlServer(connection));
+
+            services.AddTransient<IDataService, DataService>();
             services.AddMvc();
         }
 
