@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "4cf83e0e-5280-4d83-8b62-4a69e8c50420",
+		"name": "Task1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET empty values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1&Value2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": null
+						},
+						{
+							"key": "Value2",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET empty values",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1&Value2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": null
+								},
+								{
+									"key": "Value2",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:27:08 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"Value1\":[\"The parameter must be defined\"],\"Value2\":[\"The parameter must be defined\"]}"
+				}
+			]
+		},
+		{
+			"name": "GET negative value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=-10&Value2=-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "-10"
+						},
+						{
+							"key": "Value2",
+							"value": "-20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET negative value",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1=-10&Value2=-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": "-10"
+								},
+								{
+									"key": "Value2",
+									"value": "-20"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:27:23 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"Value1\":[\"Value must be positive\"]}"
+				}
+			]
+		},
+		{
+			"name": "GET positive value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=10&Value2=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "10"
+						},
+						{
+							"key": "Value2",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET positive value",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1=10&Value2=20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": "10"
+								},
+								{
+									"key": "Value2",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:27:53 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"Value2\":[\"Value must be negative\"]}"
+				}
+			]
+		},
+		{
+			"name": "GET string values",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=hello&Value2=world",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "hello"
+						},
+						{
+							"key": "Value2",
+							"value": "world"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET string values",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1=hello&Value2=world",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": "hello"
+								},
+								{
+									"key": "Value2",
+									"value": "world"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:29:27 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"Value1\":[\"The value 'hello' is not valid for Value1.\"],\"Value2\":[\"The value 'world' is not valid for Value2.\"]}"
+				}
+			]
+		},
+		{
+			"name": "GET return json",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=10&Value2=-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "10"
+						},
+						{
+							"key": "Value2",
+							"value": "-20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET return json",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1=10&Value2=-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": "10"
+								},
+								{
+									"key": "Value2",
+									"value": "-20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:33:34 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"a\":10,\"b\":-20,\"sum\":-10}"
+				}
+			]
+		},
+		{
+			"name": "GET return xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:52513/api/values?Value1=10&Value2=-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52513",
+					"path": [
+						"api",
+						"values"
+					],
+					"query": [
+						{
+							"key": "Value1",
+							"value": "10"
+						},
+						{
+							"key": "Value2",
+							"value": "-20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET return xml",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:52513/api/values?Value1=10&Value2=-20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "52513",
+							"path": [
+								"api",
+								"values"
+							],
+							"query": [
+								{
+									"key": "Value1",
+									"value": "10"
+								},
+								{
+									"key": "Value2",
+									"value": "-20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Aug 2018 09:33:56 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						},
+						{
+							"key": "X-SourceFiles",
+							"value": "=?UTF-8?B?RDpcY29yZVxUYXNrMVxBUElTdW1cQVBJU3VtXGFwaVx2YWx1ZXM=?=",
+							"name": "X-SourceFiles",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [],
+					"body": "{\"a\":10,\"b\":-20,\"sum\":-10}"
+				}
+			]
+		}
+	]
+}

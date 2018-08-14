@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APISum.Models;
+using APISum.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APISum.Controllers
@@ -10,6 +11,12 @@ namespace APISum.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly ISumValuesService _sumValuesService;
+
+        public ValuesController(ISumValuesService sumValuesService)
+        {
+            _sumValuesService = sumValuesService;
+        }
         [HttpGet]
         public IActionResult Sum(ValueModel model)
         {
@@ -18,7 +25,7 @@ namespace APISum.Controllers
                 return BadRequest(ModelState);
             }
 
-            return Ok(new ResultModel { A = (int)model.Value1, B = (int)model.Value2, Sum = (int)(model.Value1 + model.Value2) });        
+            return Ok(_sumValuesService.SumValues(model));        
         }
     }
 }

@@ -9,11 +9,11 @@ namespace APISum.Models
     public class ValueModel
     {
         [Required(ErrorMessage = "The parameter must be defined")]
-        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "Value must be positive")]
+        [Range(1, Int32.MaxValue, ErrorMessage = "Value must be positive")]
         public int? Value1 { get; set; }
 
         [Required(ErrorMessage = "The parameter must be defined")]
-        [RegularExpression("^-[1-9][0-9]*$", ErrorMessage = "Value must be negative")]
+        [Range(Int32.MinValue, -1, ErrorMessage = "Value must be negative")]
         public int? Value2 { get; set; }
     }
 }
