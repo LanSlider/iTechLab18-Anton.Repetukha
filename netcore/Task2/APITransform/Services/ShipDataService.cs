@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using APITransform.Exeptions;
 using APITransform.Models;
 using AutoMapper;
@@ -38,12 +39,12 @@ namespace APITransform.Services
 
         public async Task<ShipData> GetDataAsync()
         {
-            return await GetDataAsync("");
+            return await GetDataAsync("1");
         }
 
-        public async Task<ShipData> GetDataAsync(string requestUrl = null)
+        private async Task<ShipData> GetDataAsync(string queryPageForRequest)
         {           
-            var request = new RestRequest(requestUrl, Method.GET);
+            var request = new RestRequest("?page=" + queryPageForRequest, Method.GET);
             var starShipsData = new ShipData();
 
             starShipsData = await _client.GetTaskAsync<ShipData>(request);
@@ -57,22 +58,24 @@ namespace APITransform.Services
 
         public async Task<ShipData> GetAllDataAsync()
         {
-            var shipDataNext = await GetDataAsync("");
+            var shipDataNext = await GetDataAsync("1");
 
             var starshipsData = shipDataNext;
+            Uri requestUri = null;
 
             while (shipDataNext.Next != null)
             {
-                shipDataNext = await GetDataAsync(GetRestRequest(shipDataNext.Next));         
+                requestUri = new Uri(shipDataNext.Next);
+                shipDataNext = await GetDataAsync(GetPageRequest(requestUri));         
                 starshipsData.Results.AddRange(shipDataNext.Results);
             }
 
             return starshipsData;
         }
 
-        private string GetRestRequest(string url)
+        private string GetPageRequest(Uri url)
         {
-            return url.Remove(0, _dataSource.Length + 1);
+            return HttpUtility.ParseQueryString(url.Query).Get("page");
         }
     }
 }

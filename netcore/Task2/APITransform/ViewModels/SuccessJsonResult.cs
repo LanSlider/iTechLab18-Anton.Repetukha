@@ -6,11 +6,11 @@ using APITransform.Models;
 
 namespace APITransform.ViewModels
 {
-    public class SuccessJsonResult : BaseJsonResult
+    public class SuccessJsonResult<T> : BaseJsonResult<T>
     {
-        public SuccessJsonResult(Starships data)
+        public SuccessJsonResult(T data)
         {
-            this.data = data;
+            this.Data = data;
         }
     }
 }

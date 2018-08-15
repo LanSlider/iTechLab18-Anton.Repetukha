@@ -31,58 +31,52 @@ namespace APITransform.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            Starships data = null;
-
             try
             {
                 var starshipsData = _shipDataService.GetData();
-                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                var data = _mapper.Map<ShipData, Starships>(starshipsData);
                 data.Results = _shipIndexService.AddIndexToList(data.Results);
+
+                return Json(new SuccessJsonResult<Starships>(data));
             }
             catch (BussinessException ex)
             {
-                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+                return Json(new ErrorJsonResult<Starships>(ex.UserFriendlyMessage));
             }
-   
-            return Json(new SuccessJsonResult(data));
         }
 
         [HttpGet("async")]
         public async Task<JsonResult> GetAsync()
         {
-            Starships data = null;
-
             try
             {
                 var starshipsData = await _shipDataService.GetDataAsync();
-                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                var data = _mapper.Map<ShipData, Starships>(starshipsData);
                 data.Results = _shipIndexService.AddIndexToList(data.Results);
+
+                return Json(new SuccessJsonResult<Starships>(data));
             }
             catch (BussinessException ex)
             {
-                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+                return Json(new ErrorJsonResult<Starships>(ex.UserFriendlyMessage));
             }
-
-            return Json(new SuccessJsonResult(data));
         }
 
         [HttpGet("async/all")]
         public async Task<JsonResult> GetAsyncAll()
         {
-            Starships data = null;
-
             try
             {
                 var starshipsData = await _shipDataService.GetAllDataAsync();
-                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                var data = _mapper.Map<ShipData, Starships>(starshipsData);
                 data.Results = _shipIndexService.AddIndexToList(data.Results);
+
+                return Json(new SuccessJsonResult<Starships>(data));
             }
             catch (BussinessException ex)
             {
-                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+                return Json(new ErrorJsonResult<Starships>(ex.UserFriendlyMessage));
             }
-
-            return Json(new SuccessJsonResult(data));
         }
     }
 }

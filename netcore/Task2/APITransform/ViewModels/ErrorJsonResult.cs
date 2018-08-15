@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace APITransform.ViewModels
 {
-    public class ErrorJsonResult : BaseJsonResult
+    public class ErrorJsonResult<T> : BaseJsonResult<T>
     {
         public ErrorJsonResult(string errorMessage)
         {
-            this.errorMessage = errorMessage;
+            this.ErrorMessage = errorMessage;
         }
     }
 }

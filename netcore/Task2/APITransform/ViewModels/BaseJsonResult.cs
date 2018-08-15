@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APITransform.ViewModels
 {
-    public abstract class BaseJsonResult
+    public abstract class BaseJsonResult<T>
     {
-        public string errorMessage { get; set; }
-        public Starships data { get; set; }
+        public string ErrorMessage { get; set; }
+        public T Data { get; set; }
     }
 }

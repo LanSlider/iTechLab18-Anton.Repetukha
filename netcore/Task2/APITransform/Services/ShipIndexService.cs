@@ -9,16 +9,14 @@ namespace APITransform.Services
 {
     public class ShipIndexService : IShipIndexService
     {
-        public List<Starship> AddIndexToList(List<Starship> list, int index = 0)
+        public List<Starship> AddIndexToList(List<Starship> list, int index = 1)
         {
             if(list == null)
             {
-                throw new BussinessException("List is null");
+                throw new BussinessException("No results");
             }
-            for (int i = index; i < list.Count(); i++)
-            {
-                list[i].Index = i + 1;
-            }
+            var i = index;
+            list.ForEach(x => { x.Index = i++; });
 
             return list;
         }

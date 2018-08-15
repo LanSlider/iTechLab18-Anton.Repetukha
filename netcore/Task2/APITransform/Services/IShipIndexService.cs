@@ -8,6 +8,6 @@ namespace APITransform.Services
 {
     public interface IShipIndexService
     {
-        List<Starship> AddIndexToList(List<Starship> list, int index = 0);
+        List<Starship> AddIndexToList(List<Starship> list, int index = 1);
     }
 }
