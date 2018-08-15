@@ -42,20 +42,6 @@ namespace APITransform.Services
             return await GetDataAsync("1");
         }
 
-        private async Task<ShipData> GetDataAsync(string queryPageForRequest)
-        {           
-            var request = new RestRequest("?page=" + queryPageForRequest, Method.GET);
-            var starShipsData = new ShipData();
-
-            starShipsData = await _client.GetTaskAsync<ShipData>(request);
-            if (starShipsData == null)
-            {
-                throw new BussinessException("Invalid data source");
-            }  
-            
-            return starShipsData;
-        }
-
         public async Task<ShipData> GetAllDataAsync()
         {
             var shipDataNext = await GetDataAsync("1");
@@ -71,6 +57,20 @@ namespace APITransform.Services
             }
 
             return starshipsData;
+        }
+
+        private async Task<ShipData> GetDataAsync(string queryPageForRequest)
+        {
+            var request = new RestRequest("?page=" + queryPageForRequest, Method.GET);
+            var starShipsData = new ShipData();
+
+            starShipsData = await _client.GetTaskAsync<ShipData>(request);
+            if (starShipsData == null)
+            {
+                throw new BussinessException("Invalid data source");
+            }
+
+            return starShipsData;
         }
 
         private string GetPageRequest(Uri url)
