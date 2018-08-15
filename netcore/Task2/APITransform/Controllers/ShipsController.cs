@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APITransform.Exeptions;
 using APITransform.Models;
 using APITransform.Services;
+using APITransform.ViewModels;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,34 +18,71 @@ namespace APITransform.Controllers
     public class ShipsController : Controller
     {
         private readonly IShipDataService _shipDataService;
+        private readonly IShipIndexService _shipIndexService;
         private readonly IMapper _mapper;
 
-        public ShipsController(IShipDataService shipDataService, IMapper mapper)
+        public ShipsController(IShipDataService shipDataService, IMapper mapper, IShipIndexService shipIndexService)
         {
             _shipDataService = shipDataService;
+            _shipIndexService = shipIndexService;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public ObjectResult Get()
+        public JsonResult Get()
         {
-            Starships starshipsList = _shipDataService.GetData();
-            return Ok(starshipsList);
+            Starships data = null;
+
+            try
+            {
+                var starshipsData = _shipDataService.GetData();
+                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                data.Results = _shipIndexService.AddIndexToList(data.Results);
+            }
+            catch (BussinessException ex)
+            {
+                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+            }
+   
+            return Json(new SuccessJsonResult(data));
         }
 
         [HttpGet("async")]
-        public async Task<ObjectResult> GetAsync()
+        public async Task<JsonResult> GetAsync()
         {
-            Starships starshipsList = await _shipDataService.GetDataAsync();
-            return Ok(starshipsList);
+            Starships data = null;
+
+            try
+            {
+                var starshipsData = await _shipDataService.GetDataAsync();
+                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                data.Results = _shipIndexService.AddIndexToList(data.Results);
+            }
+            catch (BussinessException ex)
+            {
+                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+            }
+
+            return Json(new SuccessJsonResult(data));
         }
 
         [HttpGet("async/all")]
-        public async Task<ObjectResult> GetAsyncAll()
+        public async Task<JsonResult> GetAsyncAll()
         {
-            ShipData shipDataNext = await _shipDataService.GetAllDataAsync();
-            Starships starshipsList = _mapper.Map<ShipData, Starships>(shipDataNext);
-            return Ok(starshipsList);
+            Starships data = null;
+
+            try
+            {
+                var starshipsData = await _shipDataService.GetAllDataAsync();
+                data = _mapper.Map<ShipData, Starships>(starshipsData);
+                data.Results = _shipIndexService.AddIndexToList(data.Results);
+            }
+            catch (BussinessException ex)
+            {
+                return Json(new ErrorJsonResult(ex.UserFriendlyMessage));
+            }
+
+            return Json(new SuccessJsonResult(data));
         }
     }
 }

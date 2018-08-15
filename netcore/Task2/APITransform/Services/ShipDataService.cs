@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APITransform.Exeptions;
 using APITransform.Models;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
@@ -21,83 +22,57 @@ namespace APITransform.Services
             _client = new RestClient(new Uri(_dataSource));
         }
 
-        public List<Starship> AddIndexToList(List<Starship> list, int index = 0)
-        {
-            for (int i = index; i < list.Count(); i++)
-            {
-                list[i].Index = i + 1;
-            }
-
-            return list;
-        }
-
-        public Starships GetData()
+        public ShipData GetData()
         {       
             var request = new RestRequest(Method.GET);
-            Starships starShipsList = new Starships();
+            var starShipsData = new ShipData();
 
-            try
+            starShipsData = _client.Execute<ShipData>(request).Data;
+            if (starShipsData == null)
             {
-                starShipsList = _client.Execute<Starships>(request).Data;
-                if (starShipsList == null)
-                {
-                    throw new ApplicationException("Error: Invalid data source");
-                }
+                throw new BussinessException("Invalid data source");
             }
-            catch { }
-
-            AddIndexToList(starShipsList.Results);
-
-            return starShipsList;
+            
+            return starShipsData;
         }
 
-        public async Task<Starships> GetDataAsync()
+        public async Task<ShipData> GetDataAsync()
+        {
+            return await GetDataAsync("");
+        }
+
+        public async Task<ShipData> GetDataAsync(string requestUrl = null)
         {           
-            var request = new RestRequest(Method.GET);
-            Starships starShipsList = new Starships();
+            var request = new RestRequest(requestUrl, Method.GET);
+            var starShipsData = new ShipData();
 
-            try
+            starShipsData = await _client.GetTaskAsync<ShipData>(request);
+            if (starShipsData == null)
             {
-                starShipsList = await _client.GetTaskAsync<Starships>(request);
-                if (starShipsList == null)
-                {
-                    throw new ApplicationException("Error: Invalid data source");
-                }
-            }
-            catch { }
-
-            AddIndexToList(starShipsList.Results);
-
-            return starShipsList;
+                throw new BussinessException("Invalid data source");
+            }  
+            
+            return starShipsData;
         }
 
         public async Task<ShipData> GetAllDataAsync()
         {
-            var request = new RestRequest(Method.GET);
-            ShipData shipDataNext = new ShipData();
+            var shipDataNext = await GetDataAsync("");
 
-            try
-            {
-                shipDataNext = await _client.GetTaskAsync<ShipData>(request);
-                if (shipDataNext == null)
-                {
-                    throw new ApplicationException("Error: Invalid data source");
-                }
-            }
-            catch { }
-
-            ShipData starshipsList = shipDataNext;
+            var starshipsData = shipDataNext;
 
             while (shipDataNext.Next != null)
             {
-                _client.BaseUrl = new Uri(shipDataNext.Next);
-                shipDataNext = await _client.GetTaskAsync<ShipData>(request);              
-                starshipsList.Results.AddRange(shipDataNext.Results);
+                shipDataNext = await GetDataAsync(GetRestRequest(shipDataNext.Next));         
+                starshipsData.Results.AddRange(shipDataNext.Results);
             }
 
-            AddIndexToList(starshipsList.Results);
+            return starshipsData;
+        }
 
-            return starshipsList;
+        private string GetRestRequest(string url)
+        {
+            return url.Remove(0, _dataSource.Length + 1);
         }
     }
 }

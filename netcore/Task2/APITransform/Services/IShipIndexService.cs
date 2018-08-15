@@ -6,10 +6,8 @@ using APITransform.Models;
 
 namespace APITransform.Services
 {
-    public interface IShipDataService
+    public interface IShipIndexService
     {
-        ShipData GetData();
-        Task<ShipData> GetDataAsync();
-        Task<ShipData> GetAllDataAsync();
+        List<Starship> AddIndexToList(List<Starship> list, int index = 0);
     }
 }

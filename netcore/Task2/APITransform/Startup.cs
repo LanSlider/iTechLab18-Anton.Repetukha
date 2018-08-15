@@ -29,6 +29,7 @@ namespace APITransform
             services.AddAutoMapper();
             services.AddMvc().AddXmlDataContractSerializerFormatters();
             services.AddSingleton<IShipDataService, ShipDataService>();
+            services.AddSingleton<IShipIndexService, ShipIndexService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
