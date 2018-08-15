@@ -8,6 +8,6 @@ namespace APISum.Services
 {
     public interface ISumValuesService
     {
-        ResultModel SumValues(ValueModel valueModel);
+        ResultModel SumValues(int a, int b);
     }
 }

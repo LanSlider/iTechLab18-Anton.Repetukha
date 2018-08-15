@@ -8,13 +8,13 @@ namespace APISum.Services
 {
     public class SumValuesService : ISumValuesService
     {
-        public ResultModel SumValues(ValueModel valueModel)
+        public ResultModel SumValues(int value1, int value2)
         {       
             return new ResultModel
             {
-                A = (int)valueModel.Value1,
-                B = (int)valueModel.Value2,
-                Sum = (int)(valueModel.Value1 + valueModel.Value2)
+                A = value1,
+                B = value2,
+                Sum = value1 + value2
             };
         }
     }

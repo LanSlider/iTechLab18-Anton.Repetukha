@@ -17,15 +17,16 @@ namespace APISum.Controllers
         {
             _sumValuesService = sumValuesService;
         }
+
         [HttpGet]
-        public IActionResult Sum(ValueModel model)
+        public IActionResult Sum(ValueViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return Ok(_sumValuesService.SumValues(model));        
+            return Ok(_sumValuesService.SumValues(model.Value1.Value, model.Value2.Value));        
         }
     }
 }

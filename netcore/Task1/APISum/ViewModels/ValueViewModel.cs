@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APISum.Models
 {
-    public class ValueModel
+    public class ValueViewModel
     {
         [Required(ErrorMessage = "The parameter must be defined")]
         [Range(1, Int32.MaxValue, ErrorMessage = "Value must be positive")]
