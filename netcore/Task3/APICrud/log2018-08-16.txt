@@ -1,0 +1,316 @@
+2018-08-16 12:24:08,757 [9] ERROR App  
+ APICrud.Exceptions.BussinessException: Exception of type 'APICrud.Exceptions.BussinessException' was thrown.
+   at APICrud.Controllers.CRUDController.<Get>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Controllers\CRUDController.cs:line 42
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextExceptionFilterAsync>d__23.MoveNext()  
+ 
+2018-08-16 13:01:55,614 [8] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 13:06:22,509 [11] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 13:07:53,320 [8] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:08:51,141 [9] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:10:21,792 [10] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:14:21,421 [10] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:14:30,218 [9] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 13:14:30,229 [9] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 13:20:17,294 [11] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:20:28,390 [8] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 13:20:28,393 [8] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 13:38:40,836 [10] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:38:40,832 [8] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:38:40,874 [10] ERROR App  
+ No suitable constructor found for entity type 'FilmContext'. The following parameters could not be bound to properties of the entity: 'options'. 
+ 
+2018-08-16 13:38:40,879 [8] ERROR App  
+ No suitable constructor found for entity type 'FilmContext'. The following parameters could not be bound to properties of the entity: 'options'. 
+ 
+2018-08-16 13:41:05,595 [8] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:41:05,614 [8] ERROR App  
+ No suitable constructor found for entity type 'FilmContext'. The following parameters could not be bound to properties of the entity: 'options'. 
+ 
+2018-08-16 13:46:43,480 [9] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:51:07,670 [11] INFO  App  
+ RequestType: GET
+ ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:59:47,501 [8] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 13:59:56,778 [8] INFO  App  
+ RequestType: POST ActionName: APICrud.Controllers.CRUDController.Post (APICrud) 
+ 
+2018-08-16 14:00:14,243 [8] INFO  App  
+ RequestType: POST ActionName: APICrud.Controllers.CRUDController.Post (APICrud) 
+ 
+2018-08-16 14:00:14,249 [8] ERROR App  
+ An error occurred while updating the entries. See the inner exception for details. 
+ 
+2018-08-16 14:08:58,889 [8] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 14:08:58,911 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 14:08:58,921 [8] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 14:09:32,158 [8] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 14:09:33,442 [8] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 14:09:33,444 [8] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 14:09:45,425 [11] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 14:09:45,433 [11] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 14:10:46,927 [16] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 14:10:46,949 [10] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 14:10:46,955 [16] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 14:13:51,027 [11] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 14:13:51,045 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 14:13:51,058 [11] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+2018-08-16 14:14:25,814 [10] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 14:14:26,762 [11] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 15:21:13,854 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 15:21:26,169 [11] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 15:21:45,773 [11] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+APICrud.Exceptions.BussinessException: Exception of type 'APICrud.Exceptions.BussinessException' was thrown.
+   at APICrud.Services.DataService.<GetFilmById>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Services\DataService.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at APICrud.Controllers.CRUDController.<Get>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Controllers\CRUDController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at APICrud.Middlewares.ErrorHandlingMiddleware.<InvokeAsync>d__3.MoveNext() in D:\core\netcore\Task3\APICrud\Middlewares\ErrorHandlingMiddleware.cs:line 30
+2018-08-16 15:23:28,856 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 15:23:31,815 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 15:23:31,968 [9] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+APICrud.Exceptions.BussinessException: Exception of type 'APICrud.Exceptions.BussinessException' was thrown.
+   at APICrud.Services.DataService.<GetFilmById>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Services\DataService.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at APICrud.Controllers.CRUDController.<Get>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Controllers\CRUDController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at APICrud.Middlewares.ErrorHandlingMiddleware.<InvokeAsync>d__3.MoveNext() in D:\core\netcore\Task3\APICrud\Middlewares\ErrorHandlingMiddleware.cs:line 30
+2018-08-16 15:24:17,710 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 15:24:18,812 [11] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 15:24:18,947 [11] ERROR App  
+ Exception of type 'APICrud.Exceptions.BussinessException' was thrown. 
+ 
+APICrud.Exceptions.BussinessException: Exception of type 'APICrud.Exceptions.BussinessException' was thrown.
+   at APICrud.Services.DataService.<GetFilmById>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Services\DataService.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at APICrud.Controllers.CRUDController.<Get>d__4.MoveNext() in D:\core\netcore\Task3\APICrud\Controllers\CRUDController.cs:line 36
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at APICrud.Middlewares.ErrorHandlingMiddleware.<InvokeAsync>d__3.MoveNext() in D:\core\netcore\Task3\APICrud\Middlewares\ErrorHandlingMiddleware.cs:line 30
+2018-08-16 15:27:21,588 [9] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.Get (APICrud) 
+ 
+2018-08-16 15:27:21,588 [10] INFO  App  
+ RequestType: GET ActionName: APICrud.Controllers.CRUDController.GetAll (APICrud) 
+ 
+2018-08-16 15:27:38,888 [9] ERROR App  
+ Film of this ID isn't exist 
+ 

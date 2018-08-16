@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APICrud.Contexts;
+using APICrud.Filters;
+using APICrud.Middlewares;
 using APICrud.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -27,23 +29,28 @@ namespace APICrud
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper();
-
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<FilmContext>(options => options.UseSqlServer(connection));
 
-            services.AddTransient<IDataService, DataService>();
+            services.AddScoped<LogActionFilter>();
+            services.AddScoped<IDataService, DataService>();
+            services.AddSingleton<ILoggerService, LoggerService>();
+            services.AddScoped<FilmInitializer>();
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, FilmInitializer filmSeeder)
         {
+            //loggerFactory.AddDebug();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            filmSeeder.Seed().Wait();
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseMvc();
         }
     }

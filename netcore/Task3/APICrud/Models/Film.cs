@@ -4,8 +4,8 @@ namespace APICrud.Models
 {
     public class Film
     {
-        [Required(ErrorMessage = "The parameter must be defined")]
         [Key]
+        [Required(ErrorMessage = "The parameter must be defined")]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "The parameter must be defined")]
