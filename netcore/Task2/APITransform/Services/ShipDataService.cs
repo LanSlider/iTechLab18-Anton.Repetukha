@@ -52,7 +52,7 @@ namespace APITransform.Services
             while (shipDataNext.Next != null)
             {
                 requestUri = new Uri(shipDataNext.Next);
-                shipDataNext = await GetDataAsync(GetPageRequest(requestUri));         
+                shipDataNext = await GetDataAsync(GetPageRequest(requestUri.ToString()));         
                 starshipsData.Results.AddRange(shipDataNext.Results);
             }
 
@@ -73,9 +73,10 @@ namespace APITransform.Services
             return starShipsData;
         }
 
-        private string GetPageRequest(Uri url)
+        private string GetPageRequest(string url)
         {
-            return HttpUtility.ParseQueryString(url.Query).Get("page");
+            var pageRequest = new Uri(url);
+            return HttpUtility.ParseQueryString(pageRequest.Query).Get("page");
         }
     }
 }
