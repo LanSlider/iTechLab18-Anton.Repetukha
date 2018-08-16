@@ -47,12 +47,10 @@ namespace APITransform.Services
             var shipDataNext = await GetDataAsync("1");
 
             var starshipsData = shipDataNext;
-            Uri requestUri = null;
 
             while (shipDataNext.Next != null)
             {
-                requestUri = new Uri(shipDataNext.Next);
-                shipDataNext = await GetDataAsync(GetPageRequest(requestUri.ToString()));         
+                shipDataNext = await GetDataAsync(GetPageRequest(shipDataNext.Next));         
                 starshipsData.Results.AddRange(shipDataNext.Results);
             }
 
