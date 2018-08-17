@@ -33,7 +33,7 @@ namespace APICrud
             services.AddDbContext<FilmContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<LogActionFilter>();
-            services.AddScoped<IDataService, DataService>();
+            services.AddScoped<IFilmService, FilmService>();
             services.AddSingleton<ILoggerService, LoggerService>();
             services.AddScoped<FilmInitializer>();
             services.AddMvc();
@@ -42,8 +42,6 @@ namespace APICrud
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, FilmInitializer filmSeeder)
         {
-            //loggerFactory.AddDebug();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
