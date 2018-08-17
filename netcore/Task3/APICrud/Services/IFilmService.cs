@@ -8,10 +8,10 @@ namespace APICrud.Services
 {
     public interface IFilmService
     {
-        Task<List<Film>> GetAll();
-        Task<Film> GetById(int id);
-        Task Create(Film film);
-        Task Delete(int id);
-        Task Update(Film film);
+        Task<List<Film>> GetAllAsync();
+        Task<Film> GetByIdAsync(int id);
+        Task CreateAsync(Film film);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(Film film);
     }
 }

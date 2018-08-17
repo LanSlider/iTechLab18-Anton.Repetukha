@@ -19,13 +19,13 @@ namespace APICrud.Services
             _db = context;
         }
 
-        public async Task Create(Film film)
+        public async Task CreateAsync(Film film)
         {
             _db.Films.Add(film);
             await _db.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task DeleteAsync(int id)
         {
             if (id < 0)
             {
@@ -40,7 +40,7 @@ namespace APICrud.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task<Film> GetById(int id)
+        public async Task<Film> GetByIdAsync(int id)
         {
             if(id < 0)
             {
@@ -49,12 +49,12 @@ namespace APICrud.Services
             return await GetFirstOrDefaultFilmAsync(id);
         }
 
-        public async Task<List<Film>> GetAll()
+        public async Task<List<Film>> GetAllAsync()
         {
             return await _db.Films.ToListAsync();
         }
 
-        public async Task Update(Film film)
+        public async Task UpdateAsync(Film film)
         {
             _db.Films.Update(film);
             await _db.SaveChangesAsync();

@@ -27,33 +27,33 @@ namespace APICrud.Controllers
         [HttpGet]
         public async Task<JsonResult> GetAll()
         {
-            var filmList = await _filmService.GetAll();
+            var filmList = await _filmService.GetAllAsync();
             return Json(new SuccessJsonResult<List<Film>>(filmList));
         }
 
         [HttpGet("{id}")]
         public async Task<JsonResult> Get(int id)
         {
-            var film = await _filmService.GetById(id);
+            var film = await _filmService.GetByIdAsync(id);
             return Json(new SuccessJsonResult<Film>(film));
         }
 
         [HttpPost]
         public async Task Post([FromBody] Film film)
         {
-             await _filmService.Create(film);           
+             await _filmService.CreateAsync(film);           
         }
 
         [HttpPut]
         public async Task Put([FromBody] Film film)
         {
-             await _filmService.Update(film);
+             await _filmService.UpdateAsync(film);
         }
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
-            await _filmService.Delete(id);
+            await _filmService.DeleteAsync(id);
         }
     }
 }
