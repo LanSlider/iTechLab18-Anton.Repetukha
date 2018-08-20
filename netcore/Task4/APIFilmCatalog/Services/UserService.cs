@@ -28,7 +28,7 @@ namespace APIFilmCatalog.Services
 
         public async Task<Boolean> IsAlreadyExistAsync(string email)
         {
-            var result = await _db.Users.FindAsync(email);
+            var result = await GetFirstOrDefaultUserAsync(email);
             if (result == null)
             {
                 return false;
@@ -38,7 +38,7 @@ namespace APIFilmCatalog.Services
 
         public async Task<Boolean> IsAlreadyExistAsync(string email, string password)
         {
-            var result = await _db.Users.FindAsync(email, password);
+            var result = await GetFirstOrDefaultUserAsync(email, password);
             if (result == null)
             {
                 return false;
@@ -54,7 +54,16 @@ namespace APIFilmCatalog.Services
 
         public async Task<User> GetByEmailAsync(string email)
         {
-            return await _db.FindAsync<User>(email);
+            return await GetFirstOrDefaultUserAsync(email);
+        }
+
+        private async Task<User> GetFirstOrDefaultUserAsync(string email, string password = null)
+        {
+            if(password == null)
+            {
+                return await _db.Users.FirstOrDefaultAsync(x => x.Email == email);
+            }
+            return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
         }
     }
 }

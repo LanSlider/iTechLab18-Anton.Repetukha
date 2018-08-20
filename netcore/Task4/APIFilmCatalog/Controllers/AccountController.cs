@@ -24,7 +24,7 @@ namespace APIFilmCatalog.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task Register([FromBody] User user)
         {
             var isAlreadyExist = await _userService.IsAlreadyExistAsync(user.Email);
@@ -41,37 +41,22 @@ namespace APIFilmCatalog.Controllers
             return Json(new SuccessJsonResult<List<User>>(users));
         }
 
-        [HttpGet]
-        public async Task<JsonResult> Login([FromBody] User user)
+        [HttpPost("login")]
+        public async Task<ObjectResult> Login([FromBody] User user)
         {
-            var isAlreadyExist = await _userService.IsAlreadyExistAsync(user.Email);
+            var isAlreadyExist = await _userService.IsAlreadyExistAsync(user.Email, user.Password);
             if (isAlreadyExist)
             {
-                var token = await GetToken(user.Email, user.Password);
-                return Json(new SuccessJsonResult<Object>(token));
+                var token = await GetToken(user.Email);
+                return Ok(new SuccessJsonResult<Object>(token));
             }
-            return null;
+
+            return StatusCode(401, new ErrorJsonResult<Object>("User with this email and password isn't exist"));
         }
 
-        private async Task<Object> GetToken(string userEmail, string userPassword)
+        private async Task<Object> GetToken(string userEmail)
         {
-            var email = userEmail;
-            var password = userPassword;
-
-            var identity = await GetIdentity(email, password);
-
-            // LogicalGuard.EnsureValuesIsNotNull(identity, nameof(identity));
-            // EnsureValuesIsNotNull
-            // {
-            // if (value == null)
-            // {
-            //     throw new BussinessException("User with this email and password isn't exist");
-            // }
-
-            if (identity == null)
-            {
-                throw new BussinessException("User with this email and password isn't exist");
-            }
+            var identity = await GetIdentity(userEmail);          
 
             var now = DateTime.UtcNow;
             // создаем JWT-токен
@@ -95,22 +80,17 @@ namespace APIFilmCatalog.Controllers
         private async Task<ClaimsIdentity> GetIdentity(string email)
         {
             User user = await _userService.GetByEmailAsync(email);
-
-            if (user == null)
-            {
-                throw new BussinessException("User with this email and password isn't exist");
-            }
-
+            
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Name),
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Id.ToString()),
                 new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role)
             };
+
             ClaimsIdentity claimsIdentity =
             new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
                 ClaimsIdentity.DefaultRoleClaimType);
             return claimsIdentity;
-
         }
     }
 }

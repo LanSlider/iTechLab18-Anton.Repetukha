@@ -24,10 +24,10 @@ namespace APIFilmCatalog.Contexts
             }
         }
 
-        List<User> users = new List<User>
+         List<User> users = new List<User>
         {
-            new User { Id = 1, Name = "Administrator", Email = "admin.filmcatalog@gmail.com", Password = "admin", Role = "Admin"},
-            new User { Id = 2, Name = "Moderator", Email = "moder.filmcatalog@gmail.com", Password = "moder", Role = "Moder"}
+            new User { Name = "Administrator", Email = "admin@gmail.com", Password = "admin", Role = "admin"},
+            new User { Name = "Moderator", Email = "moder@gmail.com", Password = "moder", Role = "moder"}
         };
     }
 }

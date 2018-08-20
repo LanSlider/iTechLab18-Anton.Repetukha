@@ -20,9 +20,13 @@ namespace APIFilmCatalog.Models
         [Required(ErrorMessage = "The parameter must be defined")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "The parameter must be defined")]
         public string Role { get; set; }
 
         //public string PictureUrl { get; set; }
+
+        public User()
+        {
+            Role = "user";
+        }
     }
 }
