@@ -1,0 +1,37 @@
+{
+  "name": "filmcatalog",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^2.0.3",
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
+    "prop-types": "^15.6.2",
+    "react-grid-gallery": "^0.5.1",
+    "react-hot-loader": "^4.3.5",
+    "react-rater": "^5.0.3",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-star-rating": "^1.4.2",
+    "react-toastr": "^3.0.0",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-saga": "^0.16.0",
+    "toastr": "^2.1.4",
+    "typeface-roboto": "0.0.54"
+  }
+}

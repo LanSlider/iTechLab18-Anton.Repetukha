@@ -1,0 +1,1 @@
+export const categoryItems = ["Action", "Crime", "Fantasy", "Drama", "Adventure"];
