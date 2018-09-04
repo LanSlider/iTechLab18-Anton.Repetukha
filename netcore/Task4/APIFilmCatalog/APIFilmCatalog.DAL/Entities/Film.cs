@@ -5,10 +5,8 @@ using System.Text;
 
 namespace APIFilmCatalog.DAL.Entities
 {
-    public class Film
+    public class Film : BaseEntity
     {
-        [Required]
-        public int Id { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]

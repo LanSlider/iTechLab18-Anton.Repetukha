@@ -23,6 +23,7 @@ class FilmDetails extends React.PureComponent  {
         return <FilmDetailsView 
             isLoading = {this.props.isLoading}
             filmDetails = {this.props.filmDetails}
+            
         />
     }
 }

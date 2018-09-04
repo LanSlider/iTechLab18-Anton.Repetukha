@@ -2,19 +2,17 @@
 
 namespace APIFilmCatalog.DAL.Entities
 {
-    public class Comment
+    public class Comment : BaseEntity
     {
-        [Required]
-        public int Id { get; set; }
         [Required]
         public string Text { get; set; }
         [Required]
-        public string DataTime { get; set; }
-
+        public string DateTime { get; set; }
+ 
         [Required]
         public int FilmId { get; set; }
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
     }
 }

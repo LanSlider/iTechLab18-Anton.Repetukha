@@ -1,61 +1,50 @@
 const styles = theme => ({
   middleWrapper: {
-    maxWidth: 1024,
-    margin: "auto"
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: 15,
+    paddingTop: 0,
   },
-  cardContainer: {
-    padding: 5
+  componentContainer: {
+    padding: 10,
+    maxWidth: 1000,
+    background: "#37383b"
   },
-  filmContainer: {
-    marginTop: 64
+  coverImage: {
+    minWidth: 200,
+    height: 290,
+    alignSelf: "flex-start",
+    border: "4px solid #EB1D24",
   },
-  error: {
-    marginTop: 64,
-    padding: 20
+  description: {
+    marginBottom: 10,
+  },
+  trailerVideo: {
+		padding: 2,
+		display: 'flex',
+		justifyContent: 'center',
+	},
+  titleLine: {
+    display: "block",
+    width: "150px",
+    height: "4px",
+    background: "#EB1D24",
+    marginTop: "15px",
+    marginBottom: "20px",
+  },
+  detailsTitle: {
+    color: "#666666",
+    fontSize: 15,
+    marginTop: 30 
   },
   card: {
     display: "flex",
     alignSelf: "center",
     flexDirection: "row",
-
     flex: "0 1 auto",
-    width: "100%"
+    width: "100%",
   },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between"
-  },
-  cover: {
-    minWidth: 144,
-    height: 256,
-    alignSelf: "flex-start"
-  },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    margin: theme.spacing.unit
-  },
-  button: {
-    marginLeft: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
-    alignSelf: "flex-end"
-  },
-  root: {
-    height: 199,
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    overflow: "hidden",
-    backgroundColor: theme.palette.background.paper
-  },
-  gridList: {
-    flexWrap: "nowrap",
-    transform: "translateZ(0)"
-  },
-  title: {
-    color: theme.palette.primary.light
-  }
 });
 
 export default styles;

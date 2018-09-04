@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FilmCatalog.ViewModels
+﻿namespace APIFilmCatalog.WEB.ViewModels
 {
     public class ErrorJsonResult<T> : BaseJsonResult<T>
     {

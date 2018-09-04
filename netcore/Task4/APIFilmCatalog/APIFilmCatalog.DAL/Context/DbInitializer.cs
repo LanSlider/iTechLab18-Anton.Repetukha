@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using APIFilmCatalog.DAL.Entities;
-using APIFilmCatalog.DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -120,7 +119,7 @@ namespace APIFilmCatalog.DAL.Context
                 Director = "Robert Zemeckis",
                 ImageUrl = "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
                 VideoUrl = "https://www.youtube.com/embed/lB95KLmpLR4",
-                Category = "Steven Spielberg",
+                Category = "Drama",
                 Description = "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazi Germans.",
                 Images = new Collection<Image>()
                 {

@@ -8,7 +8,7 @@ import { FILMDETAILS_LOADED } from '../constants/actionTypes';
    const filmDetailsReducer = (state = initialState, action) => {
     switch (action.type) {
       case FILMDETAILS_LOADED: {
-          return {...state, isLoading: false, data: action.filmData};
+          return {...state, isLoading: false, data: action.payload};
       }
 
       default:

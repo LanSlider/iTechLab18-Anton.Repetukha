@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using APIFilmCatalog.BLL.Interfaces;
+using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.WEB.Models;
+using APIFilmCatalog.WEB.ViewModels;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIFilmCatalog.WEB.Controllers
@@ -14,21 +13,35 @@ namespace APIFilmCatalog.WEB.Controllers
     [Route("api/Comments")]
     public class CommentsController : Controller
     {
-        private readonly ICommentService _commentService;
+        private readonly ICommentService _service;
         private readonly IMapper _mapper;
 
-        public CommentsController(ICommentService commentService, IMapper mapper)
+        public CommentsController(ICommentService service, IMapper mapper)
         {
-            _commentService = commentService;
+            _service = service;
             _mapper = mapper;
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<ObjectResult<ICollection<CommentViewModel>>> GetComments(int id)
-        //{
-        //    IList<CommentModel> comments = await _commentService.GetCommentsByFilmIdAsync(id);
-        //    return Ok(_mapper.Map<IList<CommentModel>, IList<CommentViewModel>>(comments));
-        //}
+        [HttpGet("all/{id}")]
+        public async Task<JsonResult> All(int filmId)
+        {
+            var comments = await _service.GetCommentsByIdFilmAsync(filmId);
+            if (comments == null)
+            {
+                return Json(new ErrorJsonResult<Object>("Comments exception"));
+            }
+
+            return Json(new SuccessJsonResult<ICollection<CommentModelView>>(_mapper.Map<ICollection<CommentModel>, ICollection<CommentModelView>>(comments)));
+        }
+
+        [HttpPost]
+        public async Task AddComment([FromBody]CommentModelView model)
+        {
+            if(ModelState.IsValid)
+            {
+                await _service.AddCommentAsync(_mapper.Map<CommentModelView, CommentModel>(model));
+            }
+        }
 
         //[Authorize]
         //[HttpPost]

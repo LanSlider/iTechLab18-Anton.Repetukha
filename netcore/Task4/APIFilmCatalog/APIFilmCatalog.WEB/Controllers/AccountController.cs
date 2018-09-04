@@ -4,11 +4,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using APIFilmCatalog.BLL.Interfaces;
-using APIFilmCatalog.WEB.Models;
 using APIFilmCatalog.BLL.Models;
+using APIFilmCatalog.WEB.Models;
+using APIFilmCatalog.WEB.ViewModels;
 using AutoMapper;
-using FilmCatalog;
-using FilmCatalog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -45,9 +44,9 @@ namespace APIFilmCatalog.WEB.Controllers
             return StatusCode(401, new ErrorJsonResult<Object>("User with this email and password isn't exist"));
         }
 
-        private async Task<Object> GetToken(string userEmail)
+        private async Task<Object> GetToken(string userName)
         {
-            var identity = await GetIdentity(userEmail);
+            var identity = await GetIdentity(userName);
 
             var now = DateTime.UtcNow;
             // создаем JWT-токен

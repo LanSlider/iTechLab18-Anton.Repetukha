@@ -1,11 +1,11 @@
-﻿using APIFilmCatalog.BLL.Exceprions;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using APIFilmCatalog.BLL.Exceprions;
 using APIFilmCatalog.BLL.Interfaces;
 using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.DAL.Entities;
 using APIFilmCatalog.DAL.Interfaces;
 using AutoMapper;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace APIFilmCatalog.BLL.Services
 {

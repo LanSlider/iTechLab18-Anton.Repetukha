@@ -5,10 +5,8 @@ using System.Text;
 
 namespace APIFilmCatalog.DAL.Entities
 {
-    public class Rating
+    public class Rating : BaseEntity
     {
-        [Required]
-        public int Id { get; set; }
         [Required]
         public int Mark { get; set; }
 

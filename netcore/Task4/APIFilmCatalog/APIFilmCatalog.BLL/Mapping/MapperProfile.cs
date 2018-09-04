@@ -1,8 +1,7 @@
 ﻿using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.DAL.Entities;
-using System.Collections.Generic;
 
-namespace APIFilmCatalog.BLL.Profile
+namespace APIFilmCatalog.BLL.Mapping
 {
     public class MapperProfile : AutoMapper.Profile
     {
@@ -25,8 +24,8 @@ namespace APIFilmCatalog.BLL.Profile
             CreateMap<ImageModel, Image>();
             CreateMap<Image, ImageModel>();
 
-            CreateMap<User, User>();
-            CreateMap<User, User>();
+            CreateMap<User, UserModel>();
+            CreateMap<UserModel, User>();
             CreateMap<AuthModel, User>();
             CreateMap<RegisterModel, User>();
 

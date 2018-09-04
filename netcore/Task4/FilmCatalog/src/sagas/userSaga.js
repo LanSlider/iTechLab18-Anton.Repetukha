@@ -3,8 +3,8 @@ import * as actionType from '../constants/actionTypes';
 import * as authService from '../services/authService';
 
 export function* logInAsync(action) {
-    const userData = yield call(authService.logInUser, action.userData);
-    yield put({ type: actionType.USER_AUTHORIZED, userData});
+    const userData = yield call(authService.logInUser, action.payload);
+    yield put({ type: actionType.USER_AUTHORIZED, payload: userData});
 }
 
 export function* logOutAsync() {
@@ -13,5 +13,5 @@ export function* logOutAsync() {
 }
 
 export function* registerAsync(action) {
-    yield call(authService.registerUser, action.userData);
+    yield call(authService.registerUser, action.payload);
 }

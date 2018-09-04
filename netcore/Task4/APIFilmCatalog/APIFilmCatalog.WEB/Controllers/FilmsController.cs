@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using APIFilmCatalog.BLL.Interfaces;
 using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.WEB.Models;
+using APIFilmCatalog.WEB.ViewModels;
 using AutoMapper;
-using FilmCatalog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIFilmCatalog.WEB.Controllers

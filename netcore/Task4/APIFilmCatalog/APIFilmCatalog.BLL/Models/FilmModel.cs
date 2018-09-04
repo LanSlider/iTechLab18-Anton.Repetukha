@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace APIFilmCatalog.BLL.Models
+﻿namespace APIFilmCatalog.BLL.Models
 {
-    public class FilmModel
+    public class FilmModel : BaseModel
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
         public string Category { get; set; }

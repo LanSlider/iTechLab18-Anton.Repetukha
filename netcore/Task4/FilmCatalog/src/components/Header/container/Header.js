@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 class Header extends React.PureComponent  {
     constructor(props) {
         super(props);
-        this.state = {isClickForOpen: false, isAddCategoryMenu: this.props.isAddCategoryMenu};
+        this.state = {isClickForOpen: true };
     }
 
     handleMenuOpen = () => {
@@ -24,7 +24,7 @@ class Header extends React.PureComponent  {
             isAuth = {this.props.isAuth}
             userName = {this.props.name}
             isLoading = {this.props.isLoading}
-            isAddCategoryMenu = {this.state.isAddCategoryMenu}
+            isAddCategoryMenu = {this.props.isAddCategoryMenu}
         />)
     }
 }

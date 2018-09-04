@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace APIFilmCatalog.DAL.Interfaces
@@ -12,6 +9,7 @@ namespace APIFilmCatalog.DAL.Interfaces
         void Del(int id);
         void Update(T item);
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(string id);
         Task<ICollection<T>> GetAllAsync();
         Task<T> GetByStringIdAsync(string id);
     }

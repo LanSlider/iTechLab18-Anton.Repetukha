@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace APIFilmCatalog.WEB.Models
+﻿namespace APIFilmCatalog.WEB.Models
 {
     public class FilmModelView
     {

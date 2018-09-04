@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using APIFilmCatalog.DAL.Context;
 using APIFilmCatalog.DAL.Interfaces;
@@ -9,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIFilmCatalog.DAL.Repositories
 {
-    public class Repository<T> : IRepository<T> where T: class
+    public abstract class Repository<T> : IRepository<T> where T: class
     {
         private readonly AppDbContext _context;
 
@@ -39,6 +36,11 @@ namespace APIFilmCatalog.DAL.Repositories
         }
 
         public async Task<T> GetByIdAsync(int id)
+        {
+            return await _context.FindAsync<T>(id);
+        }
+
+        public async Task<T> GetByIdAsync(string id)
         {
             return await _context.FindAsync<T>(id);
         }

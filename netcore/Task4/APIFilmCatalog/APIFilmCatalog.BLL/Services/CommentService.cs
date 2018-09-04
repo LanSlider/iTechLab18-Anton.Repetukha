@@ -21,9 +21,12 @@ namespace APIFilmCatalog.BLL.Services
             _mapper = mapper;
         }
 
-        public async Task AddCommentAsync(CommentModel comment)
+        public async Task AddCommentAsync(CommentModel model)
         {
-            _unitOfWork.Comments.Add(_mapper.Map<CommentModel, Comment>(comment));
+            var comment = _mapper.Map<CommentModel, Comment>(model);
+            comment.User = await _unitOfWork.Users.GetByIdAsync(comment.UserId);
+
+            _unitOfWork.Comments.Add(comment);
             await _unitOfWork.SaveAsync();
         }
 

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using APIFilmCatalog.BLL.Models;
+﻿using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.WEB.Models;
 
-namespace APIFilmCatalog.WEB.Profile
+namespace APIFilmCatalog.WEB.Mapping
 {
     public class MapperProfile : AutoMapper.Profile
     {
@@ -19,6 +15,9 @@ namespace APIFilmCatalog.WEB.Profile
 
             CreateMap<FilmModel, FilmModelView>();
             CreateMap<FilmModelView, FilmModel>();
+
+            CreateMap<CommentModel, CommentModelView>();
+            CreateMap<CommentModelView, CommentModel>();
         }
     }
 }

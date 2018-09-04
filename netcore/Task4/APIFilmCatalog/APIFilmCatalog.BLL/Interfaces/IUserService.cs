@@ -1,6 +1,6 @@
-﻿using APIFilmCatalog.BLL.Models;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using APIFilmCatalog.BLL.Models;
 
 namespace APIFilmCatalog.BLL.Interfaces
 {

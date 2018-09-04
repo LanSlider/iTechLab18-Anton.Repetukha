@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using FilmCatalog.Exceptions;
-using FilmCatalog.ViewModels;
+using APIFilmCatalog.WEB.Exceptions;
+using APIFilmCatalog.WEB.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 

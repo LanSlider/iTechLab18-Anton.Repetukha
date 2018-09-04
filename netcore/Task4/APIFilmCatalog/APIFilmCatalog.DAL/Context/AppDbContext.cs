@@ -7,7 +7,7 @@ namespace APIFilmCatalog.DAL.Context
     public class AppDbContext : IdentityDbContext<User>
     {
         public DbSet<Film> Films { get; set; }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Image> Images { get; set; }

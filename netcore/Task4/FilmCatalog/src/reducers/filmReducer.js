@@ -9,7 +9,7 @@ import { FILMS_LOADED, FILMS_LOADING } from '../constants/actionTypes';
     switch (action.type) {
       case FILMS_LOADED: {
           debugger;
-          return {...state, isLoading: false, films: action.films };
+          return {...state, isLoading: false, films: action.payload };
       }
 
       default:

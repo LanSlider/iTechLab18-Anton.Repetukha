@@ -22,33 +22,34 @@ const HeaderView = (props) => {
           <Toolbar className={classes.toolBar}>
           <div>
             <Button variant="outlined" color="inherit" href="/">Film<span className={classes.logo}>Catalog</span></Button>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon onClick={props.handleMenuOpen}/>
-            </IconButton>           
+            {props.isAddCategoryMenu &&
+              <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                <MenuIcon onClick={props.handleMenuOpen}/>
+              </IconButton> 
+             }           
           </div>
-          {props.isLoading && 
+          {props.isLoading? (
             <Loading styleName={"whiteLogin"} />
-          }
-          {!props.isLoading && 
-          <div>
-          {!props.isAuth &&
-          <div>
-            <LogInDialog />
-            <AccountMenu/>
-          </div>
-          }
-          {props.isAuth &&
+            ) : (         
             <div>
-              <Button color="inherit">Привет, {props.userName}</Button>
-              <AccountMenu isUserAuth={true}/>
+              {!props.isAuth &&
+              <div>
+                <LogInDialog />
+                <AccountMenu/>
+              </div>
+              }
+              {props.isAuth &&
+                <div>
+                  <Button color="inherit">Привет, {props.userName}</Button>
+                  <AccountMenu isUserAuth={true}/>
+                </div>
+              }
             </div>
-          }
-          </div>
-          }          
+            )}          
           </Toolbar>
         </AppBar>
         </div>
-        {(props.isClickForOpen || props.isAddCategoryMenu) && <div className={classes.header}><Menu /></div>}
+        {(props.isClickForOpen && props.isAddCategoryMenu) && <div className={classes.header}><Menu /></div>}
         </React.Fragment>
       );
 }

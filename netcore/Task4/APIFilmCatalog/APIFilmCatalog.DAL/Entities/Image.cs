@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace APIFilmCatalog.DAL.Entities
 {
-    public class Image
+    public class Image : BaseEntity
     {
-        [Required]
-        public int Id { get; set; }
         [Required]
         public string Url { get; set; }
         public Film Film { get; set; }
