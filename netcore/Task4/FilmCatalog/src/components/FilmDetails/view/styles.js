@@ -11,6 +11,12 @@ const styles = theme => ({
     maxWidth: 1000,
     background: "#37383b"
   },
+  infoContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap"
+  },
   coverImage: {
     minWidth: 200,
     height: 290,

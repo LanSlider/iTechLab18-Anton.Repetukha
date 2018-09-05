@@ -2,30 +2,29 @@ import { baseUrl } from '../constants/baseUrl';
 import toastr from 'toastr';
 import * as httpRequest from '../helpers/httpRequestHelper';
 
-export function getAllComments(filmId) {
-    return httpRequest.get(`${baseUrl}/api/comments/all/${filmId}`)    
+export function getFilmRating(filmId) {
+    return httpRequest.get(`${baseUrl}/api/ratings/film/${filmId}`)    
          .then(function(res) {
             if (res.data.data) {
                 debugger;
-                const comments = res.data.data;
-                return comments;
+                const rating = res.data.data;
+                return rating;
             }
             else if(res.data.error) {
                 window.location.replace("/");
                 toastr.clear();
                 toastr.error(res.data.error);
             }
-            toastr.error("Failed comments loading:" + res.data.errorMessage);
+            toastr.error("Failed rating loading:" + res.data.errorMessage);
         })
         .catch(function(e) {    
             toastr.clear();
-            toastr.error("Failed comments loading:" + e.message);
+            toastr.error("Failed rating loading:" + e.message);
         })  
 }
 
-export function addComment(commentData) {
-    debugger;
-    return httpRequest.post(`${baseUrl}/api/comments`, commentData)
+export function addRating(ratingData) {
+    return httpRequest.post(`${baseUrl}/api/ratings`, ratingData)
         .then(function(res) {
            if(res.data.error) {
             debugger;
@@ -37,6 +36,6 @@ export function addComment(commentData) {
         .catch(function(e) {
             
             toastr.clear();
-            toastr.error("Failed comment loading:" + e.message);
+            toastr.error("Failed rating loading:" + e.message);
         })  
 }

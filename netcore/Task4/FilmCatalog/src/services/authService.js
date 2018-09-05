@@ -38,7 +38,7 @@ export function getInfoFromToken() {
     const token = sessionStorage.getItem('jwt_token');
     if(token) {
         const infoFromToken = jwt_decode(token);
-        return { isAuth: true, name: infoFromToken.name, isLoading: false };
+        return { isAuth: true, name: infoFromToken.name, userId: infoFromToken.id, isLoading: false };
     }
     return { isAuth: false }
 }

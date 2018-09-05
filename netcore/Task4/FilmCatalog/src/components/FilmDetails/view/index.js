@@ -1,5 +1,6 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
+import styles from "./styles";
 import 'typeface-roboto';
 
 import { withStyles } from "@material-ui/core/styles";
@@ -8,16 +9,15 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-import styles from "./styles";
-
-import Loading from "../../Loading/view/index";
+import Loading from '../../Loading/view/index';
+import Rating from '../../Rating/container/Rating';
 import FilmGallery from '../../FilmGallery/container/FilmGallery';
 import CommentBlock from '../../CommentBlock/container/CommentBlock';
 
 const FilmDetailsView = (props) => {
   debugger;
     const { classes } = props;
-    const { isLoading, filmDetails } = props;
+    const { isLoading, filmDetails, isAuth } = props;
     return ( 
       <React.Fragment>
       {isLoading ? (
@@ -36,12 +36,20 @@ const FilmDetailsView = (props) => {
                   <Typography variant="headline">{filmDetails.title}</Typography>
                   <Typography variant="subheading" color="textSecondary">({filmDetails.year})</Typography>
                   <Typography variant="headline" className={classes.titleLine}></Typography>
-
                   <Typography variant="body1" className={classes.description}>{filmDetails.description}</Typography>
-                  <Typography variant="body1"><span className={classes.detailsTitle}>Rating:</span> {filmDetails.rating}</Typography>
-                  <Typography variant="body1"><span className={classes.detailsTitle}>Director:</span> {filmDetails.director}</Typography>
-                  <Typography variant="body1"><span className={classes.detailsTitle}>Country:</span> {filmDetails.country}</Typography>
-                  <Typography variant="body1"><span className={classes.detailsTitle}>Category:</span> {filmDetails.category}</Typography>
+
+                  <div className={classes.infoContainer}>
+                    <div>
+                      <Typography variant="body1"><span className={classes.detailsTitle}>Rating:</span> {filmDetails.rating}</Typography>
+                      <Typography variant="body1"><span className={classes.detailsTitle}>Director:</span> {filmDetails.director}</Typography>
+                      <Typography variant="body1"><span className={classes.detailsTitle}>Country:</span> {filmDetails.country}</Typography>
+                      <Typography variant="body1"><span className={classes.detailsTitle}>Category:</span> {filmDetails.category}</Typography>
+                    </div>
+                    <div>
+                      <Rating rating={filmDetails.rating} />
+                    </div>
+                  </div>
+
                 </CardContent>
               </Card>  
             </div>
@@ -66,7 +74,7 @@ const FilmDetailsView = (props) => {
             
 
             <div className={classes.componentContainer}>               
-              <CommentBlock />
+              <CommentBlock isAuth={isAuth} />
             </div>
 
 

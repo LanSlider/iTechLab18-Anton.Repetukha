@@ -10,7 +10,7 @@ import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 
 import styles from "./styles";
-import Rater from "react-rater";
+import StarRatings from 'react-star-ratings';
 
 const FilmContainerView = ({ classes, id, title, year, imageUrl, rating }) => (
   <div className={classes.cardContainer}>
@@ -19,9 +19,11 @@ const FilmContainerView = ({ classes, id, title, year, imageUrl, rating }) => (
         <CardActionArea className={classes.linkArea}>
             <CardMedia className={classes.media} title={title} image={imageUrl} />
             <CardContent className={classes.content}>
+
                 <Typography className={classes.title} variant="subheading">{title}</Typography>
-                <Rater total={5} rating={rating / 2} interactive={false} className={classes.rating}/>
+                <StarRatings rating={4} starRatedColor="#EB1D24" numberOfStars={5} starDimension="13px" starSpacing="0px"/>
                 <Typography className={classes.headline} variant="subheading">{year}</Typography>
+            
             </CardContent>
         </CardActionArea>
       </Card>

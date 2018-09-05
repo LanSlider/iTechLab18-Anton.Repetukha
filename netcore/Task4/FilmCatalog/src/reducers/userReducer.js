@@ -10,7 +10,7 @@ import { getInfoFromToken } from '../services/authService'
           return {...state, isLoading: true }    
       }
       case USER_AUTHORIZED: {
-          return {...state, isAuth: true, name: action.payload.name, isLoading: false };
+          return {...state, isAuth: true, name: action.payload.name, userId: action.payload.id, isLoading: false };
       }
 
       case USER_UNAUTHORIZED: {

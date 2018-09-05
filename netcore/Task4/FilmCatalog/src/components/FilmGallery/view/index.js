@@ -23,13 +23,14 @@ const FilmGalleryView = (props) => {
         <Loading />
       ) : (      */}
         <Paper className={classes.galleryContainer}> 
-            <Gallery
-                className={classes.gallery}  
+            <Gallery               
                 rowHeight={120}
                 enableImageSelection={false}
                 images={imagesDetails.map(image => ({
                     src: image.url,
-                    thumbnail: image.url,    
+                    thumbnail: image.url,   
+                    thumbnailWidth: 220,
+                    thumbnailHeight: 120
                 }))}
             />
         </Paper>

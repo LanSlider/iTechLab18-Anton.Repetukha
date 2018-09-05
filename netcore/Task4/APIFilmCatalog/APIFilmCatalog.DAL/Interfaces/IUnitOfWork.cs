@@ -8,7 +8,6 @@ namespace APIFilmCatalog.DAL.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        AppDbContext Context { get; }
         IFilmRepository Films { get; }
         ICommentRepository Comments { get;}
         IRatingRepository Ratings { get; }

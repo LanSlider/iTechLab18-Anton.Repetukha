@@ -19,11 +19,16 @@ class FilmDetails extends React.PureComponent  {
         }
     }
 
+    handleRatingChange() {
+        
+    }
+
     render() {
+        debugger;
         return <FilmDetailsView 
             isLoading = {this.props.isLoading}
             filmDetails = {this.props.filmDetails}
-            
+            isAuth = {this.props.isAuth}
         />
     }
 }
@@ -38,6 +43,7 @@ const mapStateToProps = state => {
     return {
         isLoading: state.filmDetails.isLoading,
         filmDetails: state.filmDetails.data,
+        isAuth: state.user.isAuth
     }
 }
 

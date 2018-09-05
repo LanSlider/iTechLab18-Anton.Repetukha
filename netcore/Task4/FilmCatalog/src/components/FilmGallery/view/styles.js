@@ -1,14 +1,7 @@
 const styles = () => ({
     galleryContainer: {
-        display: "block",
-        height: 124,
-        overflowY: "auto",
-        overflowX: "auto",
+        height: 143,
     },
-
-    gallery: {
-    //   display: "flex",
-    },
-  });
+});
   
-  export default styles;
+export default styles;

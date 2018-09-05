@@ -8,6 +8,3 @@ export const registerUser = (userData) => ({ type: types.REG_IN_PROGRESS, payloa
 export const onLoadFilms = () => ({ type: types.FILMS_WILL_LOAD })
 export const onLoadFilmsCategory = (category) => ({ type: types.FILMSFROMCATEGORY_WILL_LOAD, payload: category })
 export const onLoadFilmDetails = (id) => ({ type: types.FILMDETAILS_WILL_LOAD, payload: id})
-
-export const onLoadFilmComments = (filmId) => ({ type: types.FILMCOMMENTS_WILL_LOAD, payload: filmId })
-export const addFilmComment = (commentData) => ({ type: types.FILMCOMMENT_WILL_ADD, payload: commentData })

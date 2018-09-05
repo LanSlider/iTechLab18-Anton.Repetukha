@@ -60,3 +60,15 @@ export function getFilmsFromCategory(category) {
             toastr.error("Failed films loading:" + e.message);
         })  
 }
+
+export function getFilmIdFromUrl() {
+    const idFromUrl = window.location.href.toString().split('/')[4];
+    if(!isNaN(idFromUrl)) {
+        return idFromUrl
+    }
+    else {
+        toastr.clear();
+        toastr.error("Incorrect Url");
+        window.location.replace(`/`);
+    }
+}

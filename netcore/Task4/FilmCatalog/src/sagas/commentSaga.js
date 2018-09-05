@@ -1,5 +1,5 @@
-import { call, put } from 'redux-saga/effects'
-import * as actionType from '../constants/actionTypes';
+import { call, put, takeLatest } from 'redux-saga/effects'
+import * as actionType from '../components/CommentBlock/action/commentAction';
 import * as commentService from '../services/commentService';
 
 export function* commentLoadingAsync(action) {
@@ -9,5 +9,5 @@ export function* commentLoadingAsync(action) {
 
 export function* addCommentLoadingAsync(action) {
     yield call(commentService.addComment, action.payload);
-    // yield put({ type: actionType.FILMCOMMENTS_LOADED, payload: paylfilmData })
+    yield call(commentLoadingAsync, { ...action, payload: action.payload.filmId })
 }

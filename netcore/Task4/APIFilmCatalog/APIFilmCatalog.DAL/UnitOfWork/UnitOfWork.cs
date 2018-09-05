@@ -35,7 +35,7 @@ namespace APIFilmCatalog.DAL.UnitOfWork
         public ICommentRepository Comments { get; private set; }
         public IRatingRepository Ratings { get; private set; }
         public IUserRepository Users { get; private set; }
-        public UserManager<User> UserManager { get; private set; }
+        public UserManager<User> UserManager { get; private set; } 
         public SignInManager<User> SignInManager { get; private set; }
 
         public void Save() => Context.SaveChanges();
