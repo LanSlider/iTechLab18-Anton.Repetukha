@@ -1,4 +1,4 @@
-import { FILMS_LOADED, FILMS_LOADING } from '../constants/actionTypes';
+import { FILMS_LOADED, FILMS_LOADING } from '../action/filmAction';
 
    const initialState = { 
        isLoading: true,

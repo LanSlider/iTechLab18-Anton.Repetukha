@@ -1,14 +1,16 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { styles } from './styles.js';
 import 'typeface-roboto';
+
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '../../Menu/container/Menu';
+
+import FilmCategory from '../../FilmCategory/container/FilmCategory';
 import LogInDialog from '../../LogInDialog/container/LogInDialog';
 import AccountMenu from '../../AccountMenu/container/AccountMenu.js';
 import Loading from '../../Loading/view';
@@ -49,7 +51,7 @@ const HeaderView = (props) => {
           </Toolbar>
         </AppBar>
         </div>
-        {(props.isClickForOpen && props.isAddCategoryMenu) && <div className={classes.header}><Menu /></div>}
+        {(props.isClickForOpen && props.isAddCategoryMenu) && <div className={classes.header}><FilmCategory /></div>}
         </React.Fragment>
       );
 }

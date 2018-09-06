@@ -31,8 +31,7 @@ export function addComment(commentData) {
                 toastr.error(res.data.error);
             }
         })
-        .catch(function(e) {
-            
+        .catch(function(e) {          
             toastr.clear();
             toastr.error("Failed comment loading:" + e.message);
         })  

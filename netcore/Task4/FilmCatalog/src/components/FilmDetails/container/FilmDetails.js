@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { onLoadFilmDetails } from '../../../actions/index';
+
+import { onLoadFilmDetails } from '../action/filmDetails';
 import FilmDetailsView from '../view/index.js';
-import toastr from 'toastr';
 
 class FilmDetails extends React.PureComponent  {
     constructor(props) {

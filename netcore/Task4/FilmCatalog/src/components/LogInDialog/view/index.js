@@ -1,7 +1,9 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
+
 import Login from '../../LogIn/container/LogIn';
  
 const LogInDialogView = (props) => {

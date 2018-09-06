@@ -1,14 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import FilmListView from '../view/index.js';
-import { onLoadFilms } from '../../../actions/index';
-import * as types from '../../../constants/actionTypes'
+import { onLoadFilms } from '../action/filmAction';
 
 class FilmList extends React.PureComponent {
-    constructor (props) {
-        super(props)
-    }
-
     componentDidMount() {
         this.props.onLoadFilms();
     }

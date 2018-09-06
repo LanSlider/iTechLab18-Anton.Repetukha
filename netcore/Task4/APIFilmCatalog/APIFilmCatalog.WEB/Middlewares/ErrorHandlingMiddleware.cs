@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using APIFilmCatalog.WEB.Exceptions;
+using APIFilmCatalog.WEB.Services;
 using APIFilmCatalog.WEB.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
@@ -11,12 +12,12 @@ namespace APIFilmCatalog.WEB.Middlewares
     public class ErrorHandlingMiddleware
     {
         private readonly RequestDelegate next;
-        //private readonly ILoggerService _logger;
+        private readonly ILoggerService _logger;
 
-        public ErrorHandlingMiddleware(RequestDelegate next/*, ILoggerService logger*/)
+        public ErrorHandlingMiddleware(RequestDelegate next, ILoggerService logger)
         {
             this.next = next;
-            //_logger = logger;
+            _logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext context)
@@ -25,19 +26,19 @@ namespace APIFilmCatalog.WEB.Middlewares
             {
                 await next(context);
             }
-            catch (BussinessException ex)
+            catch (UserFriendlyException ex)
             {
-                //_logger.Error(ex);
+                _logger.Error(ex);
                 await HandleExceptionAsync(context, ex);
             }
             catch (Exception ex)
             {
-                //_logger.Error(ex);
+                _logger.Error(ex);
                 await HandleExceptionAsync(context, ex);
             }
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, BussinessException exception)
+        private static Task HandleExceptionAsync(HttpContext context, UserFriendlyException exception)
         {
             var result = JsonConvert.SerializeObject(new ErrorJsonResult<Object>(exception.UserFriendlyMessage));
             context.Response.ContentType = "application/json";

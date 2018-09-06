@@ -7,7 +7,6 @@ export const styles = () => ({
       display: "flex",
       flexWrap: "wrap",
       alignItems: "center",
-      // marginLeft: "20px",
       justifyContent: "center"
     },
   });

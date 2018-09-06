@@ -17,6 +17,7 @@ using static APIFilmCatalog.DAL.Entities.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using APIFilmCatalog.WEB;
+using APIFilmCatalog.WEB.Services;
 
 namespace APIFilmCatalog
 {
@@ -77,6 +78,8 @@ namespace APIFilmCatalog
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IRatingService, RatingService>();
             services.AddScoped<IFilmService, FilmService>();
+
+            services.AddSingleton<ILoggerService, LoggerService>();
 
             services.AddAutoMapper();
             services.AddCors();

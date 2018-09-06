@@ -4,7 +4,6 @@ import 'typeface-roboto';
 
 import { withStyles } from "@material-ui/core/styles";
 
-
 import styles from "./styles";
 import StarRatings from 'react-star-ratings';
 import Loading from "../../Loading/view/index";

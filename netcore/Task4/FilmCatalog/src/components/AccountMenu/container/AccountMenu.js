@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AccountMenuView from '../view/index.js';
 
 class AccountMenu extends React.PureComponent  {

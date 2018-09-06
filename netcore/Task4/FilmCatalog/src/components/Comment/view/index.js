@@ -14,7 +14,7 @@ const CommentContainerView = ({ classes, userName, text, dateTime }) => (
     </Paper>
 );
 
-// FilmContainerView.propTypes = {
+// CommentContainerView.propTypes = {
 //   classes: PropTypes.object.isRequired,
 //   id: PropTypes.number.isRequired,
 //   title: PropTypes.string,

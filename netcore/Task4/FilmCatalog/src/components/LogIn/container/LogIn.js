@@ -2,7 +2,7 @@ import React from 'react';
 import LogInView from '../view';
 import { connect } from "react-redux";
 import { validateName, validatePassword } from '../../../helpers/formHelpers';
-import { logInUser, willLogInUser } from "../../../actions/index";
+import { logInUser, willLogInUser } from "../action/logInAction";
 
 class LogIn extends React.PureComponent  {  
     constructor(props) {

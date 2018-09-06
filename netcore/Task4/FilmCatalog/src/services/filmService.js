@@ -16,14 +16,14 @@ export function getAllFilms() {
             }
             toastr.error("Failed film loading:" + res.data.errorMessage);
         })
-        .catch(function(e) {
-            
+        .catch(function(e) {      
             toastr.clear();
             toastr.error("Failed films loading:" + e.message);
         })  
 }
 
 export function getFilmsDetails(id) {
+    debugger;
     return httpRequest.get(`${baseUrl}/api/films/${id}`)
         .then(function(res) {
             if(res.data.data) {
@@ -52,8 +52,7 @@ export function getFilmsFromCategory(category) {
             }
             toastr.error("Failed film loading:" + res.data.errorMessage);
         })
-        .catch(function(e) {
-            
+        .catch(function(e) {          
             toastr.clear();
             toastr.error("Failed films loading:" + e.message);
         })  

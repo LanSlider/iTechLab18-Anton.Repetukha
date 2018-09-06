@@ -44,6 +44,7 @@ class CommentBlock extends React.PureComponent  {
             userName: this.props.user.name 
         }
         this.props.addFilmComment(commentData);
+        values.comment = "";
     }
 
     render() {

@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import * as actionType from '../components/Rating/action/ratingAction';
 import * as ratingService from '../services/ratingService';
+import * as filmSage from '../sagas/filmSaga';
 
 export function* ratingByUserLoadingAsync(action) {
     const rating = yield call(ratingService.getFilmRating, action.payload);
@@ -8,8 +9,8 @@ export function* ratingByUserLoadingAsync(action) {
 }
 
 export function* addRatingLoadingAsync(action) {
-    debugger;
     yield call(ratingService.addRating, action.payload);
-    debugger;
     yield call(ratingByUserLoadingAsync, { ...action, payload: action.payload.filmId })
+    debugger;
+    yield call(filmSage.filmDetailsLoadingAsync, { payload: action.payload.filmId })
 }

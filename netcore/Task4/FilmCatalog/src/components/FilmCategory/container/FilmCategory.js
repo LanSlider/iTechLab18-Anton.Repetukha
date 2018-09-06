@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
-import MenuView from '../view/index.js';
+import FilmCategoryView from '../view/index.js';
 import { categoryItems }  from '../../../constants/categoryItemMenu'
-import { onLoadFilmsCategory } from '../../../actions';
+import { onLoadFilmsCategory } from '../action/filmCategoryAction';
 
-class Menu extends React.PureComponent  {
+class FilmCategory extends React.PureComponent  {
     constructor(props) {
         super(props);
         this.state = {selectedItem: 0};
@@ -17,7 +17,7 @@ class Menu extends React.PureComponent  {
 
     render() {
         return (
-            <MenuView 
+            <FilmCategoryView 
                 selectedItem={this.state.selectedItem}
                 handleChange={this.handleChange}
             />
@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(Menu);
+export default connect(null, mapDispatchToProps)(FilmCategory);

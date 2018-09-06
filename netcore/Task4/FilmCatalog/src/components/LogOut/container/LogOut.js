@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { logOutUser } from "../../../actions/index";
+import { logOutUser } from "../action/logOutAction";
 
 class LogOut extends React.PureComponent  {  
     handle = () => {

@@ -1,5 +1,5 @@
-import { USER_AUTHORIZED, USER_UNAUTHORIZED, LOG_WILL_IN_PROGRESS } from '../constants/actionTypes';
-import { getInfoFromToken } from '../services/authService'
+import { USER_AUTHORIZED, USER_UNAUTHORIZED, LOG_WILL_IN_PROGRESS } from '../action/logInAction';
+import { getInfoFromToken } from '../../../services/authService'
 
    const initialState = getInfoFromToken();
   

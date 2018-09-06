@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import RatingView from '../view/index.js';
 import * as ratingAction from '../action/ratingAction';
-import * as filmAction from '../../../actions/index'
 import * as filmService from '../../../services/filmService';
 
 class Rating extends React.PureComponent  {
@@ -29,7 +28,6 @@ class Rating extends React.PureComponent  {
             filmId: filmId,
         }  
         this.props.onAddRatingByUser(ratingData);
-        // this.props.onLoadFilmDetails(filmId);
         this.setState({ rating: this.props.film.rating, isOpenToEdit: false});
     }
 
@@ -51,8 +49,7 @@ class Rating extends React.PureComponent  {
 const mapDispatchToProps = dispatch => {
     return {
         onLoadRatingByUser: (filmId) => dispatch(ratingAction.onLoadRatingByUser(filmId)),
-        onAddRatingByUser: (ratingData) => dispatch(ratingAction.onAddRatingByUser(ratingData)),
-        onLoadFilmDetails: (id) => dispatch(filmAction.onLoadFilmDetails(id))
+        onAddRatingByUser: (ratingData) => dispatch(ratingAction.onAddRatingByUser(ratingData))
     };
 };
 

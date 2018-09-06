@@ -11,7 +11,6 @@ const styles = () => ({
     },
     circle: {
       color: "red",
-      // background: "red"
     },
     circleForLogin: {
       color: "white"

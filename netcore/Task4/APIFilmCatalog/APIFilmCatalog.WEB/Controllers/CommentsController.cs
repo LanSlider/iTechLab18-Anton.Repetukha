@@ -29,7 +29,7 @@ namespace APIFilmCatalog.WEB.Controllers
             var comments = await _service.GetCommentsByIdFilmAsync(filmId);
             if (comments == null)
             {
-                return Json(new ErrorJsonResult<Object>("Comments exception"));
+                return Json(new ErrorJsonResult<Object>("Comments by this filmId aren't exist"));
             }
 
             return Json(new SuccessJsonResult<ICollection<CommentModelView>>(_mapper.Map<ICollection<CommentModel>, ICollection<CommentModelView>>(comments)));

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using APIFilmCatalog.DAL.Entities;
 
 namespace APIFilmCatalog.DAL.Interfaces
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : BaseEntity
     {
         void Add(T item);
         void Del(int id);

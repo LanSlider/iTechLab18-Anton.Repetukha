@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RegisterView from '../view';
 import { connect } from "react-redux";
 import { validateEmail, validatePassword, validateName, validatePasswordConfirm } from '../../../helpers/formHelpers';
-import { registerUser } from "../../../actions/index";
+import { registerUser } from "../action/registerAction";
 
 class Register extends Component {  
     validateValues = values => {
@@ -44,7 +44,6 @@ class Register extends Component {
             username: values.username,
             email: values.email,
             password: values.password,
-            // passwordConfirm: values.passwordConfirm
         }  
         this.props.registerUser(userData);
 

@@ -1,11 +1,13 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
+
+import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
+
 import LogOut from '../../LogOut/container/LogOut';
 import { Link } from 'react-router-dom'
 import {styles} from './styles';

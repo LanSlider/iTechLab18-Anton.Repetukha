@@ -15,7 +15,6 @@ export function getFilmRating(filmId) {
                 toastr.clear();
                 toastr.error(res.data.error);
             }
-            toastr.error("Failed rating loading:" + res.data.errorMessage);
         })
         .catch(function(e) {    
             toastr.clear();

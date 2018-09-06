@@ -1,17 +1,12 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
+import Gallery from 'react-grid-gallery';
 import 'typeface-roboto';
 
 import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Gallery from 'react-grid-gallery';
+import Paper from '@material-ui/core/Paper';
 
 import styles from "./styles";
-
-import Loading from "../../Loading/view/index";
-import Paper from '@material-ui/core/Paper';
 
 const FilmGalleryView = (props) => {
     const { classes } = props;

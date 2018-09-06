@@ -2,10 +2,6 @@ import React from 'react';
 import HeaderView from '../view/index.js';
 import { connect } from "react-redux";
 
-const mapStateToProps = state => {
-    return {...state.user}
-};
-
 class Header extends React.PureComponent  {
     constructor(props) {
         super(props);
@@ -28,5 +24,9 @@ class Header extends React.PureComponent  {
         />)
     }
 }
+
+const mapStateToProps = state => {
+    return {...state.user}
+};
 
 export default connect(mapStateToProps)(Header);

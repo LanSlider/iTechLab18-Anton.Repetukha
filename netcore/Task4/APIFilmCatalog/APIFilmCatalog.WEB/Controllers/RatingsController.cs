@@ -33,7 +33,7 @@ namespace APIFilmCatalog.WEB.Controllers
             var rating = await _ratingService.GetRatingByUserIdAndFilmIdAsync(filmId, userId);
             if(rating == null)
             {
-                return Json(new ErrorJsonResult<Object>("Ratings exception"));
+                return Json(new ErrorJsonResult<Object>("Rating with this filmId or UserId not exists"));
             }
 
             return Json(new SuccessJsonResult<RatingModelView>(_mapper.Map<RatingModel, RatingModelView>(rating)));
@@ -62,20 +62,5 @@ namespace APIFilmCatalog.WEB.Controllers
                 await _filmService.UpdateFilmRatingAsync(model.FilmId);
             }
         }
-
-        //[Authorize]
-        //[HttpGet("check/{filmId}")]
-        //public async Task<JsonResult> CheckIsFilmMarkedByUser(int filmId)
-        //{
-        //    var userId = Convert.ToInt32(this.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-
-        //    var result = await _ratingService.CheckIsFilmAlreadyMarkedByUserAsync(filmId, userId);
-        //    if (result == false)
-        //    {
-        //        return Json(new ErrorJsonResult<Object>("Ratings exception"));
-        //    }
-
-        //    return Json(new SuccessJsonResult<Boolean>(result));
-        //}
     }
 }

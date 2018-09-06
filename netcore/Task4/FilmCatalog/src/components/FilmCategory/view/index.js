@@ -8,7 +8,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { Link } from 'react-router-dom';
  
-const MenuView = (props) => {
+const FilmCategoryView = (props) => {
     const { classes } = props;
     return (
         <React.Fragment>
@@ -26,8 +26,8 @@ const MenuView = (props) => {
       );
 }
 
-MenuView.propTypes = {
+FilmCategoryView.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(MenuView);
+export default withStyles(styles)(FilmCategoryView);

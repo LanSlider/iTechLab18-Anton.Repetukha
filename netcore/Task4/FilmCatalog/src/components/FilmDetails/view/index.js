@@ -71,11 +71,9 @@ const FilmDetailsView = (props) => {
               </Card>
             </div>
             
-
             <div className={classes.componentContainer}>               
               <CommentBlock isAuth={isAuth} />
             </div>
-
 
         </div>
     </div>

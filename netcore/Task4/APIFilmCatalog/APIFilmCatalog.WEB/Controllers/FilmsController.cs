@@ -28,7 +28,7 @@ namespace APIFilmCatalog.WEB.Controllers
             var films = await _service.GetAllAsync();
             if (films == null)
             {
-                return Json(new ErrorJsonResult<Object>("Films exception"));
+                return Json(new ErrorJsonResult<Object>("films aren't exist"));
             }
 
             return Json(new SuccessJsonResult<ICollection<FilmModelView>>(_mapper.Map<ICollection<FilmModel>, ICollection<FilmModelView>>(films)));
@@ -40,7 +40,7 @@ namespace APIFilmCatalog.WEB.Controllers
             var films = await _service.GetAllFromCategoryAsync(category);
             if (films == null)
             {
-                return Json(new ErrorJsonResult<Object>("Films exception"));
+                return Json(new ErrorJsonResult<Object>("Films in this category aren't exist"));
             }
 
             return Json(new SuccessJsonResult<ICollection<FilmModelView>>(_mapper.Map<ICollection<FilmModel>, ICollection<FilmModelView>>(films)));
@@ -52,7 +52,7 @@ namespace APIFilmCatalog.WEB.Controllers
             var filmDetails = await _service.GetFilmDetailsAsync(id);
             if (filmDetails == null)
             {
-                return Json(new ErrorJsonResult<Object>("Film exception"));
+                return Json(new ErrorJsonResult<Object>("Film details from film with this filmId aren't exist"));
             }
 
             return Json(new SuccessJsonResult<FilmDetailsModelView>(_mapper.Map<FilmDetailsModel, FilmDetailsModelView>(filmDetails)));
