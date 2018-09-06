@@ -27,8 +27,7 @@ const renderTextField = ({ input, meta: {error}, ...custom}) => (
 )
 
 const CommentBlockView = (props) => {   
-    const { classes, onSubmit, text, title, isLoading, comments, isAuth } = props;
-    debugger;
+    const { classes, text, title, isLoading, comments, isAuth } = props;
     return (
         <Paper position="static" color="default">
         {isAuth? (

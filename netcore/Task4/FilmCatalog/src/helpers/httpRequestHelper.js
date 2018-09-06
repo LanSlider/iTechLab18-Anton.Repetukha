@@ -3,7 +3,7 @@ import axios from 'axios';
 function setAuthorizationToken() {
     const token = sessionStorage.getItem('jwt_token');
     if(token) {
-        axios.defaults.headers.common['Authorization'] = `User ${token}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } 
 }
 

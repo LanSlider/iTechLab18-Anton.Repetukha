@@ -4,7 +4,6 @@ import { getInfoFromToken } from '../services/authService'
    const initialState = getInfoFromToken();
   
    const userReducer = (state = initialState, action) => {
-       debugger;
     switch (action.type) {
       case LOG_WILL_IN_PROGRESS: {
           return {...state, isLoading: true }    

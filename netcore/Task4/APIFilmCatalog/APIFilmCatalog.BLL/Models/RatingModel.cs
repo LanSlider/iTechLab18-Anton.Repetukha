@@ -1,6 +1,6 @@
 ﻿namespace APIFilmCatalog.BLL.Models
 {
-    public class RatingModel
+    public class RatingModel : BaseModel
     {
         public int Mark { get; set; }
   

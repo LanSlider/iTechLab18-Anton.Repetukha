@@ -3,10 +3,36 @@ using Microsoft.AspNetCore.Identity;
 
 namespace APIFilmCatalog.DAL.Entities
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<int>
     {
-        //public int Id { get; set; }
         public ICollection<Rating> Ratings { get; set; }
         public ICollection<Comment> Comments { get; set; }
+
+
+        public class Role : IdentityRole<int>
+        {
+            public Role()
+            { }
+
+            public Role(string name) { Name = name; }
+        }
+
+        public class UserRole : IdentityUserRole<int>
+        {
+            public virtual Role Role { get; set; }
+
+            public virtual User User { get; set; }
+        }
+
+        public class UserClaim : IdentityUserClaim<int> { }
+
+        public class UserLogin : IdentityUserLogin<int>
+        {
+            public int ExpiresIn { get; set; }
+        }
+
+        public class RoleClaim : IdentityRoleClaim<int> { }
+
+        public class UserToken : IdentityUserToken<int> { }
     }
 }

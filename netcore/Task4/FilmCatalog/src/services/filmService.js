@@ -24,7 +24,6 @@ export function getAllFilms() {
 }
 
 export function getFilmsDetails(id) {
-    debugger;
     return httpRequest.get(`${baseUrl}/api/films/${id}`)
         .then(function(res) {
             if(res.data.data) {
@@ -42,7 +41,6 @@ export function getFilmsDetails(id) {
 export function getFilmsFromCategory(category) {
     return httpRequest.get(`${baseUrl}/api/films/all/${category}`)    
          .then(function(res) {
-             debugger;
             if (res.data.data) {
                 const films = res.data.data;
                 return films;

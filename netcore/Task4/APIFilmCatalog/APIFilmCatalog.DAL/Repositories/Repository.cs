@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using APIFilmCatalog.DAL.Context;
 using APIFilmCatalog.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using APIFilmCatalog.DAL.Entities;
 
 namespace APIFilmCatalog.DAL.Repositories
 {
-    public abstract class Repository<T> : IRepository<T> where T: class
+    public abstract class Repository<T> : IRepository<T> where T: BaseEntity
     {
         private readonly AppDbContext _context;
 
@@ -25,9 +27,13 @@ namespace APIFilmCatalog.DAL.Repositories
             _context.Remove(GetByIdAsync(id));
         }
 
-        public void Update(T item)
+        public virtual async Task UpdateAsync(T item)
         {
-            _context.Update(item);
+            var existing = await GetByIdAsync(item.Id);
+            if (existing != null)
+            {
+                _context.Entry(existing).CurrentValues.SetValues(item);
+            }
         }
    
         public async Task<ICollection<T>> GetAllAsync()
@@ -35,7 +41,7 @@ namespace APIFilmCatalog.DAL.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
             return await _context.FindAsync<T>(id);
         }

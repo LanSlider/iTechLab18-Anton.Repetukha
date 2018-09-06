@@ -15,7 +15,6 @@ import FilmGallery from '../../FilmGallery/container/FilmGallery';
 import CommentBlock from '../../CommentBlock/container/CommentBlock';
 
 const FilmDetailsView = (props) => {
-  debugger;
     const { classes } = props;
     const { isLoading, filmDetails, isAuth } = props;
     return ( 

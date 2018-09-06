@@ -25,7 +25,7 @@ namespace APIFilmCatalog.BLL.Services
         {
             var comment = _mapper.Map<CommentModel, Comment>(model);
             comment.User = await _unitOfWork.Users.GetByIdAsync(comment.UserId);
-
+            comment.DateTime = DateTime.Now.ToString("g");
             _unitOfWork.Comments.Add(comment);
             await _unitOfWork.SaveAsync();
         }

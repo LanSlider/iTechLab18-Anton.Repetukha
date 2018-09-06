@@ -20,11 +20,11 @@ namespace APIFilmCatalog.BLL.Services
             _mapper = mapper;
         }
 
-        public async Task UpdateAsync(UserModel person)
-        {
-            _unitOfWork.Users.Update(_mapper.Map<UserModel, User>(person));
-            await _unitOfWork.SaveAsync();
-        }
+        //public async Task UpdateAsync(UserModel person)
+        //{
+        //    _unitOfWork.Users.UpdateAsync(_mapper.Map<UserModel, User>(person));
+        //    await _unitOfWork.SaveAsync();
+        //}
 
         public async Task<Boolean> IsAlreadyEmailExistAsync(string email)
         {
@@ -82,6 +82,11 @@ namespace APIFilmCatalog.BLL.Services
         public async Task<UserModel> GetByNameAsync(string name)
         {
             return _mapper.Map<User, UserModel>(await _unitOfWork.UserManager.FindByNameAsync(name));
+        }
+
+        public async Task<UserModel> GetByUserIdAsync(int id)
+        {
+            return _mapper.Map<User, UserModel>(await _unitOfWork.Users.GetByIdAsync(id));
         }
     }
 }

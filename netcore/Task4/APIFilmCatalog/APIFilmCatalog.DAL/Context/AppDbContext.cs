@@ -1,10 +1,12 @@
 ﻿using APIFilmCatalog.DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using static APIFilmCatalog.DAL.Entities.User;
 
 namespace APIFilmCatalog.DAL.Context
 {
-    public class AppDbContext : IdentityDbContext<User>
+    public class AppDbContext : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public DbSet<Film> Films { get; set; }
         //public DbSet<User> Users { get; set; }
@@ -15,7 +17,7 @@ namespace APIFilmCatalog.DAL.Context
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

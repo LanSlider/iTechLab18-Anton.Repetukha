@@ -7,4 +7,4 @@ export const registerUser = (userData) => ({ type: types.REG_IN_PROGRESS, payloa
 
 export const onLoadFilms = () => ({ type: types.FILMS_WILL_LOAD })
 export const onLoadFilmsCategory = (category) => ({ type: types.FILMSFROMCATEGORY_WILL_LOAD, payload: category })
-export const onLoadFilmDetails = (id) => ({ type: types.FILMDETAILS_WILL_LOAD, payload: id})
+export const onLoadFilmDetails = (id) => {debugger; return { type: types.FILMDETAILS_WILL_LOAD, payload: id}}

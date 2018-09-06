@@ -3,16 +3,19 @@ import { connect } from "react-redux";
 
 import RatingView from '../view/index.js';
 import * as ratingAction from '../action/ratingAction';
+import * as filmAction from '../../../actions/index'
 import * as filmService from '../../../services/filmService';
 
 class Rating extends React.PureComponent  {
     constructor(props) {
         super(props);
-        this.state = {rating: this.props.rating, isOpenToEdit: false};
+        this.state = {rating: this.props.film.rating, isOpenToEdit: false};
     }
 
     componentDidMount() {
-        this.props.onLoadRatingByUser(filmService.getFilmIdFromUrl());
+        if(this.props.user.isAuth) {
+            this.props.onLoadRatingByUser(filmService.getFilmIdFromUrl());
+        }
     }
 
     handleClickToRatingChange = () => {
@@ -20,18 +23,24 @@ class Rating extends React.PureComponent  {
     }
 
     handleRatingChange = (value) => {
+        const filmId = filmService.getFilmIdFromUrl();
         const ratingData = {
             mark: value,
-            filmId: filmService.getFilmIdFromUrl(),
-            userId: this.props.user.userId,
+            filmId: filmId,
         }  
         this.props.onAddRatingByUser(ratingData);
+        // this.props.onLoadFilmDetails(filmId);
+        this.setState({ rating: this.props.film.rating, isOpenToEdit: false});
     }
 
     render() {
         return (
             <RatingView 
                 {...this.props}
+                rating = {this.state.rating}
+                userRating = {this.props.rating}
+                isAuth = {this.props.user.isAuth}
+                isOpenToEdit = {this.state.isOpenToEdit}
                 handleClickToRatingChange = {this.handleClickToRatingChange}
                 handleRatingChange = {this.handleRatingChange}
             />
@@ -42,7 +51,8 @@ class Rating extends React.PureComponent  {
 const mapDispatchToProps = dispatch => {
     return {
         onLoadRatingByUser: (filmId) => dispatch(ratingAction.onLoadRatingByUser(filmId)),
-        onAddRatingByUser: (ratingData) => dispatch(ratingAction.onAddRatingByUser(ratingData))
+        onAddRatingByUser: (ratingData) => dispatch(ratingAction.onAddRatingByUser(ratingData)),
+        onLoadFilmDetails: (id) => dispatch(filmAction.onLoadFilmDetails(id))
     };
 };
 

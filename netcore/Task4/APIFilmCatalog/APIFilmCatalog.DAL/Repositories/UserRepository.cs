@@ -5,12 +5,11 @@ using APIFilmCatalog.DAL.Interfaces;
 
 namespace APIFilmCatalog.DAL.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
 
         public UserRepository(AppDbContext context)
-            : base(context)
         {
             _context = context;
         }
@@ -18,6 +17,11 @@ namespace APIFilmCatalog.DAL.Repositories
         public async Task<User> GetByEmailAndPasswordAsync(string email, string password = null)
         {
             return await _context.Users.FindAsync(email, password);
+        }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            return await _context.FindAsync<User>(id);
         }
     }
 }

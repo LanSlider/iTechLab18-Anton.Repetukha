@@ -73,13 +73,13 @@ namespace APIFilmCatalog.WEB.Controllers
 
             var claims = new List<Claim>
             {
-                //new Claim("id", user.Id.ToString()),
+                new Claim("id", user.Id.ToString()),
                 new Claim("name", user.UserName ?? "User"),
                 new Claim("role", user.Email)
             };
 
             ClaimsIdentity claimsIdentity =
-            new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
                 ClaimsIdentity.DefaultRoleClaimType);
             return claimsIdentity;
 

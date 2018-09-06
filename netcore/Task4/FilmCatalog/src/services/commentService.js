@@ -6,7 +6,6 @@ export function getAllComments(filmId) {
     return httpRequest.get(`${baseUrl}/api/comments/all/${filmId}`)    
          .then(function(res) {
             if (res.data.data) {
-                debugger;
                 const comments = res.data.data;
                 return comments;
             }
@@ -24,11 +23,9 @@ export function getAllComments(filmId) {
 }
 
 export function addComment(commentData) {
-    debugger;
     return httpRequest.post(`${baseUrl}/api/comments`, commentData)
         .then(function(res) {
            if(res.data.error) {
-            debugger;
                 window.location.replace("/");
                 toastr.clear();
                 toastr.error(res.data.error);

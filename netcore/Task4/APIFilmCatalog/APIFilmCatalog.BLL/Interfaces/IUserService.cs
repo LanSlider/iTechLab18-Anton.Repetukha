@@ -8,7 +8,8 @@ namespace APIFilmCatalog.BLL.Interfaces
     {
         Task<UserModel> GetByEmailAsync(string email);
         Task<UserModel> GetByNameAsync(string name);
-        Task UpdateAsync(UserModel user);
+        Task<UserModel> GetByUserIdAsync(int id);
+        //Task UpdateAsync(UserModel user);
         Task<Boolean> IsAlreadyEmailExistAsync(string email);
         Task<Boolean> IsAlreadyUserNameExistAsync(string name);
         Task<Boolean> IsUserExistAsync(AuthModel user, string password);

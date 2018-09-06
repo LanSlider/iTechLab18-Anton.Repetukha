@@ -21,7 +21,7 @@ const FilmContainerView = ({ classes, id, title, year, imageUrl, rating }) => (
             <CardContent className={classes.content}>
 
                 <Typography className={classes.title} variant="subheading">{title}</Typography>
-                <StarRatings rating={4} starRatedColor="#EB1D24" numberOfStars={5} starDimension="13px" starSpacing="0px"/>
+                <StarRatings rating={rating} starRatedColor="#EB1D24" numberOfStars={5} starDimension="13px" starSpacing="0px"/>
                 <Typography className={classes.headline} variant="subheading">{year}</Typography>
             
             </CardContent>

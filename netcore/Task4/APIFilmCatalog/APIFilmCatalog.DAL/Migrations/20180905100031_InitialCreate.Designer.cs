@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIFilmCatalog.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20180902191625_MigrateDB")]
-    partial class MigrateDB
+    [Migration("20180905100031_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,7 @@ namespace APIFilmCatalog.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DataTime")
+                    b.Property<string>("DateTime")
                         .IsRequired();
 
                     b.Property<int>("FilmId");
@@ -37,13 +37,11 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.Property<int>("UserId");
 
-                    b.Property<string>("UserId1");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FilmId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -97,7 +95,7 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.HasIndex("FilmId");
 
-                    b.ToTable("Image");
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("APIFilmCatalog.DAL.Entities.Rating", b =>
@@ -112,22 +110,20 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.Property<int>("UserId");
 
-                    b.Property<string>("UserId1")
-                        .IsRequired();
-
                     b.HasKey("Id");
 
                     b.HasIndex("FilmId");
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AccessFailedCount");
 
@@ -175,10 +171,11 @@ namespace APIFilmCatalog.DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+Role", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -199,7 +196,7 @@ namespace APIFilmCatalog.DAL.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+RoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -209,8 +206,7 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.Property<string>("ClaimValue");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired();
+                    b.Property<int>("RoleId");
 
                     b.HasKey("Id");
 
@@ -219,7 +215,7 @@ namespace APIFilmCatalog.DAL.Migrations
                     b.ToTable("AspNetRoleClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -229,8 +225,7 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.Property<string>("ClaimValue");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -239,16 +234,17 @@ namespace APIFilmCatalog.DAL.Migrations
                     b.ToTable("AspNetUserClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserLogin", b =>
                 {
                     b.Property<string>("LoginProvider");
 
                     b.Property<string>("ProviderKey");
 
+                    b.Property<int>("ExpiresIn");
+
                     b.Property<string>("ProviderDisplayName");
 
-                    b.Property<string>("UserId")
-                        .IsRequired();
+                    b.Property<int>("UserId");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -257,22 +253,30 @@ namespace APIFilmCatalog.DAL.Migrations
                     b.ToTable("AspNetUserLogins");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserRole", b =>
                 {
-                    b.Property<string>("UserId");
+                    b.Property<int>("UserId");
 
-                    b.Property<string>("RoleId");
+                    b.Property<int>("RoleId");
+
+                    b.Property<int?>("RoleId1");
+
+                    b.Property<int?>("UserId1");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
+                    b.HasIndex("RoleId1");
+
+                    b.HasIndex("UserId1");
+
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserToken", b =>
                 {
-                    b.Property<string>("UserId");
+                    b.Property<int>("UserId");
 
                     b.Property<string>("LoginProvider");
 
@@ -294,7 +298,7 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.HasOne("APIFilmCatalog.DAL.Entities.User", "User")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -315,19 +319,19 @@ namespace APIFilmCatalog.DAL.Migrations
 
                     b.HasOne("APIFilmCatalog.DAL.Entities.User", "User")
                         .WithMany("Ratings")
-                        .HasForeignKey("UserId1")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+RoleClaim", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("APIFilmCatalog.DAL.Entities.User+Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserClaim", b =>
                 {
                     b.HasOne("APIFilmCatalog.DAL.Entities.User")
                         .WithMany()
@@ -335,7 +339,7 @@ namespace APIFilmCatalog.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserLogin", b =>
                 {
                     b.HasOne("APIFilmCatalog.DAL.Entities.User")
                         .WithMany()
@@ -343,20 +347,28 @@ namespace APIFilmCatalog.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserRole", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("APIFilmCatalog.DAL.Entities.User+Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("APIFilmCatalog.DAL.Entities.User+Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId1");
+
                     b.HasOne("APIFilmCatalog.DAL.Entities.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("APIFilmCatalog.DAL.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("APIFilmCatalog.DAL.Entities.User+UserToken", b =>
                 {
                     b.HasOne("APIFilmCatalog.DAL.Entities.User")
                         .WithMany()

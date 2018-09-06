@@ -10,8 +10,8 @@ namespace APIFilmCatalog.BLL.Mapping
             CreateMap<CommentModel, Comment>();
             CreateMap<Comment, CommentModel>();
 
-            //CreateMap<UpdateRatingDTO, RatingEntity>();
-            //CreateMap<RatingEntity, UpdateRatingDTO>();
+            CreateMap<Rating, RatingModel>();
+            CreateMap<RatingModel, Rating>();
 
             CreateMap<FilmModel, Film>();
             CreateMap<Film, FilmModel>();
@@ -28,8 +28,6 @@ namespace APIFilmCatalog.BLL.Mapping
             CreateMap<UserModel, User>();
             CreateMap<AuthModel, User>();
             CreateMap<RegisterModel, User>();
-
-            //CreateMap<RegistrationDTO, UserEntity>();
         }
     }
 }

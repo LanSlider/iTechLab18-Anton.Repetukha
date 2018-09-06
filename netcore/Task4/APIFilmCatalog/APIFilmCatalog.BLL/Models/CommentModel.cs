@@ -6,7 +6,7 @@
         public string DateTime { get; set; }
 
         public int FilmId { get; set; }
-        public string UserId { get; set; }
-        public string UserName { get; set; }
+        public int UserId { get; set; }
+        public UserModel User { get; set; }
     }
 }

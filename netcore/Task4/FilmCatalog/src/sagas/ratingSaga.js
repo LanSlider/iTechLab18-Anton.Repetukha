@@ -8,6 +8,8 @@ export function* ratingByUserLoadingAsync(action) {
 }
 
 export function* addRatingLoadingAsync(action) {
+    debugger;
     yield call(ratingService.addRating, action.payload);
+    debugger;
     yield call(ratingByUserLoadingAsync, { ...action, payload: action.payload.filmId })
 }

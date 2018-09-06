@@ -17,7 +17,7 @@ function* rootSaga() {
     yield takeLatest(commentAction.FILMCOMMENTS_WILL_LOAD, commentSaga.commentLoadingAsync);
     yield takeLatest(commentAction.FILMCOMMENT_WILL_ADD, commentSaga.addCommentLoadingAsync);
     yield takeLatest(ratingAction.RATING_WILL_LOAD, ratingSaga.ratingByUserLoadingAsync);
-    yield takeLatest(ratingAction.RATING_WILL_ADD, ratingSaga.ratingByUserLoadingAsync);
+    yield takeLatest(ratingAction.RATING_WILL_ADD, ratingSaga.addRatingLoadingAsync);
 }
 
 export default rootSaga;

@@ -12,7 +12,7 @@ namespace APIFilmCatalog.DAL.Entities
         [Required]
         public int FilmId { get; set; }
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
     }
 }

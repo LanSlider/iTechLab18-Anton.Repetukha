@@ -49,7 +49,7 @@ namespace APIFilmCatalog.BLL.Services
             }
             film.Rating = await _unitOfWork.Ratings.GetAverageRatingByFilmIdAsync(id);
 
-            _unitOfWork.Films.Update(film);
+            await _unitOfWork.Films.UpdateAsync(film);
             await _unitOfWork.SaveAsync();
         }
     }

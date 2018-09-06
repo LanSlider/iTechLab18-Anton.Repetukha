@@ -25,7 +25,7 @@ namespace APIFilmCatalog.DAL.Repositories
 
         public async Task<Rating> GetRatingByFilmIdAndUserIdAsync(int filmId, int userId)
         {
-            return await _context.Ratings.FirstOrDefaultAsync(x => x.FilmId == filmId && x.UserId == userId);
+            return await _context.Ratings.Include(x => x.User).FirstOrDefaultAsync(x => x.FilmId == filmId && x.UserId == userId);
         }
     }
 }

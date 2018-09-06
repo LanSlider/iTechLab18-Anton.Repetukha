@@ -7,7 +7,7 @@ namespace APIFilmCatalog.DAL.Interfaces
     {
         void Add(T item);
         void Del(int id);
-        void Update(T item);
+        Task UpdateAsync(T item);
         Task<T> GetByIdAsync(int id);
         Task<T> GetByIdAsync(string id);
         Task<ICollection<T>> GetAllAsync();

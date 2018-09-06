@@ -20,7 +20,7 @@ namespace APIFilmCatalog.DAL.Repositories
 
         public async Task<IList<Comment>> GetCommentsByFilmIdAsync(int id)
         {
-            return await _context.Comments.Include(x => x.UserId).Where(y => y.FilmId == id).ToListAsync();
+            return await _context.Comments.Include(x => x.User).Where(y => y.FilmId == id).ToListAsync();
         }
     }
 }

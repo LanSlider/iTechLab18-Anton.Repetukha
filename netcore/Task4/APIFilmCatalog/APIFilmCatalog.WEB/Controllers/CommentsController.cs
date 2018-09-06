@@ -6,6 +6,7 @@ using APIFilmCatalog.BLL.Models;
 using APIFilmCatalog.WEB.Models;
 using APIFilmCatalog.WEB.ViewModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIFilmCatalog.WEB.Controllers
@@ -22,7 +23,7 @@ namespace APIFilmCatalog.WEB.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("all/{id}")]
+        [HttpGet("all/{filmId}")]
         public async Task<JsonResult> All(int filmId)
         {
             var comments = await _service.GetCommentsByIdFilmAsync(filmId);
@@ -34,6 +35,7 @@ namespace APIFilmCatalog.WEB.Controllers
             return Json(new SuccessJsonResult<ICollection<CommentModelView>>(_mapper.Map<ICollection<CommentModel>, ICollection<CommentModelView>>(comments)));
         }
 
+        [Authorize]
         [HttpPost]
         public async Task AddComment([FromBody]CommentModelView model)
         {
@@ -42,16 +44,5 @@ namespace APIFilmCatalog.WEB.Controllers
                 await _service.AddCommentAsync(_mapper.Map<CommentModelView, CommentModel>(model));
             }
         }
-
-        //[Authorize]
-        //[HttpPost]
-        //public async Task<JsonResult> AddComment([FromBody] CommentModelView comment)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-
-        //    }
-        //    //return Json(new SuccessJsonResult<FilmModelView>(_mapper.Map<FilmDetailsModel, FilmModelView>(filmDetails)));
-        //}
     }
 }

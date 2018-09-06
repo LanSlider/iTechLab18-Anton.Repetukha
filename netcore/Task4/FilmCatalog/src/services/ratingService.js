@@ -24,6 +24,7 @@ export function getFilmRating(filmId) {
 }
 
 export function addRating(ratingData) {
+    debugger;
     return httpRequest.post(`${baseUrl}/api/ratings`, ratingData)
         .then(function(res) {
            if(res.data.error) {
