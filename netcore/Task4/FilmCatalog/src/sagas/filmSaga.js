@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 
-import * as filmListType from '../components/FilmList/action/filmAction';
-import * as filmDetailsType from '../components/FilmDetails/action/filmDetails';
+import * as filmListType from '../components/FilmList/constant/filmActionType';
+import * as filmDetailsType from '../components/FilmDetails/constant/filmDetailsActionType';
 import * as filmService from '../services/filmService';
 
 export function* filmsLoadingAsync() {

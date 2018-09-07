@@ -1,5 +1,3 @@
-export const LOG_OUT_PROGRESS = 'LOG_OUT_PROGRESS'
-export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS'
-export const LOG_OUT_FAILED = 'LOG_IN_FAILED'
+import * as logOutActionType from '../constant/logOutActionType';
 
-export const logOutUser = () => ({ type: LOG_OUT_PROGRESS })
+export const logOutUser = () => ({ type: logOutActionType.LOG_OUT_PROGRESS })

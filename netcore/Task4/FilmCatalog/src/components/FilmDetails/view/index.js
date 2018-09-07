@@ -16,7 +16,7 @@ import CommentBlock from '../../CommentBlock/container/CommentBlock';
 
 const FilmDetailsView = (props) => {
     const { classes } = props;
-    const { isLoading, filmDetails, isAuth } = props;
+    const { isLoading, filmDetails, isAuth, filmId } = props;
     return ( 
       <React.Fragment>
       {isLoading ? (
@@ -72,18 +72,21 @@ const FilmDetailsView = (props) => {
             </div>
             
             <div className={classes.componentContainer}>               
-              <CommentBlock isAuth={isAuth} />
+              <CommentBlock isAuth={isAuth} filmId={filmId} />
             </div>
 
         </div>
     </div>
       )}
     </React.Fragment>
-      );
+    );
 }
 
 FilmDetailsView.propTypes = {
     classes: PropTypes.object.isRequired,
+    isAuth: PropTypes.bool.isRequired,
+    filmDetails: PropTypes.object.isRequired,
+    isLoading: PropTypes.bool.isRequired
 }
 
 export default withStyles(styles)(FilmDetailsView);

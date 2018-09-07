@@ -1,22 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { onLoadFilmDetails } from '../action/filmDetails';
+import { onLoadFilmDetails } from '../action/filmDetailsAction';
 import FilmDetailsView from '../view/index.js';
 
 class FilmDetails extends React.PureComponent  {
-    constructor(props) {
-        super(props);       
-    }
-
     componentDidMount() {
-        const idFromUrl = window.location.href.toString().split('/')[4];
-        if(!isNaN(idFromUrl)) {
-            this.props.onLoadFilmDetails(idFromUrl);
-        }
-        else {
-            window.location.replace(`/`);
-        }
+        this.props.onLoadFilmDetails(this.props.id);
     }
 
     render() {
@@ -24,6 +14,7 @@ class FilmDetails extends React.PureComponent  {
             isLoading = {this.props.isLoading}
             filmDetails = {this.props.filmDetails}
             isAuth = {this.props.isAuth}
+            filmId = {this.props.id}
         />
     }
 }
@@ -38,7 +29,7 @@ const mapStateToProps = state => {
     return {
         isLoading: state.filmDetails.isLoading,
         filmDetails: state.filmDetails.data,
-        isAuth: state.user.isAuth
+        isAuth: state.user.isAuth,
     }
 }
 

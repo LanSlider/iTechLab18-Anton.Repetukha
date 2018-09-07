@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 class CommentContainer extends React.PureComponent  {
     render() {
-        debugger;
         return <CommentContainerView 
             {...this.props}
         />

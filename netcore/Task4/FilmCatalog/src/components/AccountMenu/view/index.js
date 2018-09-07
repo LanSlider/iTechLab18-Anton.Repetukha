@@ -25,29 +25,24 @@ const AccountMenuView = (props) => {
             >
                 <AccountCircle />
             </IconButton>
-            {!auth &&
                 <Menu
                     id="simple-menu"
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
-                >            
-                    <MenuItem onClick={handleClose}><Link className={classes.link} to='/register'>Регистрация</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link className={classes.link} to='/login'>Войти</Link></MenuItem>
+                >    
+                {!auth? (
+                    [    
+                        <MenuItem onClick={handleClose}><Link className={classes.link} to='/register'>Регистрация</Link></MenuItem>,
+                        <MenuItem onClick={handleClose}><Link className={classes.link} to='/login'>Войти</Link></MenuItem>
+                    ]
+                ) : (
+                    [
+                        <MenuItem onClick={handleClose}><Link className={classes.link} to='#'>Аккаунт</Link></MenuItem>,
+                        <MenuItem onClick={handleClose}><LogOut /></MenuItem>
+                    ]
+                )}
                 </Menu>
-            }
-
-            {auth && 
-                <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-                >          
-                    <MenuItem onClick={handleClose}><Link className={classes.link} to='#'>Аккаунт</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><LogOut /></MenuItem>
-                </Menu>
-            }
         </React.Fragment>
       );
 }

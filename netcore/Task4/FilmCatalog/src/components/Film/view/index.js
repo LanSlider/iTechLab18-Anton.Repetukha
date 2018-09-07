@@ -34,11 +34,11 @@ const FilmContainerView = ({ classes, id, title, year, imageUrl, rating }) => (
 FilmContainerView.propTypes = {
   classes: PropTypes.object.isRequired,
   id: PropTypes.number.isRequired,
-  title: PropTypes.string,
-  imageUrl: PropTypes.string,
-  description: PropTypes.string,
-  year: PropTypes.number,
-  rating: PropTypes.number
+  title: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired
 };
 
 export default withStyles(styles)(FilmContainerView);

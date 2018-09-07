@@ -1,3 +1,3 @@
-export const FILMSFROMCATEGORY_WILL_LOAD = "FILMSFROMCATEGORY_WILL_LOAD"
+import * as filmCategoryActionType from '../constant/filmCategoryActionType'
 
-export const onLoadFilmsCategory = (category) => ({ type: FILMSFROMCATEGORY_WILL_LOAD, payload: category})
+export const onLoadFilmsCategory = (category) => ({ type: filmCategoryActionType.FILMSFROMCATEGORY_WILL_LOAD, payload: category})

@@ -1,4 +1,4 @@
-import { FILMDETAILS_LOADED } from '../action/filmDetails';
+import * as filmDetailsActionType from '../constant/filmDetailsActionType';
 
    const initialState = { 
        isLoading: true,
@@ -6,9 +6,8 @@ import { FILMDETAILS_LOADED } from '../action/filmDetails';
    };
   
    const filmDetailsReducer = (state = initialState, action) => {
-       debugger;
     switch (action.type) {
-      case FILMDETAILS_LOADED: {
+      case filmDetailsActionType.FILMDETAILS_LOADED: {
           return {...state, isLoading: false, data: action.payload};
       }
 

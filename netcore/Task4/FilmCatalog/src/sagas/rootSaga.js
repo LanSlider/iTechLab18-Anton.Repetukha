@@ -1,13 +1,13 @@
 import { takeLatest } from 'redux-saga/effects'
 
-import * as filmListAction from '../components/FilmList/action/filmAction';
-import * as filmDetailsAction from '../components/FilmDetails/action/filmDetails';
-import * as logInAction from '../components/LogIn/action/logInAction';
-import * as filmCategoryAction from '../components/FilmCategory/action/filmCategoryAction';
-import * as logOutAction from '../components/LogOut/action/logOutAction';
-import * as registerAction from '../components/Register/action/registerAction'
-import * as commentAction from '../components/CommentBlock/action/commentAction';
-import * as ratingAction from '../components/Rating/action/ratingAction';
+import * as filmListAction from '../components/FilmList/constant/filmActionType';
+import * as filmDetailsAction from '../components/FilmDetails/constant/filmDetailsActionType';
+import * as logInAction from '../components/LogIn/constant/logInActionType';
+import * as filmCategoryAction from '../components/FilmCategory/constant/filmCategoryActionType';
+import * as logOutAction from '../components/LogOut/constant/logOutActionType';
+import * as registerAction from '../components/Register/constant/registerActionType'
+import * as commentAction from '../components/CommentBlock/constant/commentActionType';
+import * as ratingAction from '../components/Rating/constant/ratingActionType';
 
 import * as userSaga from './userSaga';
 import * as filmSaga from './filmSaga';

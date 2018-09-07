@@ -1,4 +1,4 @@
-import { RATING_LOADED } from '../action/ratingAction';
+import * as ratingActionType from '../constant/ratingActionType';
 
    const initialState = { 
        isLoading: true,
@@ -9,7 +9,7 @@ import { RATING_LOADED } from '../action/ratingAction';
    const ratingReducer = (state = initialState, action) => {
        debugger;
     switch (action.type) {
-      case RATING_LOADED: {
+      case ratingActionType.RATING_LOADED: {
           return {...state, isLoading: false, mark: action.payload.mark, filmId: action.payload.filmId};
       }
 

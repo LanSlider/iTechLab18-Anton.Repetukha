@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AccountMenuView from '../view/index.js';
 
@@ -24,6 +25,10 @@ class AccountMenu extends React.PureComponent  {
             handleClose = {this.handleClose}
         />
     }
+}
+
+AccountMenu.propTypes = {
+    isUserAuth: PropTypes.bool.isRequired,
 }
 
 export default AccountMenu;

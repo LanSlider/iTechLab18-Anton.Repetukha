@@ -1,28 +1,29 @@
 import React from 'react/index.js';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { Field, reduxForm } from 'redux-form';
 import { styles } from './styles.js';
 import 'typeface-roboto';
+
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import SendIcon from '@material-ui/icons/Send';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 import LogInDialog from '../../LogInDialog/container/LogInDialog';
 import Loading from '../../Loading/view';
 import CommentContainer from '../../Comment/container/Comment';
-import Paper from '@material-ui/core/Paper';
-import SendIcon from '@material-ui/icons/Send';
+import { validateComment } from '../../../helpers/formHelpers';
 
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import { Field, reduxForm } from 'redux-form';
-
-const renderTextField = ({ input, meta: {error}, ...custom}) => (
+const renderTextField = ({ input, meta: {touched, error}, ...custom}) => (
     <React.Fragment>
         <TextField     
             {...input}
-            error = {error}
+            error = {error && touched}
             {...custom}
         />
-        <FormHelperText>{error}</FormHelperText>  
+        {touched && (error && <FormHelperText>{error}</FormHelperText>)} 
     </React.Fragment>
 )
 
@@ -33,7 +34,17 @@ const CommentBlockView = (props) => {
         {isAuth? (
             <form onSubmit={props.handleSubmit} className={classes.commentForm}>  
             <div className={classes.addCommentBlock}>   
-                <div className={classes.addCommentForm}><Field name="comment" component={renderTextField} label={`Add comment to "${title}"`} type="text" placeholder={`Some comment`}  fullWidth /></div>
+                <div className={classes.addCommentForm}>
+                    <Field 
+                        name="comment" 
+                        component={renderTextField} 
+                        label={`Add comment to "${title}"`} 
+                        type="text" 
+                        placeholder={`Some comment`}
+                        validate={validateComment}  
+                        fullWidth 
+                    />
+                </div>
                 <Button type="submit" disabled={!text} className={classes.sendButton}><SendIcon /></Button>
             </div>
             </form>
@@ -55,6 +66,10 @@ const CommentBlockView = (props) => {
 
 CommentBlockView.propTypes = {
     classes: PropTypes.object.isRequired,
+    text: PropTypes.string.isRequired, 
+    title: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    isAuth: PropTypes.bool.isRequired
 }
 
 export default withStyles(styles)(reduxForm({

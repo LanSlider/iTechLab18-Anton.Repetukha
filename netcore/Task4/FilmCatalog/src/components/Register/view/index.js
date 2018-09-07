@@ -14,14 +14,22 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const renderTextField = ({ input, meta: {error}, ...custom}) => (
+import * as validate from '../../../helpers/formHelpers'
+
+const renderTextField = ({ input, meta: {touched,error}, ...custom}) => (
     <React.Fragment>
         <TextField     
             {...input}
-            error = {error}
+            error = {error && touched}
             {...custom}
         />
-        <FormHelperText>{error}</FormHelperText>  
+        {touched
+            ? (error 
+                ? <FormHelperText>{error}</FormHelperText>
+                : <FormHelperText></FormHelperText>
+            )
+            : <FormHelperText>{""}</FormHelperText>
+        }
     </React.Fragment>
 )
 
@@ -33,10 +41,10 @@ const RegisterView = (props) => {
                 <Paper position="static" color="default" className={classes.contentContainer}>
                     <form onSubmit={props.handleSubmit}>
                         <DialogTitle id="form-dialog-title">Регистрация</DialogTitle>
-                        <Field name="username" component={renderTextField} label="Name" type="text" placeholder="Tom" fullWidth />
-                        <Field name="email" component={renderTextField} label="Email Address" type="email" placeholder="example@mail.com"  fullWidth />          
-                        <Field name="password" component={renderTextField} label="Password" type="password" placeholder="example" fullWidth />   
-                        <Field name="passwordConfirm" component={renderTextField} label="Confirm Password" type="password" placeholder="example" fullWidth />    
+                        <Field name="username" component={renderTextField} validate={validate.validateName} label="Name" type="text" placeholder="Tom" fullWidth />
+                        <Field name="email" component={renderTextField} validate={validate.validateEmail}  label="Email Address" type="email" placeholder="example@mail.com"  fullWidth />          
+                        <Field name="password" component={renderTextField} validate={validate.validatePassword} label="Password" type="password" placeholder="example" fullWidth />   
+                        <Field name="passwordConfirm" component={renderTextField} validate={validate.validatePasswordConfirm} label="Confirm Password" type="password" placeholder="example" fullWidth />    
                         <DialogActions> 
                             <Button type="submit" disabled={!props.username || !props.password || !props.passwordConfirm} color="primary">Зарегистрироваться</Button>
                         </DialogActions>

@@ -1,4 +1,4 @@
-import { FILMCOMMENTS_LOADED } from '../action/commentAction';
+import * as commentActionType from '../constant/commentActionType';
 
    const initialState = { 
        isLoading: true,
@@ -7,7 +7,7 @@ import { FILMCOMMENTS_LOADED } from '../action/commentAction';
   
    const commentReducer = (state = initialState, action) => {
     switch (action.type) {
-      case FILMCOMMENTS_LOADED: {
+      case commentActionType.FILMCOMMENTS_LOADED: {
           return {...state, isLoading: false, comments: action.payload};
       }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import CommentBlockView from '../view/index.js';
-import { getFilmIdFromUrl } from '../../../services/filmService';
 import { validateComment } from '../../../helpers/formHelpers'
 import { onLoadFilmComments, addFilmComment } from '../action/commentAction';
 
@@ -13,33 +12,13 @@ class CommentBlock extends React.PureComponent  {
     }
   
     componentDidMount() {
-        const idFromUrl = getFilmIdFromUrl();
-        if(!isNaN(idFromUrl)) {
-            this.props.onLoadFilmComments(idFromUrl);
-        }
-        else {
-            window.location.replace(`/`);
-        }
+            this.props.onLoadFilmComments(this.props.filmId);
     }
-
-    validateValues = values => {
-        const errors = {};
-        let errorCommentMessage = "";
-        if(values.comment) {
-            errorCommentMessage = validateComment(values.comment);
-        }        
-        if(errorCommentMessage !== "") {
-            errors.comment = errorCommentMessage;
-        }
-        return errors
-    }
-
 
     handleSubmit = values => {
-        const idFromUrl = getFilmIdFromUrl();
         const commentData = {
             text: values.comment,
-            filmId: idFromUrl,
+            filmId: this.props.filmId,
             userId: this.props.user.userId,
             userName: this.props.user.name 
         }
@@ -56,7 +35,6 @@ class CommentBlock extends React.PureComponent  {
                 comments={this.props.comments}
                 isAuth = {this.props.isAuth}
                 text = {comment}
-                validate = {this.validateValues}
                 title = {this.props.film.title}
                 onSubmit = {this.handleSubmit}
             />

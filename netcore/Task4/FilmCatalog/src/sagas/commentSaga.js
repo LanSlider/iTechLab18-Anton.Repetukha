@@ -1,5 +1,6 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import * as actionType from '../components/CommentBlock/action/commentAction';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
+import * as actionType from '../components/CommentBlock/constant/commentActionType';
 import * as commentService from '../services/commentService';
 
 export function* commentLoadingAsync(action) {

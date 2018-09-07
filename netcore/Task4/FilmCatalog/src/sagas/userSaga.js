@@ -1,6 +1,6 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects';
 
-import * as logInType from '../components/LogIn/action/logInAction';
+import * as logInType from '../components/LogIn/constant/logInActionType';
 import * as authService from '../services/authService';
 
 export function* logInAsync(action) {

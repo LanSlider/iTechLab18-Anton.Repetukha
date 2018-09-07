@@ -10,7 +10,7 @@ export default () => {
     return (
     <main>
         <Switch>
-            <Route path="/film" component={FilmPage} />
+            <Route exact path="/film/:id" component={FilmPage} />
             <Route exact path="/" component={MainPage}/>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={LogIn} />

@@ -1,6 +1,4 @@
-export const FILMS_WILL_LOAD = "FILMS_WILL_LOAD"
-export const FILMS_LOADED = "FILMS_LOADED"
-export const FILMSFROMCATEGORY_WILL_LOAD = "FILMSFROMCATEGORY_WILL_LOAD"
+import * as filmListActionType from '../constant/filmActionType';
 
-export const onLoadFilms = () => ({ type: FILMS_WILL_LOAD })
-export const onLoadFilmsCategory = (category) => ({ type: FILMSFROMCATEGORY_WILL_LOAD, payload: category })
+export const onLoadFilms = () => ({ type: filmListActionType.FILMS_WILL_LOAD })
+export const onLoadFilmsCategory = (category) => ({ type: filmListActionType.FILMSFROMCATEGORY_WILL_LOAD, payload: category })

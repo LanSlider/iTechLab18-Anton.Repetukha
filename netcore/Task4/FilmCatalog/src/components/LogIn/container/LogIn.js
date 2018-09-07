@@ -1,7 +1,6 @@
 import React from 'react';
 import LogInView from '../view';
 import { connect } from "react-redux";
-import { validateName, validatePassword } from '../../../helpers/formHelpers';
 import { logInUser, willLogInUser } from "../action/logInAction";
 
 class LogIn extends React.PureComponent  {  
@@ -9,26 +8,6 @@ class LogIn extends React.PureComponent  {
         super(props); 
 
         this.state = { isDialog: props.isDialog }
-    }
-
-    validateValues = values => {
-        const errors = {};
-
-        let errorNameMessage = "";
-        if(values.username) {
-            errorNameMessage = validateName(values.username);
-        } 
-        let errorPassMessage = "";
-        if(values.password) {
-            errorPassMessage = validatePassword(values.password);
-        } 
-        if(errorNameMessage !== "") {
-            errors.username = errorNameMessage;
-        }
-        if(errorPassMessage !== "") {
-            errors.password = errorPassMessage;
-        }
-        return errors
     }
 
     handleSubmit = values => {

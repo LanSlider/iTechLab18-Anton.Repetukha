@@ -33,8 +33,7 @@ export function addRating(ratingData) {
                 toastr.error(res.data.error);
             }
         })
-        .catch(function(e) {
-            
+        .catch(function(e) {         
             toastr.clear();
             toastr.error("Failed rating loading:" + e.message);
         })  

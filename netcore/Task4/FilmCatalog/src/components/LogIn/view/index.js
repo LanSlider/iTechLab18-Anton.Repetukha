@@ -14,14 +14,22 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const renderTextField = ({ input, meta: {error}, ...custom}) => (
+import * as validate from '../../../helpers/formHelpers';
+
+const renderTextField = ({ input, meta: {touched, error}, ...custom}) => (
     <React.Fragment>
         <TextField     
             {...input}
-            error = {error}
+            error = {error && touched}
             {...custom}
         />
-        <FormHelperText>{error}</FormHelperText>  
+        {touched
+            ? (error 
+                ? <FormHelperText>{error}</FormHelperText>
+                : <FormHelperText></FormHelperText>
+            )
+            : <FormHelperText>{""}</FormHelperText>
+        } 
     </React.Fragment>
 )
 
@@ -33,8 +41,8 @@ const LogInView = (props) => {
                 <Paper position="static" color="default" className={classes.contentContainer}>
                     <form onSubmit={props.handleSubmit}>
                         <DialogTitle id="form-dialog-title">Вход</DialogTitle>
-                        <Field name="username" component={renderTextField} label="Login" type="text" placeholder="loginExample"  fullWidth />          
-                        <Field name="password" component={renderTextField} label="Password" type="password" placeholder="passwordExample" fullWidth />       
+                        <Field name="username" component={renderTextField} validate={validate.validateName} label="Login" type="text" placeholder="loginExample"  fullWidth />          
+                        <Field name="password" component={renderTextField} validate={validate.validatePassword} label="Password" type="password" placeholder="passwordExample" fullWidth />       
                         <DialogActions> 
                             <Button type="submit" disabled={!props.username || !props.password} color="primary">Войти</Button>
                         </DialogActions>

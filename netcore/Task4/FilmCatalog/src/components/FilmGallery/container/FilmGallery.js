@@ -12,4 +12,6 @@ class FilmGallery extends React.PureComponent  {
     }
 }
 
+
+
 export default FilmGallery;

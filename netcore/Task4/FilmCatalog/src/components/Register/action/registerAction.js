@@ -1,5 +1,3 @@
-export const REG_IN_PROGRESS = 'REG_IN_PROGRESS'
-// export const REG_SUCCESS = 'REG_SUCCESS'
-// export const REG_FAILED = 'REG_FAILED'
+import * as registerActionType from '../constant/registerActionType';
 
-export const registerUser = (userData) => ({ type: REG_IN_PROGRESS, payload: userData })
+export const registerUser = (userData) => ({ type: registerActionType.REG_IN_PROGRESS, payload: userData })
