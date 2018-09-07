@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
 import * as actionType from '../components/CommentBlock/constant/commentActionType';
 import * as commentService from '../services/commentService';

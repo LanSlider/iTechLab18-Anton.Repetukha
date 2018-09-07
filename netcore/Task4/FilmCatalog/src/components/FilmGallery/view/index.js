@@ -10,7 +10,7 @@ import styles from "./styles";
 
 const FilmGalleryView = (props) => {
     const { classes } = props;
-    const { isLoading, imagesDetails } = props;
+    const { imagesDetails } = props;
     return ( 
       <React.Fragment>
           

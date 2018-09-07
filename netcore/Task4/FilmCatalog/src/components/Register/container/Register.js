@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import RegisterView from '../view';
 import { connect } from "react-redux";
-import { validateEmail, validatePassword, validateName, validatePasswordConfirm } from '../../../helpers/formHelpers';
 import { registerUser } from "../action/registerAction";
 
 class Register extends Component {  

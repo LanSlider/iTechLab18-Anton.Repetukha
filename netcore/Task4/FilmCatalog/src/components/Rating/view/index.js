@@ -6,12 +6,11 @@ import { withStyles } from "@material-ui/core/styles";
 
 import styles from "./styles";
 import StarRatings from 'react-star-ratings';
-import Loading from "../../Loading/view/index";
 import LogInDialog from '../../LogInDialog/container/LogInDialog';
 
 const RatingView = (props) => {
     const { classes } = props;
-    const { userRating, rating, handleRatingChange, handleClickToRatingChange, isOpenToEdit, isAuth, isLoading } = props;
+    const { userRating, rating, handleRatingChange, handleClickToRatingChange, isOpenToEdit, isAuth } = props;
     debugger;
     return ( 
       <React.Fragment>        

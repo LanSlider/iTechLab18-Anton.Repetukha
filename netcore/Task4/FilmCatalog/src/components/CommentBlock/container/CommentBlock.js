@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import CommentBlockView from '../view/index.js';
-import { validateComment } from '../../../helpers/formHelpers'
 import { onLoadFilmComments, addFilmComment } from '../action/commentAction';
 
 class CommentBlock extends React.PureComponent  {
