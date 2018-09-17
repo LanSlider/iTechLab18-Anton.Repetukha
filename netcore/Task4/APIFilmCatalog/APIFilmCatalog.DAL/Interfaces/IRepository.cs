@@ -1,0 +1,17 @@
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using APIFilmCatalog.DAL.Entities;
+
+namespace APIFilmCatalog.DAL.Interfaces
+{
+    public interface IRepository<T> where T : BaseEntity
+    {
+        void Add(T item);
+        void Del(int id);
+        Task UpdateAsync(T item);
+        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(string id);
+        Task<ICollection<T>> GetAllAsync();
+        Task<T> GetByStringIdAsync(string id);
+    }
+}
